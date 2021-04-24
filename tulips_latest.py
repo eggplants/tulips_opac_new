@@ -9,7 +9,7 @@ import urllib.request
 from typing import List, Tuple, TypedDict, Union
 
 import bs4
-import pyppeteer as p
+import pyppeteer
 import tweepy
 from dotenv import load_dotenv
 
@@ -26,11 +26,11 @@ TWEET_LOG_PATH = os.path.join(os.path.dirname(__file__), 'tweet.log')
 open(TWEET_LOG_PATH, 'w')  # touch
 
 load_dotenv('.twitter.keys')
-CK = os.getenv('CONSUMER_KEY', '')
-CS = os.getenv('CONSUMER_SECRET', '')
-AT = os.getenv('ACCESS_TOKEN', '')
-AS = os.getenv('ACCESS_TOKEN_SECRET', '')
-KEYS = (CK, CS, AT, AS)
+KEYS = (
+    os.getenv('CONSUMER_KEY', ''),
+    os.getenv('CONSUMER_SECRET', ''),
+    os.getenv('ACCESS_TOKEN', ''),
+    os.getenv('ACCESS_TOKEN_SECRET', ''))
 
 BASE = 'https://www.tulips.tsukuba.ac.jp'
 QUERY = {
@@ -38,8 +38,7 @@ QUERY = {
     'type%5B%5D': 'book',
     'target': 'local',
     'searchmode': 'complex',
-    'count': '100'
-}
+    'count': '100'}
 
 
 class BookData(TypedDict):
@@ -66,16 +65,16 @@ def connect(host: str = 'http://google.com') -> bool:
 
 
 async def getpage() -> str:
-    b = await p.launch(
+    browser = await pyppeteer.launch(
         # headless=False
     )
-    pg = await b.newPage()
-    await pg.goto(
+    page = await browser.newPage()
+    await page.goto(
         BASE + '/opac/search?' + '&'.join(
             [f'{k}={v}' for k, v in QUERY.items()]),
         {'waitUntil': 'networkidle0'})
-    cont = await pg.content()
-    await b.close()
+    cont = await page.content()
+    await browser.close()
     return cont
 
 
@@ -168,7 +167,7 @@ def _tweet(content: str, api: tweepy.API) \
 
 if __name__ == '__main__':
     if not connect(BASE):
-        print('Internet currentry not available', file=sys.stderr)
+        print('Internet currently not available', file=sys.stderr)
         exit(1)
 
     if os.path.exists(SOURCE_NAME):
