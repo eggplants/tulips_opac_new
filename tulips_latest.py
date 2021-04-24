@@ -11,7 +11,6 @@ from typing import List, Tuple, TypedDict, Union
 import bs4
 import pyppeteer as p
 import tweepy
-from bs4 import BeautifulSoup as bs
 from dotenv import load_dotenv
 
 os.environ['TZ'] = 'Asia/Tokyo'
@@ -87,7 +86,7 @@ def scrape(source: str) -> List[BookInfos]:
         except (AttributeError, TypeError):
             return ''
 
-    soup = bs(source, 'html.parser')
+    soup = bs4.BeautifulSoup(source, 'html.parser')
     books: bs4.element.ResultSet = soup.select(
         'div.informationArea.c_information_area.l_informationArea')
     res = []
