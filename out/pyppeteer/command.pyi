@@ -1,0 +1,3 @@
+from pyppeteer.chromium_downloader import check_chromium as check_chromium, download_chromium as download_chromium
+
+def install() -> None: ...

@@ -8,24 +8,26 @@ import time
 import urllib.request
 from typing import Any, List, Tuple, TypedDict
 
-import bs4  # type: ignore
-import pyppeteer  # type: ignore
-import tweepy  # type: ignore
+import bs4
+import pyppeteer
+import tweepy
 from dotenv import load_dotenv
+
+PWD = os.path.dirname(__file__)
 
 os.environ['TZ'] = 'Asia/Tokyo'
 time.tzset()
 DATE_STAMP = time.strftime('%Y-%m-%d')
 
-SOURCE_PATH = os.path.join(os.path.dirname(__file__), 'source')
+SOURCE_PATH = os.path.join(PWD, 'source')
 os.makedirs(SOURCE_PATH, exist_ok=True)
 
 SOURCE_NAME = os.path.join(SOURCE_PATH, DATE_STAMP + '.html')
 
-TWEET_LOG_PATH = os.path.join(os.path.dirname(__file__), 'tweet.log')
+TWEET_LOG_PATH = os.path.join(PWD, 'tweet.log')
 open(TWEET_LOG_PATH, 'w')  # touch
 
-load_dotenv('.twitter.keys')
+load_dotenv(os.path.join(PWD, '.twitter.keys'))
 KEYS = (
     os.getenv('CONSUMER_KEY', ''),
     os.getenv('CONSUMER_SECRET', ''),
@@ -75,18 +77,18 @@ async def getpage() -> str:
         {'waitUntil': 'networkidle0'})
     cont = await page.content()
     await browser.close()
-    return (cont if type(cont) is str else '')
+    return cont
 
 
 def scrape(source: str) -> List[BookInfo]:
-    def get_book_info_text(book: Any, class_: str) -> str:
+    def get_book_info_text(book: bs4.element.Tag, class_: str) -> str:
         try:
             return book.find('dl', class_=class_).dd.span.text
         except (AttributeError, TypeError):
             return ''
 
     soup = bs4.BeautifulSoup(source, 'html.parser')
-    books: Any = soup.select(
+    books: bs4.element.ResultSet = soup.select(
         'div.informationArea.c_information_area.l_informationArea')
     res = []
     for idx, book in enumerate(books):
@@ -103,13 +105,13 @@ def scrape(source: str) -> List[BookInfo]:
         res_i['data']['author'] = get_book_info_text(
             book, 'l_detail_info_au_book')
         res_i['data']['publisher'] = get_book_info_text(
-            book, 'l_detail_info_au_pu')
+            book, 'l_detail_info_pu')
         res_i['data']['isbn'] = get_book_info_text(
-            book, 'l_detail_info_au_sb')
+            book, 'l_detail_info_sb')
         res_i['data']['holding'] = get_book_info_text(
-            book, 'l_detail_info_au_hd')
+            book, 'l_detail_info_hd')
         res_i['data']['status'] = get_book_info_text(
-            book, 'l_detail_info_au_st')
+            book, 'l_detail_info_st')
         res.append(res_i)
     return res
 
@@ -126,6 +128,7 @@ def make_content(data: BookData) -> str:
     return content.format(
         date=DATE_STAMP,
         title=data['title'],
+        author=data['author'],
         publisher=data['publisher'],
         holding=data['holding'],
         status=data['status'],
@@ -133,7 +136,7 @@ def make_content(data: BookData) -> str:
 
 
 def make_tweepy_oauth(
-        ck: str, cs: str, at: str, as_: str) -> Any:
+        ck: str, cs: str, at: str, as_: str) -> tweepy.API:
     oauth = tweepy.OAuthHandler(ck, cs)
     oauth.set_access_token(at, as_)
     return tweepy.API(oauth)
@@ -155,8 +158,10 @@ def tweet(res: List[BookInfo]) -> None:
 
         time.sleep(40)
 
+# Union[tweepy.Status, tweepy.TweepError]
 
-def _tweet(content: str, api: Any) -> Tuple[bool, Any]:
+
+def _tweet(content: str, api: tweepy.API) -> Tuple[bool, Any]:
     try:
         status = api.update_status(content)
         return (True, status)
@@ -180,5 +185,6 @@ if __name__ == '__main__':
         print(source, file=open(SOURCE_NAME, 'w'))
 
     res = scrape(source)
+    print(json.dumps(res, indent=True),
+          file=open(SOURCE_NAME[:-4]+'json', 'w'))
     tweet(res)
-    print(json.dumps(res, indent=True), file=sys.stderr)

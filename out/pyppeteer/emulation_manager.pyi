@@ -1,0 +1,6 @@
+from pyppeteer import helper as helper
+from pyppeteer.connection import CDPSession as CDPSession
+
+class EmulationManager:
+    def __init__(self, client: CDPSession) -> None: ...
+    async def emulateViewport(self, viewport: dict) -> bool: ...
