@@ -6,11 +6,11 @@ import os
 import sys
 import time
 import urllib.request
-from typing import List, Tuple, TypedDict, Union
+from typing import Any, List, Tuple, TypedDict
 
-import bs4
-import pyppeteer
-import tweepy
+import bs4  # type: ignore
+import pyppeteer  # type: ignore
+import tweepy  # type: ignore
 from dotenv import load_dotenv
 
 os.environ['TZ'] = 'Asia/Tokyo'
@@ -75,18 +75,18 @@ async def getpage() -> str:
         {'waitUntil': 'networkidle0'})
     cont = await page.content()
     await browser.close()
-    return cont
+    return (cont if type(cont) is str else '')
 
 
 def scrape(source: str) -> List[BookInfo]:
-    def get_book_info_text(book: bs4.element.Tag, class_: str) -> str:
+    def get_book_info_text(book: Any, class_: str) -> str:
         try:
             return book.find('dl', class_=class_).dd.span.text
         except (AttributeError, TypeError):
             return ''
 
     soup = bs4.BeautifulSoup(source, 'html.parser')
-    books: bs4.element.ResultSet = soup.select(
+    books: Any = soup.select(
         'div.informationArea.c_information_area.l_informationArea')
     res = []
     for idx, book in enumerate(books):
@@ -133,7 +133,7 @@ def make_content(data: BookData) -> str:
 
 
 def make_tweepy_oauth(
-        ck: str, cs: str, at: str, as_: str) -> tweepy.API:
+        ck: str, cs: str, at: str, as_: str) -> Any:
     oauth = tweepy.OAuthHandler(ck, cs)
     oauth.set_access_token(at, as_)
     return tweepy.API(oauth)
@@ -156,8 +156,7 @@ def tweet(res: List[BookInfo]) -> None:
         time.sleep(40)
 
 
-def _tweet(content: str, api: tweepy.API) \
-        -> Tuple[bool, Union[tweepy.Status, tweepy.TweepError]]:
+def _tweet(content: str, api: Any) -> Tuple[bool, Any]:
     try:
         status = api.update_status(content)
         return (True, status)
