@@ -42,7 +42,7 @@ QUERY = {
 }
 
 
-class BookInfo(TypedDict):
+class BookData(TypedDict):
     link: str
     title: str
     author: str
@@ -52,9 +52,9 @@ class BookInfo(TypedDict):
     status: str
 
 
-class BookInfos(TypedDict):
+class BookInfo(TypedDict):
     index: int
-    data: BookInfo
+    data: BookData
 
 
 def connect(host: str = 'http://google.com') -> bool:
@@ -79,7 +79,7 @@ async def getpage() -> str:
     return cont
 
 
-def scrape(source: str) -> List[BookInfos]:
+def scrape(source: str) -> List[BookInfo]:
     def get_book_info_text(book: bs4.element.Tag, class_: str) -> str:
         try:
             return book.find('dl', class_=class_).dd.span.text
@@ -91,7 +91,14 @@ def scrape(source: str) -> List[BookInfos]:
         'div.informationArea.c_information_area.l_informationArea')
     res = []
     for idx, book in enumerate(books):
-        res_i = {'index': idx, 'data': {}}
+        res_i: BookInfo = {'index': idx, 'data': {
+            'link': '',
+            'title': '',
+            'author': '',
+            'publisher': '',
+            'isbn': '',
+            'holding': '',
+            'status': ''}}
         res_i['data']['link'] = BASE + book.h3.a.get('href')
         res_i['data']['title'] = book.h3.a.text
         res_i['data']['author'] = get_book_info_text(
@@ -112,7 +119,7 @@ def get_tweeted_list() -> List[str]:
     return open(TWEET_LOG_PATH, 'r').read().rstrip().split("\n")
 
 
-def make_content(data: BookInfo) -> str:
+def make_content(data: BookData) -> str:
     content = "\n".join([
         "{date}の新刊: {title}({author}, {publisher})",
         "場所: {holding}({status})\n"
@@ -133,7 +140,7 @@ def make_tweepy_oauth(
     return tweepy.API(oauth)
 
 
-def tweet(res: List[BookInfos]) -> None:
+def tweet(res: List[BookInfo]) -> None:
     tweeted_list = get_tweeted_list()
     f = open(TWEET_LOG_PATH, 'a')
     api = make_tweepy_oauth(*KEYS)
