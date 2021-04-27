@@ -42,6 +42,7 @@ QUERY = {
     'searchmode': 'complex',
     'count': '100'}
 
+DRYRUN = False
 
 class BookData(TypedDict):
     link: str
@@ -170,12 +171,17 @@ def _tweet(content: str, api: tweepy.API) -> Tuple[bool, Any]:
 
 
 if __name__ == '__main__':
+    args = sys.argv[1:]
+    if '-d' in args:
+        DRYRUN = True
+        args = [arg for arg in args if arg != '-d']
+
     if not connect(BASE):
         print('Internet currently not available', file=sys.stderr)
         exit(1)
 
     if os.path.exists(SOURCE_NAME):
-        fname = (sys.argv[1] if len(sys.argv) > 1 else SOURCE_NAME)
+        fname = (args[0] if len(args) == 1 else SOURCE_NAME)
         if not os.path.exists(fname):
             raise FileNotFoundError("{}: Not found".format(fname))
         else:
@@ -187,4 +193,5 @@ if __name__ == '__main__':
     res = scrape(source)
     print(json.dumps(res, indent=True),
           file=open(SOURCE_NAME[:-4]+'json', 'w'))
-    tweet(res)
+    if not DRYRUN:
+        tweet(res)
