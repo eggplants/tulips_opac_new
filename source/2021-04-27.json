@@ -9,7 +9,7 @@
    "isbn": "",
    "holding": "\u4e2d\u592e 242-C26 \u4e00\u822c\u56f3\u66f8",
    "status": "\u914d\u67b6\u6e08",
-   "imagesrc": "https://www.tulips.tsukuba.ac.jp/opac/images/cyan/bookimage-kango.png"
+   "imagesrc": ""
   }
  },
  {
@@ -22,7 +22,7 @@
    "isbn": "",
    "holding": "\u4e2d\u592e 242-C26 \u4e00\u822c\u56f3\u66f8",
    "status": "\u914d\u67b6\u6e08",
-   "imagesrc": "https://www.tulips.tsukuba.ac.jp/opac/images/cyan/bookimage-kango.png"
+   "imagesrc": ""
   }
  },
  {
@@ -48,7 +48,7 @@
    "isbn": "",
    "holding": "\u4e2d\u592e 227.9-H53-2 \u4e00\u822c\u56f3\u66f8",
    "status": "\u914d\u67b6\u6e08",
-   "imagesrc": "https://www.tulips.tsukuba.ac.jp/opac/images/cyan/bookimage-kango.png"
+   "imagesrc": ""
   }
  },
  {
@@ -61,7 +61,7 @@
    "isbn": "",
    "holding": "\u4e2d\u592e 227.9-H53-1 \u4e00\u822c\u56f3\u66f8",
    "status": "\u914d\u67b6\u6e08",
-   "imagesrc": "https://www.tulips.tsukuba.ac.jp/opac/images/cyan/bookimage-kango.png"
+   "imagesrc": ""
   }
  },
  {
@@ -126,7 +126,7 @@
    "isbn": "",
    "holding": "\u4f53\u82b8 702.16-Sh69-20 \u5c55\u89a7\u4f1a\u76ee\u9332",
    "status": "\u914d\u67b6\u6e08",
-   "imagesrc": "https://www.tulips.tsukuba.ac.jp/opac/images/cyan/bookimage-kango.png"
+   "imagesrc": ""
   }
  },
  {
@@ -152,7 +152,7 @@
    "isbn": "",
    "holding": "\u4f53\u82b8 751.1-A82-41 \u5c55\u89a7\u4f1a\u76ee\u9332",
    "status": "\u914d\u67b6\u6e08",
-   "imagesrc": "https://www.tulips.tsukuba.ac.jp/opac/images/cyan/bookimage-kango.png"
+   "imagesrc": ""
   }
  },
  {
@@ -165,7 +165,7 @@
    "isbn": "",
    "holding": "\u4e2d\u592e 210.235-Ma75-5 \u57cb\u8535\u6587\u5316\u8ca1\u767a\u6398\u8abf\u67fb\u8cc7\u6599(\u65e5\u672c)",
    "status": "\u914d\u67b6\u6e08",
-   "imagesrc": "https://www.tulips.tsukuba.ac.jp/opac/images/cyan/bookimage-kango.png"
+   "imagesrc": ""
   }
  },
  {
@@ -178,7 +178,7 @@
    "isbn": "",
    "holding": "\u4e2d\u592e 210.235-Ma75-19 \u57cb\u8535\u6587\u5316\u8ca1\u767a\u6398\u8abf\u67fb\u8cc7\u6599(\u65e5\u672c)",
    "status": "\u914d\u67b6\u6e08",
-   "imagesrc": "https://www.tulips.tsukuba.ac.jp/opac/images/cyan/bookimage-kango.png"
+   "imagesrc": ""
   }
  },
  {
@@ -191,7 +191,7 @@
    "isbn": "",
    "holding": "\u4f53\u82b8 702.16-Sh69-19 \u5c55\u89a7\u4f1a\u76ee\u9332",
    "status": "\u914d\u67b6\u6e08",
-   "imagesrc": "https://www.tulips.tsukuba.ac.jp/opac/images/cyan/bookimage-kango.png"
+   "imagesrc": ""
   }
  },
  {
@@ -204,7 +204,7 @@
    "isbn": "",
    "holding": "\u4f53\u82b8 706.9-Sh69-48 \u5c55\u89a7\u4f1a\u76ee\u9332",
    "status": "\u914d\u67b6\u6e08",
-   "imagesrc": "https://www.tulips.tsukuba.ac.jp/opac/images/cyan/bookimage-kango.png"
+   "imagesrc": ""
   }
  },
  {
@@ -217,7 +217,7 @@
    "isbn": "",
    "holding": "\u4f53\u82b8 706.9-Sh69-37 \u5c55\u89a7\u4f1a\u76ee\u9332",
    "status": "\u914d\u67b6\u6e08",
-   "imagesrc": "https://www.tulips.tsukuba.ac.jp/opac/images/cyan/bookimage-kango.png"
+   "imagesrc": ""
   }
  },
  {
@@ -230,7 +230,7 @@
    "isbn": "",
    "holding": "\u4f53\u82b8 723.1-Su96 \u5c55\u89a7\u4f1a\u76ee\u9332",
    "status": "\u914d\u67b6\u6e08",
-   "imagesrc": "https://www.tulips.tsukuba.ac.jp/opac/images/cyan/bookimage-kango.png"
+   "imagesrc": ""
   }
  },
  {
@@ -243,7 +243,7 @@
    "isbn": "",
    "holding": "\u4f53\u82b8 732-H99 \u5c55\u89a7\u4f1a\u76ee\u9332",
    "status": "\u914d\u67b6\u6e08",
-   "imagesrc": "https://www.tulips.tsukuba.ac.jp/opac/images/cyan/bookimage-kango.png"
+   "imagesrc": ""
   }
  },
  {
@@ -256,7 +256,7 @@
    "isbn": "",
    "holding": "\u4f53\u82b8 730-To46 \u5c55\u89a7\u4f1a\u76ee\u9332",
    "status": "\u914d\u67b6\u6e08",
-   "imagesrc": "https://www.tulips.tsukuba.ac.jp/opac/images/cyan/bookimage-kango.png"
+   "imagesrc": ""
   }
  },
  {
@@ -269,7 +269,7 @@
    "isbn": "",
    "holding": "\u4f53\u82b8 723.1-Ko49 \u5c55\u89a7\u4f1a\u76ee\u9332",
    "status": "\u914d\u67b6\u6e08",
-   "imagesrc": "https://www.tulips.tsukuba.ac.jp/opac/images/cyan/bookimage-kango.png"
+   "imagesrc": ""
   }
  },
  {
@@ -282,7 +282,7 @@
    "isbn": "",
    "holding": "\u4f53\u82b8 702.16-N93 \u5c55\u89a7\u4f1a\u76ee\u9332",
    "status": "\u914d\u67b6\u6e08",
-   "imagesrc": "https://www.tulips.tsukuba.ac.jp/opac/images/cyan/bookimage-kango.png"
+   "imagesrc": ""
   }
  },
  {
@@ -295,7 +295,7 @@
    "isbn": "",
    "holding": "\u4f53\u82b8 708-Ko49 \u5c55\u89a7\u4f1a\u76ee\u9332",
    "status": "\u914d\u67b6\u6e08",
-   "imagesrc": "https://www.tulips.tsukuba.ac.jp/opac/images/cyan/bookimage-kango.png"
+   "imagesrc": ""
   }
  },
  {
@@ -308,7 +308,7 @@
    "isbn": "",
    "holding": "\u4e2d\u592e 210.235-F88 \u57cb\u8535\u6587\u5316\u8ca1\u767a\u6398\u8abf\u67fb\u8cc7\u6599(\u65e5\u672c)",
    "status": "\u914d\u67b6\u6e08",
-   "imagesrc": "https://www.tulips.tsukuba.ac.jp/opac/images/cyan/bookimage-kango.png"
+   "imagesrc": ""
   }
  },
  {
@@ -321,7 +321,7 @@
    "isbn": "",
    "holding": "\u4f53\u82b8 723.07-N73 \u5c55\u89a7\u4f1a\u76ee\u9332",
    "status": "\u914d\u67b6\u6e08",
-   "imagesrc": "https://www.tulips.tsukuba.ac.jp/opac/images/cyan/bookimage-kango.png"
+   "imagesrc": ""
   }
  },
  {
@@ -334,7 +334,7 @@
    "isbn": "",
    "holding": "\u4e2d\u592e 210.235-Ma75-2017 \u57cb\u8535\u6587\u5316\u8ca1\u767a\u6398\u8abf\u67fb\u8cc7\u6599(\u65e5\u672c)",
    "status": "\u914d\u67b6\u6e08",
-   "imagesrc": "https://www.tulips.tsukuba.ac.jp/opac/images/cyan/bookimage-kango.png"
+   "imagesrc": ""
   }
  },
  {
@@ -347,7 +347,7 @@
    "isbn": "",
    "holding": "\u4e2d\u592e 210.236-Mi39 \u57cb\u8535\u6587\u5316\u8ca1\u767a\u6398\u8abf\u67fb\u8cc7\u6599(\u65e5\u672c)",
    "status": "\u914d\u67b6\u6e08",
-   "imagesrc": "https://www.tulips.tsukuba.ac.jp/opac/images/cyan/bookimage-kango.png"
+   "imagesrc": ""
   }
  },
  {
@@ -360,7 +360,7 @@
    "isbn": "",
    "holding": "\u4e2d\u592e 335.15-C11-2021 \u53c2\u8003",
    "status": "\u914d\u67b6\u6e08",
-   "imagesrc": "https://www.tulips.tsukuba.ac.jp/opac/images/cyan/bookimage-kango.png"
+   "imagesrc": ""
   }
  },
  {
@@ -373,7 +373,7 @@
    "isbn": "9780124333765 / 0124333761",
    "holding": "\u4e2d\u592e 654.7-B54 \u4e00\u822c\u56f3\u66f8",
    "status": "\u914d\u67b6\u6e08",
-   "imagesrc": "https://www.tulips.tsukuba.ac.jp/opac/images/cyan/bookimage-kango.png"
+   "imagesrc": ""
   }
  },
  {
@@ -503,7 +503,7 @@
    "isbn": "9784863241343",
    "holding": "\u533b\u5b66 492.99-Y66 \u4e00\u822c\u56f3\u66f8",
    "status": "\u914d\u67b6\u6e08",
-   "imagesrc": "https://www.tulips.tsukuba.ac.jp/opac/images/cyan/bookimage-kango.png"
+   "imagesrc": ""
   }
  },
  {
@@ -542,7 +542,7 @@
    "isbn": "",
    "holding": "\u4f53\u82b8 702.07-Sh97-5 \u5c55\u89a7\u4f1a\u76ee\u9332",
    "status": "\u914d\u67b6\u6e08",
-   "imagesrc": "https://www.tulips.tsukuba.ac.jp/opac/images/cyan/bookimage-kango.png"
+   "imagesrc": ""
   }
  },
  {
@@ -555,7 +555,7 @@
    "isbn": "",
    "holding": "\u4f53\u82b8 710-O84 \u5c55\u89a7\u4f1a\u76ee\u9332",
    "status": "\u914d\u67b6\u6e08",
-   "imagesrc": "https://www.tulips.tsukuba.ac.jp/opac/images/cyan/bookimage-kango.png"
+   "imagesrc": ""
   }
  },
  {
@@ -568,7 +568,7 @@
    "isbn": "",
    "holding": "\u4f53\u82b8 220-Ky6 \u4e00\u822c\u56f3\u66f8",
    "status": "\u914d\u67b6\u6e08",
-   "imagesrc": "https://www.tulips.tsukuba.ac.jp/opac/images/cyan/bookimage-kango.png"
+   "imagesrc": ""
   }
  },
  {
@@ -594,7 +594,7 @@
    "isbn": "",
    "holding": "\u4f53\u82b8 708-Sh62 \u5c55\u89a7\u4f1a\u76ee\u9332",
    "status": "\u914d\u67b6\u6e08",
-   "imagesrc": "https://www.tulips.tsukuba.ac.jp/opac/images/cyan/bookimage-kango.png"
+   "imagesrc": ""
   }
  },
  {
@@ -789,7 +789,7 @@
    "isbn": "9784818927186",
    "holding": "\u4e2d\u592e 518.8-N77 \u4e00\u822c\u56f3\u66f8",
    "status": "\u914d\u67b6\u6e08",
-   "imagesrc": "https://www.tulips.tsukuba.ac.jp/opac/images/cyan/bookimage-kango.png"
+   "imagesrc": ""
   }
  },
  {
@@ -945,7 +945,7 @@
    "isbn": "9784260005692",
    "holding": "\u533b\u5b66 492.927-Ma93 \u4e00\u822c\u56f3\u66f8",
    "status": "\u8cb8\u51fa\u4e2d(\u8fd4\u5374\u4e88\u5b9a: 2021/05/18)",
-   "imagesrc": "https://www.tulips.tsukuba.ac.jp/opac/images/cyan/bookimage-kango.png"
+   "imagesrc": ""
   }
  }
 ]

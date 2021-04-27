@@ -121,10 +121,9 @@ def scrape(source: str) -> List[BookInfo]:
         res_i['data']['status'] = get_book_info_text(
             book, 'l_detail_info_st')
         imgsrc = book_d.select_one('img')['src']
-        res_i['data']['imagesrc'] = (BASE + imgsrc
-                                     if imgsrc[-20:] == default_img else imgsrc)
+        res_i['data']['imagesrc'] = ('' if imgsrc[-20:] == default_img else imgsrc)
         res.append(res_i)
-        
+
     return res
 
 
@@ -140,7 +139,7 @@ def make_content(data: BookData) -> str:
         return ('<no data>' if text == '' else text)
 
     content = "\n".join([
-        "{date}の新刊: {title}",
+        "{date}の新着資料: {title}",
         "著者: {author}",
         "出版社: {publisher}",
         "場所: {holding}\n"
@@ -162,10 +161,10 @@ def make_tweepy_oauth(
 
 
 def get_imagesrc_to_image(src: str) -> bytes:
-    try:
-        return requests.get(src).content
-    except Exception:
+    if src == '':
         return b''
+    else:
+        return requests.get(src).content
 
 
 def tweet(res: List[BookInfo]) -> None:
@@ -174,13 +173,11 @@ def tweet(res: List[BookInfo]) -> None:
     api = make_tweepy_oauth(*KEYS)
     for data in [data['data'] for data in res
                  if data['data']['link'] not in tweeted_list + ['']]:
-        content = make_content(data)
-        if data['imagesrc'] != '':
-            book_img_data = get_imagesrc_to_image(data['imagesrc'])
-        else:
-            book_img_data = ''
 
-        if book_img_data != '':
+        content = make_content(data)
+        book_img_data = get_imagesrc_to_image(data['imagesrc'])
+
+        if book_img_data != b'':
             status, detail = _tweet(content, api, book_img_data)
         else:
             status, detail = _tweet(content, api)

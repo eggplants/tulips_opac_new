@@ -1,4 +1,5 @@
 bs4
 python-dotenv
 pyppeteer
+requests
 tweepy
