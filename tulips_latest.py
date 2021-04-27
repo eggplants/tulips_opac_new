@@ -6,10 +6,12 @@ import os
 import sys
 import time
 import urllib.request
+from io import BytesIO
 from typing import Any, List, Tuple, TypedDict
 
 import bs4
 import pyppeteer
+import requests
 import tweepy
 from dotenv import load_dotenv
 
@@ -25,7 +27,8 @@ os.makedirs(SOURCE_PATH, exist_ok=True)
 SOURCE_NAME = os.path.join(SOURCE_PATH, DATE_STAMP + '.html')
 
 TWEET_LOG_PATH = os.path.join(PWD, 'tweet.log')
-open(TWEET_LOG_PATH, 'w')  # touch
+if not os.path.exists(TWEET_LOG_PATH):
+    open(TWEET_LOG_PATH, 'w')
 
 load_dotenv(os.path.join(PWD, '.twitter.keys'))
 KEYS = (
@@ -52,6 +55,7 @@ class BookData(TypedDict):
     isbn: str
     holding: str
     status: str
+    imagesrc: str
 
 
 class BookInfo(TypedDict):
@@ -90,9 +94,11 @@ def scrape(source: str) -> List[BookInfo]:
 
     soup = bs4.BeautifulSoup(source, 'html.parser')
     books: bs4.element.ResultSet = soup.select(
-        'div.informationArea.c_information_area.l_informationArea')
+        'div.panel.searchCard.l_searchCard.c_search_card.p_search_card')
     res = []
-    for idx, book in enumerate(books):
+    default_img = '/bookimage-kango.png'
+    for idx, book_d in enumerate(books):
+        book = book_d.select_one('div.informationArea.c_information_area.l_informationArea')
         res_i: BookInfo = {'index': idx, 'data': {
             'link': '',
             'title': '',
@@ -100,7 +106,8 @@ def scrape(source: str) -> List[BookInfo]:
             'publisher': '',
             'isbn': '',
             'holding': '',
-            'status': ''}}
+            'status': '',
+            'imagesrc': ''}}
         res_i['data']['link'] = BASE + book.h3.a.get('href')
         res_i['data']['title'] = book.h3.a.text
         res_i['data']['author'] = get_book_info_text(
@@ -113,7 +120,11 @@ def scrape(source: str) -> List[BookInfo]:
             book, 'l_detail_info_hd')
         res_i['data']['status'] = get_book_info_text(
             book, 'l_detail_info_st')
+        imgsrc = book_d.select_one('img')['src']
+        res_i['data']['imagesrc'] = (BASE + imgsrc
+                                     if imgsrc[-20:] == default_img else imgsrc)
         res.append(res_i)
+        
     return res
 
 
@@ -122,17 +133,24 @@ def get_tweeted_list() -> List[str]:
 
 
 def make_content(data: BookData) -> str:
+    def shorten(text: str, length: int = 20) -> str:
+        return (text[:length] + '…' if len(text) > length else replace_nd(text))
+
+    def replace_nd(text: str) -> str:
+        return ('<no data>' if text == '' else text)
+
     content = "\n".join([
-        "{date}の新刊: {title}({author}, {publisher})",
-        "場所: {holding}({status})\n"
+        "{date}の新刊: {title}",
+        "著者: {author}",
+        "出版社: {publisher}",
+        "場所: {holding}\n"
         "詳細情報: {link}"])
     return content.format(
         date=DATE_STAMP,
-        title=data['title'],
-        author=data['author'],
-        publisher=data['publisher'],
+        title=shorten(data['title'], 20),
+        author=shorten(data['author'], 20),
+        publisher=shorten(data['publisher'], 20),
         holding=data['holding'],
-        status=data['status'],
         link=data['link'])
 
 
@@ -143,6 +161,13 @@ def make_tweepy_oauth(
     return tweepy.API(oauth)
 
 
+def get_imagesrc_to_image(src: str) -> bytes:
+    try:
+        return requests.get(src).content
+    except Exception:
+        return b''
+
+
 def tweet(res: List[BookInfo]) -> None:
     tweeted_list = get_tweeted_list()
     f = open(TWEET_LOG_PATH, 'a')
@@ -150,7 +175,16 @@ def tweet(res: List[BookInfo]) -> None:
     for data in [data['data'] for data in res
                  if data['data']['link'] not in tweeted_list + ['']]:
         content = make_content(data)
-        status, detail = _tweet(content, api)
+        if data['imagesrc'] != '':
+            book_img_data = get_imagesrc_to_image(data['imagesrc'])
+        else:
+            book_img_data = ''
+
+        if book_img_data != '':
+            status, detail = _tweet(content, api, book_img_data)
+        else:
+            status, detail = _tweet(content, api)
+
         if status:
             print(data['link'], file=f)
             print(detail.id, file=sys.stderr)
@@ -162,11 +196,17 @@ def tweet(res: List[BookInfo]) -> None:
 # Union[tweepy.Status, tweepy.TweepError]
 
 
-def _tweet(content: str, api: tweepy.API) -> Tuple[bool, Any]:
+def _tweet(content: str, api: tweepy.API, img_data: bytes = b'') -> Tuple[bool, Any]:
     try:
-        status = api.update_status(content)
+        if img_data == b'':
+            status = api.update_status(content)
+        else:
+            result_img = api.media_upload(filename='img.png', file=BytesIO(img_data))
+            status = api.update_status(content, media_ids=[result_img.media_id])
+
         return (True, status)
     except tweepy.TweepError as e:
+        print(content, file=sys.stderr)
         return (False, e)
 
 
