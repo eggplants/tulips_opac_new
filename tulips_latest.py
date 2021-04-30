@@ -132,24 +132,30 @@ def get_tweeted_list() -> List[str]:
 
 
 def make_content(data: BookData) -> str:
-    def shorten(text: str, length: int = 20) -> str:
-        return (text[:length] + '…' if len(text) > length else replace_nd(text))
+    def shorten(text: str, byte_len: int = 40, encoding: str = 'utf-8') -> str:
+        if len(text.encode(encoding)) <= byte_len:
+            return text
+        while len(text.encode(encoding)) > byte_len:
+            text = text[:-1]
+        else:
+            return text + '…'
 
     def replace_nd(text: str) -> str:
         return ('<no data>' if text == '' else text)
 
     content = "\n".join([
-        "{date}の新着資料: {title}",
-        "著者: {author}",
-        "出版社: {publisher}",
-        "場所: {holding}\n"
-        "詳細情報: {link}"])
+        "✨{date}の新着資料✨",
+        "📖: {title}",
+        "👤: {author}",
+        "🏢: {publisher}",
+        "🏛️: {holding}",
+        "💬: {link}"])
     return content.format(
         date=DATE_STAMP,
-        title=shorten(data['title'], 20),
-        author=shorten(data['author'], 20),
-        publisher=shorten(data['publisher'], 20),
-        holding=data['holding'],
+        title=shorten(data['title'], 70),
+        author=shorten(data['author'], 40),
+        publisher=shorten(data['publisher'], 40),
+        holding=shorten(data['holding'], 50),
         link=data['link'])
 
 
