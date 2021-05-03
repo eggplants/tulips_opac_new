@@ -1,0 +1,4192 @@
+<!DOCTYPE html><html lang="ja"><head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=no">
+<link rel="stylesheet" media="all" href="/opac/assets/application-4b751dbd031a2c2a80acb949086a00f0b47dba2a43f90ffac46ace767e743a48.css">
+<link rel="stylesheet" media="screen" href="/opac/assets/cyan-e6936e34dcfdc7935351c4645b949ef410e7e048607ff6a4cf02d385ba22004f.css">
+
+
+<link rel="stylesheet" media="all" href="/opac/css/application_custom.css">
+<link rel="stylesheet" media="screen" href="/opac/css/cyan_custom.css">
+<link rel="stylesheet" media="print" href="/opac/assets/application_print-ed1d3092e85aae33bf3149767a01c3314f0a22ae7ad37a99f1a0545808066ec4.css">
+<link rel="stylesheet" media="print" href="/opac/css/application_print_custom.css">
+<link rel="shortcut icon" type="image/x-icon" href="/opac/images/cyan/favicon.ico">
+<script>
+//<![CDATA[
+window.gon={};gon.timeout=10800000;gon.signedIn=false;gon.urlToRedirect="/opac/system/timeout";gon.pageRangeError="指定されたページは範囲外です。";gon.invalidInputError="入力値に誤りがあります。";gon.illegalCondition="検索条件を入力してください。";gon.helpPage="/help/doku.php?id=ja:help:service";gon.spinnerImage="/opac/images/gif-load.gif";gon.popCloseFallbackPath="/opac/";gon.backtrackAnchor="/opac/search?arrivedwithin=1\u0026type%5B%5D=book\u0026target=local\u0026searchmode=complex\u0026count=100";
+//]]>
+</script>
+
+<title>図書館</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="format-detection" content="telephone=no">
+
+<meta name="twitter:card" content="">
+<meta name="twitter:site" content="">
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="">
+
+<meta property="og:title" content="">
+<meta property="og:type" content="website">
+<meta property="og:url" content="">
+<meta property="og:image" content="">
+<meta property="og:description" content="">
+
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="UAbqlk3VQYeUg+w7Fa2PPPvvkPqKu6snTZeO69ms+L4IxwfBdlh6sJ1ikBnKsvj8IZh8P8w/T/A7K+RDcr8Bvg==">
+</head>
+<body>
+    <div class="c_header" id="header">
+  <div class="wrap">
+    <div class="c_logo_area">
+      <div class="c_logo">
+        <div class="c_logo_left">
+          <a href="/opac/"><img alt="Home" title="Home" class="c_logo_img" src="/opac/images/cyan/logo.png"></a>
+          <a href="/opac/"><img alt="Home" title="Home" class="c_logo_img_mobi p_logo_img_sp" src="/opac/images/cyan/logo_mobi.png"></a>
+        </div>
+      </div>
+      <div class="c_exit_session p_exit_session">
+        <a class="c_logout_buttons pc_only" data-remote="true" rel="nofollow" data-method="post" href="/opac/user/session/exit">履歴を消去して終了</a>
+      </div>
+    </div>
+    <div class="c_header_message_area">
+      
+    </div>
+  </div>
+  <div class="c_header_btn_area p_header_btn_area">
+    <a href="/opac/user/top">
+            <span class="icon-user"></span>
+</a>    <a href="javascript:iconmenue_open()">
+        <span class="icon-menu"></span>
+</a>  </div>
+  <!-- ハンバーガーメニュー -->
+  <ul class="menuList l_sp_menuList" style="display: none;">
+    <li class="separateLine"></li>
+    <li class="separateLine"></li>
+    <li><a href="/opac/complexsearch">詳細検索</a></li>
+    <li><a href="/opac/bookmarklist">ブックマーク</a></li>
+    <li>
+        <a href="/opac/system/hop_login">ログイン</a>
+    </li>
+    <li>
+      <a href="/opac/en/search?arrivedwithin=1&amp;count=100&amp;searchmode=complex&amp;target=local&amp;type%5B%5D=book">English</a>
+    </li>
+    <li>
+      <a target="limedio_help" href="/help/doku.php?id=ja:help:service">ヘルプ</a>
+    </li>
+    <li>
+      <a data-remote="true" rel="nofollow" data-method="post" href="/opac/user/session/exit">履歴を消去して終了</a>
+    </li>
+  </ul>
+</div>
+
+
+
+
+  <div id="header_menu" class="p_header_menu c_opac_menu">
+  <ul class="header_menu_list wrap">
+  </ul>
+</div>
+      <div id="lid_search_select" class="c_search_select p_search_select">
+      <a class="c_active" href="javascript:void(0)">通常検索</a>
+      <div class="c_line"></div>
+      <a class="" href="/opac/complexsearch">詳細検索</a>
+    </div>
+<div id="lid_search" class="c_search p_search">
+  <div class="wrap">
+    <form class="c_search_left" id="lid_normal_search_form" action="/opac/search" accept-charset="UTF-8" method="get">
+
+        
+
+        <div class="c_normal_search">
+          <input type="text" name="q" id="q" value="" placeholder="通常検索" class="c_search_menu_qq">
+          <div class="c_search_btn_wrap" id="lid_searchBtn">
+            <span class="icon-search"></span>
+            <input type="button" name="commit" value="" class="c_search_btn" data-disable-with="">
+          </div>
+        </div>
+        <a class="c_a_search_left" href="/opac/complexsearch">詳細検索</a>
+</form>
+    <div class="c_search_right">
+      <a class="c_a_search_right" href="/opac/bookmarklist">ブックマーク</a>
+          <a class="c_a_search_right" href="/opac/system/hop_login">ログイン</a>
+      <a class="c_a_search_right" href="/opac/en/search?arrivedwithin=1&amp;count=100&amp;searchmode=complex&amp;target=local&amp;type%5B%5D=book">English</a>
+      <a class="c_a_search_right" target="limedio_help" href="/help/doku.php?id=ja:help:service">ヘルプ</a>
+      <a class="c_a_mylibrary" href="/opac/user/top">
+              <span class="icon-user"></span>
+              <span>ゲストさん</span><br>マイライブラリ
+</a>    </div>
+  </div>
+</div>
+
+
+  <div id="lid_searchDetailSub" class="c_search_detail_sub" style="display: none;"><div id="lid_spFacetTop">
+  <div class="l_sp_input_window c_sp_input_window" id="lid_spRefinement">
+    <h2 class="c_h2_big">絞り込み</h2>
+              <dl>
+    <dt>資料種別</dt>
+    <dd>
+      <div class="selectWrap">
+        <select class="l_spFacetselectors" id="lid_spFacetselectors_type_facet" size="1">
+          <option value="" disabled="" selected="" style="display:none;">全て</option>
+        </select>
+      </div>
+    </dd>
+  </dl>
+  <dl>
+    <dt>著者</dt>
+    <dd>
+      <div class="selectWrap">
+        <select class="l_spFacetselectors" id="lid_spFacetselectors_author_facet" size="1">
+          <option value="" disabled="" selected="" style="display:none;">全て</option>
+        </select>
+      </div>
+    </dd>
+  </dl>
+  <dl>
+    <dt>件名・キーワード</dt>
+    <dd>
+      <div class="selectWrap">
+        <select class="l_spFacetselectors" id="lid_spFacetselectors_subject_keyword_facet" size="1">
+          <option value="" disabled="" selected="" style="display:none;">全て</option>
+        </select>
+      </div>
+    </dd>
+  </dl>
+  <dl>
+    <dt>出版年</dt>
+    <dd>
+      <div class="selectWrap">
+        <select class="l_spFacetselectors" id="lid_spFacetselectors_year_facet" size="1">
+          <option value="" disabled="" selected="" style="display:none;">全て</option>
+        </select>
+      </div>
+    </dd>
+  </dl>
+  <dl>
+    <dt>出版者</dt>
+    <dd>
+      <div class="selectWrap">
+        <select class="l_spFacetselectors" id="lid_spFacetselectors_publisher_facet" size="1">
+          <option value="" disabled="" selected="" style="display:none;">全て</option>
+        </select>
+      </div>
+    </dd>
+  </dl>
+  <dl>
+    <dt>言語</dt>
+    <dd>
+      <div class="selectWrap">
+        <select class="l_spFacetselectors" id="lid_spFacetselectors_lang_facet" size="1">
+          <option value="" disabled="" selected="" style="display:none;">全て</option>
+        </select>
+      </div>
+    </dd>
+  </dl>
+  <dl>
+    <dt>所蔵館</dt>
+    <dd>
+      <div class="selectWrap">
+        <select class="l_spFacetselectors" id="lid_spFacetselectors_branch_facet" size="1">
+          <option value="" disabled="" selected="" style="display:none;">全て</option>
+        </select>
+      </div>
+    </dd>
+  </dl>
+  <dl>
+    <dt>所在</dt>
+    <dd>
+      <div class="selectWrap">
+        <select class="l_spFacetselectors" id="lid_spFacetselectors_loc_facet" size="1">
+          <option value="" disabled="" selected="" style="display:none;">全て</option>
+        </select>
+      </div>
+    </dd>
+  </dl>
+  <dl>
+    <dt>貸出区分</dt>
+    <dd>
+      <div class="selectWrap">
+        <select class="l_spFacetselectors" id="lid_spFacetselectors_circ_code_facet" size="1">
+          <option value="" disabled="" selected="" style="display:none;">全て</option>
+        </select>
+      </div>
+    </dd>
+  </dl>
+
+    <div class="c_button_area l_sp_button_area c_facet_cancel_button_area">
+      <button type="button" name="back" class="white full" id="lid_cansel_spRefinement">キャンセル</button>
+    </div>
+  </div>
+</div>
+
+        
+    <div class="l_sp_input_window l_sp_Facet_area l_spFacetselectors_type_facet_area c_sp_input_window" style="display: none" id="lid_spFacetselectors_type_facet_area">
+      <h2>資料種別<button type="button" name="button" class="white l_spRefineChkCancel">全解除</button></h2>
+
+          <ul class="c_check_area">
+                <li class="c_check_wrap">
+                  <span>図書等</span>
+                  <span class="c_check_item_number">21</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_type_facet" class="l_spRefineChk" value="book">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>雑誌</span>
+                  <span class="c_check_item_number">0</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_type_facet" class="l_spRefineChk" value="magazine_title" disabled="">
+                    <span></span>
+                  </label>
+                </li>
+          </ul>
+      <div class="c_button_area l_sp_button_area c_facet_button_area">
+        <button type="button" name="back" class="white l_spRefinement_return">戻る</button>
+        <button type="button" name="back" class="c_pale_button" id="lid_spRefinement_submit">絞り込む</button>
+      </div>
+    </div>
+
+    <div class="l_sp_input_window l_sp_Facet_area l_spFacetselectors_author_facet_area c_sp_input_window" style="display: none" id="lid_spFacetselectors_author_facet_area">
+      <h2>著者<button type="button" name="button" class="white l_spRefineChkCancel">全解除</button></h2>
+
+          <ul class="c_check_area">
+                <li class="c_check_wrap">
+                  <span>山本, 祐規子</span>
+                  <span class="c_check_item_number">4</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_author_facet" class="l_spRefineChk" value="%E5%B1%B1%E6%9C%AC%2C+%E7%A5%90%E8%A6%8F%E5%AD%90">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>梶山, 祐治</span>
+                  <span class="c_check_item_number">4</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_author_facet" class="l_spRefineChk" value="%E6%A2%B6%E5%B1%B1%2C+%E7%A5%90%E6%B2%BB">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>臼山, 利信</span>
+                  <span class="c_check_item_number">4</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_author_facet" class="l_spRefineChk" value="%E8%87%BC%E5%B1%B1%2C+%E5%88%A9%E4%BF%A1">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>谷越, 祥子</span>
+                  <span class="c_check_item_number">4</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_author_facet" class="l_spRefineChk" value="%E8%B0%B7%E8%B6%8A%2C+%E7%A5%A5%E5%AD%90">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>笹山, 啓</span>
+                  <span class="c_check_item_number">3</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_author_facet" class="l_spRefineChk" value="%E7%AC%B9%E5%B1%B1%2C+%E5%95%93">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>安梅, 勅江</span>
+                  <span class="c_check_item_number">2</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_author_facet" class="l_spRefineChk" value="%E5%AE%89%E6%A2%85%2C+%E5%8B%85%E6%B1%9F">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>本沢, 巳代子(1953-)</span>
+                  <span class="c_check_item_number">2</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_author_facet" class="l_spRefineChk" value="%E6%9C%AC%E6%B2%A2%2C+%E5%B7%B3%E4%BB%A3%E5%AD%90%281953-%29">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>大杉, 麻美(1966-)</span>
+                  <span class="c_check_item_number">1</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_author_facet" class="l_spRefineChk" value="%E5%A4%A7%E6%9D%89%2C+%E9%BA%BB%E7%BE%8E%281966-%29">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>宮薗, 美佳(1969-)</span>
+                  <span class="c_check_item_number">1</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_author_facet" class="l_spRefineChk" value="%E5%AE%AE%E8%96%97%2C+%E7%BE%8E%E4%BD%B3%281969-%29">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>鹿毛, 理恵(1974-)</span>
+                  <span class="c_check_item_number">1</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_author_facet" class="l_spRefineChk" value="%E9%B9%BF%E6%AF%9B%2C+%E7%90%86%E6%81%B5%281974-%29">
+                    <span></span>
+                  </label>
+                </li>
+          </ul>
+      <div class="c_button_area l_sp_button_area c_facet_button_area">
+        <button type="button" name="back" class="white l_spRefinement_return">戻る</button>
+        <button type="button" name="back" class="c_pale_button" id="lid_spRefinement_submit">絞り込む</button>
+      </div>
+    </div>
+
+    <div class="l_sp_input_window l_sp_Facet_area l_spFacetselectors_subject_keyword_facet_area c_sp_input_window" style="display: none" id="lid_spFacetselectors_subject_keyword_facet_area">
+      <h2>件名・キーワード<button type="button" name="button" class="white l_spRefineChkCancel">全解除</button></h2>
+
+          <ul class="c_check_area">
+                <li class="c_check_wrap">
+                  <span>博物誌 -- 日本 -- 歴史 -- 江戸時代</span>
+                  <span class="c_check_item_number">1</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_subject_keyword_facet" class="l_spRefineChk" value="%E5%8D%9A%E7%89%A9%E8%AA%8C+--+%E6%97%A5%E6%9C%AC+--+%E6%AD%B4%E5%8F%B2+--+%E6%B1%9F%E6%88%B8%E6%99%82%E4%BB%A3">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>厚生行政 -- 統計書</span>
+                  <span class="c_check_item_number">1</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_subject_keyword_facet" class="l_spRefineChk" value="%E5%8E%9A%E7%94%9F%E8%A1%8C%E6%94%BF+--+%E7%B5%B1%E8%A8%88%E6%9B%B8">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>夏目, 漱石</span>
+                  <span class="c_check_item_number">1</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_subject_keyword_facet" class="l_spRefineChk" value="%E5%A4%8F%E7%9B%AE%2C+%E6%BC%B1%E7%9F%B3">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>情報産業 -- 名簿</span>
+                  <span class="c_check_item_number">1</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_subject_keyword_facet" class="l_spRefineChk" value="%E6%83%85%E5%A0%B1%E7%94%A3%E6%A5%AD+--+%E5%90%8D%E7%B0%BF">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>新型コロナウイルス感染症</span>
+                  <span class="c_check_item_number">1</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_subject_keyword_facet" class="l_spRefineChk" value="%E6%96%B0%E5%9E%8B%E3%82%B3%E3%83%AD%E3%83%8A%E3%82%A6%E3%82%A4%E3%83%AB%E3%82%B9%E6%84%9F%E6%9F%93%E7%97%87">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>社会保障 -- 法令</span>
+                  <span class="c_check_item_number">1</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_subject_keyword_facet" class="l_spRefineChk" value="%E7%A4%BE%E4%BC%9A%E4%BF%9D%E9%9A%9C+--+%E6%B3%95%E4%BB%A4">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>精神分析</span>
+                  <span class="c_check_item_number">1</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_subject_keyword_facet" class="l_spRefineChk" value="%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>都市計画 -- モロッコ -- フェス</span>
+                  <span class="c_check_item_number">1</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_subject_keyword_facet" class="l_spRefineChk" value="%E9%83%BD%E5%B8%82%E8%A8%88%E7%94%BB+--+%E3%83%A2%E3%83%AD%E3%83%83%E3%82%B3+--+%E3%83%95%E3%82%A7%E3%82%B9">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>都市計画 -- 歴史</span>
+                  <span class="c_check_item_number">1</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_subject_keyword_facet" class="l_spRefineChk" value="%E9%83%BD%E5%B8%82%E8%A8%88%E7%94%BB+--+%E6%AD%B4%E5%8F%B2">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>金子, みすゞ</span>
+                  <span class="c_check_item_number">1</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_subject_keyword_facet" class="l_spRefineChk" value="%E9%87%91%E5%AD%90%2C+%E3%81%BF%E3%81%99%E3%82%9E">
+                    <span></span>
+                  </label>
+                </li>
+          </ul>
+      <div class="c_button_area l_sp_button_area c_facet_button_area">
+        <button type="button" name="back" class="white l_spRefinement_return">戻る</button>
+        <button type="button" name="back" class="c_pale_button" id="lid_spRefinement_submit">絞り込む</button>
+      </div>
+    </div>
+
+    <div class="l_sp_input_window l_sp_Facet_area l_spFacetselectors_year_facet_area c_sp_input_window" style="display: none" id="lid_spFacetselectors_year_facet_area">
+      <h2>出版年<button type="button" name="button" class="white l_spRefineChkCancel">全解除</button></h2>
+
+          <ul class="c_check_area toggleMenu">
+                    <li class="c_check_wrap closed">
+                      <p class="l_facet_year_sp" onclick="facet_year_sp_click(this);">2017-2021</p>
+                      <span class="c_check_item_number">16</span>
+                      <label>
+                        <input type="checkbox" onclick="parent_y_click(this)" name="facet_cb_year_facet" class="l_parent_y l_spRefineChk" value="2017-2021">
+                        <span></span>
+                      </label>
+                    </li>
+                    <div class="toggleArea l_toggle_y" style="display: none;">
+                      <ul>
+                            <li class="c_check_wrap">
+                              <p>2021</p>
+                              <span class="c_check_item_number">10</span>
+                              <label>
+                                <input type="checkbox" onclick="child_y_click(this)" name="facet_cb_year_facet" class="l_child_y l_spRefineChk" value="2021">
+                                <span></span>
+                              </label>
+                            </li>
+                            <li class="c_check_wrap">
+                              <p>2020</p>
+                              <span class="c_check_item_number">5</span>
+                              <label>
+                                <input type="checkbox" onclick="child_y_click(this)" name="facet_cb_year_facet" class="l_child_y l_spRefineChk" value="2020">
+                                <span></span>
+                              </label>
+                            </li>
+                            <li class="c_check_wrap">
+                              <p>2018</p>
+                              <span class="c_check_item_number">1</span>
+                              <label>
+                                <input type="checkbox" onclick="child_y_click(this)" name="facet_cb_year_facet" class="l_child_y l_spRefineChk" value="2018">
+                                <span></span>
+                              </label>
+                            </li>
+                      </ul>
+                    </div>
+                    <div class="toggleArea">
+                      <ul>
+                        <li class="c_check_wrap closed">
+                          <p>2012-2016</p>
+                          <span class="c_check_item_number">0</span>
+                          <label>
+                            <input type="checkbox" name="facet_cb_year_facet" class="l_spRefineChk" value="2012-2016" disabled="">
+                            <span></span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                    <li class="c_check_wrap closed">
+                      <p class="l_facet_year_sp" onclick="facet_year_sp_click(this);">2007-2011</p>
+                      <span class="c_check_item_number">1</span>
+                      <label>
+                        <input type="checkbox" onclick="parent_y_click(this)" name="facet_cb_year_facet" class="l_parent_y l_spRefineChk" value="2007-2011">
+                        <span></span>
+                      </label>
+                    </li>
+                    <div class="toggleArea l_toggle_y" style="display: none;">
+                      <ul>
+                            <li class="c_check_wrap">
+                              <p>2008</p>
+                              <span class="c_check_item_number">1</span>
+                              <label>
+                                <input type="checkbox" onclick="child_y_click(this)" name="facet_cb_year_facet" class="l_child_y l_spRefineChk" value="2008">
+                                <span></span>
+                              </label>
+                            </li>
+                      </ul>
+                    </div>
+                    <li class="c_check_wrap closed">
+                      <p class="l_facet_year_sp" onclick="facet_year_sp_click(this);">2002-2006</p>
+                      <span class="c_check_item_number">1</span>
+                      <label>
+                        <input type="checkbox" onclick="parent_y_click(this)" name="facet_cb_year_facet" class="l_parent_y l_spRefineChk" value="2002-2006">
+                        <span></span>
+                      </label>
+                    </li>
+                    <div class="toggleArea l_toggle_y" style="display: none;">
+                      <ul>
+                            <li class="c_check_wrap">
+                              <p>2003</p>
+                              <span class="c_check_item_number">1</span>
+                              <label>
+                                <input type="checkbox" onclick="child_y_click(this)" name="facet_cb_year_facet" class="l_child_y l_spRefineChk" value="2003">
+                                <span></span>
+                              </label>
+                            </li>
+                      </ul>
+                    </div>
+                    <div class="toggleArea">
+                      <ul>
+                        <li class="c_check_wrap closed">
+                          <p>1997-2001</p>
+                          <span class="c_check_item_number">0</span>
+                          <label>
+                            <input type="checkbox" name="facet_cb_year_facet" class="l_spRefineChk" value="1997-2001" disabled="">
+                            <span></span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="toggleArea">
+                      <ul>
+                        <li class="c_check_wrap closed">
+                          <p>1996 以前</p>
+                          <span class="c_check_item_number">3</span>
+                          <label>
+                            <input type="checkbox" name="facet_cb_year_facet" class="l_spRefineChk" value="1000-1996">
+                            <span></span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+          </ul>
+
+      <div class="c_button_area l_sp_button_area c_facet_button_area">
+        <button type="button" name="back" class="white l_spRefinement_return">戻る</button>
+        <button type="button" name="back" class="c_pale_button" id="lid_spRefinement_submit">絞り込む</button>
+      </div>
+    </div>
+
+    <div class="l_sp_input_window l_sp_Facet_area l_spFacetselectors_publisher_facet_area c_sp_input_window" style="display: none" id="lid_spFacetselectors_publisher_facet_area">
+      <h2>出版者<button type="button" name="button" class="white l_spRefineChkCancel">全解除</button></h2>
+
+          <ul class="c_check_area">
+                <li class="c_check_wrap">
+                  <span>筑波大学「日本財団中央アジア・日本人材育成プロジェクト(NipCA)」</span>
+                  <span class="c_check_item_number">3</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_publisher_facet" class="l_spRefineChk" value="%E7%AD%91%E6%B3%A2%E5%A4%A7%E5%AD%A6%E3%80%8C%E6%97%A5%E6%9C%AC%E8%B2%A1%E5%9B%A3%E4%B8%AD%E5%A4%AE%E3%82%A2%E3%82%B8%E3%82%A2%E3%83%BB%E6%97%A5%E6%9C%AC%E4%BA%BA%E6%9D%90%E8%82%B2%E6%88%90%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%28NipCA%29%E3%80%8D">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>パイインターナショナル</span>
+                  <span class="c_check_item_number">1</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_publisher_facet" class="l_spRefineChk" value="%E3%83%91%E3%82%A4%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%8A%E3%82%B7%E3%83%A7%E3%83%8A%E3%83%AB">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>不磨書房</span>
+                  <span class="c_check_item_number">1</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_publisher_facet" class="l_spRefineChk" value="%E4%B8%8D%E7%A3%A8%E6%9B%B8%E6%88%BF">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>九州大学マス・フォア・インダストリ研究所, 九州大学大学院数理学府</span>
+                  <span class="c_check_item_number">1</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_publisher_facet" class="l_spRefineChk" value="%E4%B9%9D%E5%B7%9E%E5%A4%A7%E5%AD%A6%E3%83%9E%E3%82%B9%E3%83%BB%E3%83%95%E3%82%A9%E3%82%A2%E3%83%BB%E3%82%A4%E3%83%B3%E3%83%80%E3%82%B9%E3%83%88%E3%83%AA%E7%A0%94%E7%A9%B6%E6%89%80%2C+%E4%B9%9D%E5%B7%9E%E5%A4%A7%E5%AD%A6%E5%A4%A7%E5%AD%A6%E9%99%A2%E6%95%B0%E7%90%86%E5%AD%A6%E5%BA%9C">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>信山社 (発売)</span>
+                  <span class="c_check_item_number">1</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_publisher_facet" class="l_spRefineChk" value="%E4%BF%A1%E5%B1%B1%E7%A4%BE+%28%E7%99%BA%E5%A3%B2%29">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>全国官報販売協同組合 (発売)</span>
+                  <span class="c_check_item_number">1</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_publisher_facet" class="l_spRefineChk" value="%E5%85%A8%E5%9B%BD%E5%AE%98%E5%A0%B1%E8%B2%A9%E5%A3%B2%E5%8D%94%E5%90%8C%E7%B5%84%E5%90%88+%28%E7%99%BA%E5%A3%B2%29">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>幻冬舎メディアコンサルティング</span>
+                  <span class="c_check_item_number">1</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_publisher_facet" class="l_spRefineChk" value="%E5%B9%BB%E5%86%AC%E8%88%8E%E3%83%A1%E3%83%87%E3%82%A3%E3%82%A2%E3%82%B3%E3%83%B3%E3%82%B5%E3%83%AB%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>書写者不明</span>
+                  <span class="c_check_item_number">1</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_publisher_facet" class="l_spRefineChk" value="%E6%9B%B8%E5%86%99%E8%80%85%E4%B8%8D%E6%98%8E">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>藤代禎輔</span>
+                  <span class="c_check_item_number">1</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_publisher_facet" class="l_spRefineChk" value="%E8%97%A4%E4%BB%A3%E7%A6%8E%E8%BC%94">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>Sijthoff &amp; Noordhoff</span>
+                  <span class="c_check_item_number">1</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_publisher_facet" class="l_spRefineChk" value="Sijthoff+%26+Noordhoff">
+                    <span></span>
+                  </label>
+                </li>
+          </ul>
+      <div class="c_button_area l_sp_button_area c_facet_button_area">
+        <button type="button" name="back" class="white l_spRefinement_return">戻る</button>
+        <button type="button" name="back" class="c_pale_button" id="lid_spRefinement_submit">絞り込む</button>
+      </div>
+    </div>
+
+    <div class="l_sp_input_window l_sp_Facet_area l_spFacetselectors_lang_facet_area c_sp_input_window" style="display: none" id="lid_spFacetselectors_lang_facet_area">
+      <h2>言語<button type="button" name="button" class="white l_spRefineChkCancel">全解除</button></h2>
+
+          <ul class="c_check_area">
+                <li class="c_check_wrap">
+                  <span>日本語</span>
+                  <span class="c_check_item_number">18</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_lang_facet" class="l_spRefineChk" value="jpn">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>英語</span>
+                  <span class="c_check_item_number">4</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_lang_facet" class="l_spRefineChk" value="eng">
+                    <span></span>
+                  </label>
+                </li>
+          </ul>
+      <div class="c_button_area l_sp_button_area c_facet_button_area">
+        <button type="button" name="back" class="white l_spRefinement_return">戻る</button>
+        <button type="button" name="back" class="c_pale_button" id="lid_spRefinement_submit">絞り込む</button>
+      </div>
+    </div>
+
+    <div class="l_sp_input_window l_sp_Facet_area l_spFacetselectors_branch_facet_area c_sp_input_window" style="display: none" id="lid_spFacetselectors_branch_facet_area">
+      <h2>所蔵館<button type="button" name="button" class="white l_spRefineChkCancel">全解除</button></h2>
+
+          <ul class="c_check_area">
+                <li class="c_check_wrap">
+                  <span>中央</span>
+                  <span class="c_check_item_number">16</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_branch_facet" class="l_spRefineChk" value="1">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>体芸</span>
+                  <span class="c_check_item_number">4</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_branch_facet" class="l_spRefineChk" value="2">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>医学</span>
+                  <span class="c_check_item_number">2</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_branch_facet" class="l_spRefineChk" value="3">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>図情</span>
+                  <span class="c_check_item_number">1</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_branch_facet" class="l_spRefineChk" value="9">
+                    <span></span>
+                  </label>
+                </li>
+          </ul>
+      <div class="c_button_area l_sp_button_area c_facet_button_area">
+        <button type="button" name="back" class="white l_spRefinement_return">戻る</button>
+        <button type="button" name="back" class="c_pale_button" id="lid_spRefinement_submit">絞り込む</button>
+      </div>
+    </div>
+
+    <div class="l_sp_input_window l_sp_Facet_area l_spFacetselectors_loc_facet_area c_sp_input_window" style="display: none" id="lid_spFacetselectors_loc_facet_area">
+      <h2>所在<button type="button" name="button" class="white l_spRefineChkCancel">全解除</button></h2>
+
+          <ul class="c_check_area">
+                <li class="c_check_wrap">
+                  <span>中央</span>
+                  <span class="c_check_item_number">14</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_loc_facet" class="l_spRefineChk" value="100">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>中央本学</span>
+                  <span class="c_check_item_number">6</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_loc_facet" class="l_spRefineChk" value="1HO">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>体芸</span>
+                  <span class="c_check_item_number">4</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_loc_facet" class="l_spRefineChk" value="200">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>医学</span>
+                  <span class="c_check_item_number">2</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_loc_facet" class="l_spRefineChk" value="300">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>図情2階閲覧室</span>
+                  <span class="c_check_item_number">1</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_loc_facet" class="l_spRefineChk" value="904">
+                    <span></span>
+                  </label>
+                </li>
+          </ul>
+      <div class="c_button_area l_sp_button_area c_facet_button_area">
+        <button type="button" name="back" class="white l_spRefinement_return">戻る</button>
+        <button type="button" name="back" class="c_pale_button" id="lid_spRefinement_submit">絞り込む</button>
+      </div>
+    </div>
+
+    <div class="l_sp_input_window l_sp_Facet_area l_spFacetselectors_circ_code_facet_area c_sp_input_window" style="display: none" id="lid_spFacetselectors_circ_code_facet_area">
+      <h2>貸出区分<button type="button" name="button" class="white l_spRefineChkCancel">全解除</button></h2>
+
+          <ul class="c_check_area">
+                <li class="c_check_wrap">
+                  <span>一般図書</span>
+                  <span class="c_check_item_number">17</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_circ_code_facet" class="l_spRefineChk" value="00">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>本学</span>
+                  <span class="c_check_item_number">6</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_circ_code_facet" class="l_spRefineChk" value="HO">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>参考</span>
+                  <span class="c_check_item_number">2</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_circ_code_facet" class="l_spRefineChk" value="RE">
+                    <span></span>
+                  </label>
+                </li>
+                <li class="c_check_wrap">
+                  <span>授業関連</span>
+                  <span class="c_check_item_number">1</span>
+                  <label>
+                    <input type="checkbox" name="facet_cb_circ_code_facet" class="l_spRefineChk" value="CR">
+                    <span></span>
+                  </label>
+                </li>
+          </ul>
+      <div class="c_button_area l_sp_button_area c_facet_button_area">
+        <button type="button" name="back" class="white l_spRefinement_return">戻る</button>
+        <button type="button" name="back" class="c_pale_button" id="lid_spRefinement_submit">絞り込む</button>
+      </div>
+    </div>
+
+</div>
+
+<input type="hidden" class="l_locale" value="ja">
+<input type="hidden" class="l_signed_in" value="false">
+<div id="libraryStock" class="c_library_stock">
+  <div class="wrap">
+    <ul class="libraryStockList c_library_stock_list">
+          <li class="l_select_target current" id="lid_select_target_local">
+            <a href="#" onclick="select_target('local');return false;">本学所蔵<span>(21)</span></a>
+            <input type="hidden" id="lid_target_total_local" value="21">
+          </li>
+    </ul>
+    <div class="btnMore disable"></div>
+  </div>
+</div>
+
+<div id="lid_libraryStockSp" class="l_spRefineNone l_sp_Facetselectors c_library_stock_sp p_library_stock_sp">
+  <div class="wrap">
+    <div class="selectWrap">
+      <select class="libraryStockSelect" id="lid_library_stock_select" name="libraryStock" onchange="select_target_sp();return false;">
+            <option value="local" selected="">本学所蔵(21)</option>
+
+      </select>
+    </div>
+    <button name="reservation" id="lid_spRefinement_condition_btn" style="display: block;">詳細検索条件</button>
+    <button name="reservation" id="lid_spRefinement_btn" style="display: block;">絞り込む</button>
+  </div>
+</div>
+<input type="hidden" id="lid_seledted_target" value="local">
+
+<div id="lid_sp_condition_area" class="c_search_detail_sub" style="display: none;"><div class="panel c_condition_area" id="lid_sp_condition_area">
+  <h3>
+    詳細検索条件
+        <a href="#" id="lid_change_search_condition">
+          条件再設定
+        </a>
+  </h3>
+    <section>
+          <h4>資料種別</h4>
+          <p>図書等</p>
+    </section>
+    <section>
+          <h4>新着</h4>
+          <p>1日以内</p>
+    </section>
+  <input type="hidden" name="arrivedwithin" id="arrivedwithin" value="1" class="l_comp_search_query_conditions_sp"><input type="hidden" name="count" id="count" value="100" class="l_comp_search_query_conditions_sp"><input type="hidden" name="searchmode" id="searchmode" value="complex" class="l_comp_search_query_conditions_sp"><input type="hidden" name="target" id="target" value="local" class="l_comp_search_query_conditions_sp"><input type="hidden" name="type" id="type" value="book" class="l_comp_search_query_conditions_sp"><input type="hidden" name="highlight" id="highlight" value="n" class="l_comp_search_query_conditions_sp"><input type="hidden" name="order" id="order" value="arrival_date_d" class="l_comp_search_query_conditions_sp"><input type="hidden" name="displaylang" id="displaylang" value="ja" class="l_comp_search_query_conditions_sp">
+</div></div>
+
+
+<div id="i_breadcrumbs" class="c_breadcrumbs p_breadcrumbs c_white_back">
+  <div class="wrap">
+    <ul class="c_breadcrumbs_list">
+        <li>
+            <a href="/opac/">トップ画面</a>
+        </li>
+        <li>
+            <p>一覧画面</p>
+        </li>
+    </ul>
+  </div>
+</div>
+
+
+
+    <div class="wrap l_SearchResultList l_sp_menue_hidden c_search_result_list" id="lid_SearchResultList_local" style="display:''"><div class="wrap">
+
+  <div class="c_left_menu p_left_menu l_left_menu">
+      <div class="panel c_condition_area l_condition_area">
+  <h3>
+    詳細検索条件
+        <a href="#" id="lid_change_search_condition">
+          条件再設定
+        </a>
+  </h3>
+      <section>
+            <h4>資料種別</h4>
+            <p>図書等</p>
+      </section>
+      <section>
+            <h4>新着</h4>
+            <p>1日以内</p>
+      </section>
+  <input type="hidden" name="arrivedwithin" id="arrivedwithin" value="1" class="l_comp_search_query_conditions_pc"><input type="hidden" name="count" id="count" value="100" class="l_comp_search_query_conditions_pc"><input type="hidden" name="searchmode" id="searchmode" value="complex" class="l_comp_search_query_conditions_pc"><input type="hidden" name="target" id="target" value="local" class="l_comp_search_query_conditions_pc"><input type="hidden" name="type" id="type" value="book" class="l_comp_search_query_conditions_pc"><input type="hidden" name="highlight" id="highlight" value="n" class="l_comp_search_query_conditions_pc"><input type="hidden" name="order" id="order" value="arrival_date_d" class="l_comp_search_query_conditions_pc"><input type="hidden" name="displaylang" id="displaylang" value="ja" class="l_comp_search_query_conditions_pc">
+</div>
+
+      <div class="panel c_refinement_area l_refinement_area" style="height: 1315px;"><h3>絞り込み</h3>
+<div class="c_refinement">
+      <section class="l_facet_card ">
+
+  <h4>資料種別<button type="button" name="button" class="l_facet_releaseAll">全解除</button></h4>
+
+  <ul>
+      <li>
+        <p>図書等</p><span>21</span>
+        <label>
+          <input type="checkbox" name="facet_cb_type_facet" value="book">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+      <li>
+        <p>雑誌</p><span>0</span>
+        <label>
+          <input type="checkbox" name="facet_cb_type_facet" value="magazine_title" disabled="">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+  </ul>
+
+  <input name="facet_hidden_type_facet" type="hidden" value="type_facet" class="facet_hidden_type_facet">
+
+  </section>
+
+      <section class="l_facet_card ">
+
+  <h4>著者<button type="button" name="button" class="l_facet_releaseAll">全解除</button></h4>
+
+  <ul>
+      <li>
+        <p>山本, 祐規子</p><span>4</span>
+        <label>
+          <input type="checkbox" name="facet_cb_author_facet" value="%E5%B1%B1%E6%9C%AC%2C+%E7%A5%90%E8%A6%8F%E5%AD%90">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+      <li>
+        <p>梶山, 祐治</p><span>4</span>
+        <label>
+          <input type="checkbox" name="facet_cb_author_facet" value="%E6%A2%B6%E5%B1%B1%2C+%E7%A5%90%E6%B2%BB">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+      <li>
+        <p>臼山, 利信</p><span>4</span>
+        <label>
+          <input type="checkbox" name="facet_cb_author_facet" value="%E8%87%BC%E5%B1%B1%2C+%E5%88%A9%E4%BF%A1">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+      <li>
+        <p>谷越, 祥子</p><span>4</span>
+        <label>
+          <input type="checkbox" name="facet_cb_author_facet" value="%E8%B0%B7%E8%B6%8A%2C+%E7%A5%A5%E5%AD%90">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+      <li>
+        <p>笹山, 啓</p><span>3</span>
+        <label>
+          <input type="checkbox" name="facet_cb_author_facet" value="%E7%AC%B9%E5%B1%B1%2C+%E5%95%93">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+  </ul>
+
+    <div class="facet_moreItems_author_facet" style="display: none">
+      <ul>
+            <li>
+              <p>安梅, 勅江</p><span>2</span>
+              <label>
+                <input type="checkbox" name="facet_cb_author_facet" value="%E5%AE%89%E6%A2%85%2C+%E5%8B%85%E6%B1%9F">
+                <div class="c_check_block"></div>
+              </label>
+            </li>
+            <li>
+              <p>本沢, 巳代子(1953-)</p><span>2</span>
+              <label>
+                <input type="checkbox" name="facet_cb_author_facet" value="%E6%9C%AC%E6%B2%A2%2C+%E5%B7%B3%E4%BB%A3%E5%AD%90%281953-%29">
+                <div class="c_check_block"></div>
+              </label>
+            </li>
+            <li>
+              <p>大杉, 麻美(1966-)</p><span>1</span>
+              <label>
+                <input type="checkbox" name="facet_cb_author_facet" value="%E5%A4%A7%E6%9D%89%2C+%E9%BA%BB%E7%BE%8E%281966-%29">
+                <div class="c_check_block"></div>
+              </label>
+            </li>
+            <li>
+              <p>宮薗, 美佳(1969-)</p><span>1</span>
+              <label>
+                <input type="checkbox" name="facet_cb_author_facet" value="%E5%AE%AE%E8%96%97%2C+%E7%BE%8E%E4%BD%B3%281969-%29">
+                <div class="c_check_block"></div>
+              </label>
+            </li>
+            <li>
+              <p>鹿毛, 理恵(1974-)</p><span>1</span>
+              <label>
+                <input type="checkbox" name="facet_cb_author_facet" value="%E9%B9%BF%E6%AF%9B%2C+%E7%90%86%E6%81%B5%281974-%29">
+                <div class="c_check_block"></div>
+              </label>
+            </li>
+      </ul>
+    </div>
+  <input name="facet_hidden_author_facet" type="hidden" value="author_facet" class="facet_hidden_author_facet">
+
+  </section>
+    <a class="c_refinment_more_btn l_condition_area_resize l_facet_card facet_more_author_facet ">もっと見る</a>
+    <a class="c_refinment_more_btn l_condition_area_resize l_facet_card facet_more_author_facet" style="display: none;">閉じる</a>
+
+      <section class="l_facet_card ">
+
+  <h4>件名・キーワード<button type="button" name="button" class="l_facet_releaseAll">全解除</button></h4>
+
+  <ul>
+      <li>
+        <p>博物誌 -- 日本 -- 歴史 -- 江戸時代</p><span>1</span>
+        <label>
+          <input type="checkbox" name="facet_cb_subject_keyword_facet" value="%E5%8D%9A%E7%89%A9%E8%AA%8C+--+%E6%97%A5%E6%9C%AC+--+%E6%AD%B4%E5%8F%B2+--+%E6%B1%9F%E6%88%B8%E6%99%82%E4%BB%A3">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+      <li>
+        <p>厚生行政 -- 統計書</p><span>1</span>
+        <label>
+          <input type="checkbox" name="facet_cb_subject_keyword_facet" value="%E5%8E%9A%E7%94%9F%E8%A1%8C%E6%94%BF+--+%E7%B5%B1%E8%A8%88%E6%9B%B8">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+      <li>
+        <p>夏目, 漱石</p><span>1</span>
+        <label>
+          <input type="checkbox" name="facet_cb_subject_keyword_facet" value="%E5%A4%8F%E7%9B%AE%2C+%E6%BC%B1%E7%9F%B3">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+      <li>
+        <p>情報産業 -- 名簿</p><span>1</span>
+        <label>
+          <input type="checkbox" name="facet_cb_subject_keyword_facet" value="%E6%83%85%E5%A0%B1%E7%94%A3%E6%A5%AD+--+%E5%90%8D%E7%B0%BF">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+      <li>
+        <p>新型コロナウイルス感染症</p><span>1</span>
+        <label>
+          <input type="checkbox" name="facet_cb_subject_keyword_facet" value="%E6%96%B0%E5%9E%8B%E3%82%B3%E3%83%AD%E3%83%8A%E3%82%A6%E3%82%A4%E3%83%AB%E3%82%B9%E6%84%9F%E6%9F%93%E7%97%87">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+  </ul>
+
+    <div class="facet_moreItems_subject_keyword_facet" style="display: none">
+      <ul>
+            <li>
+              <p>社会保障 -- 法令</p><span>1</span>
+              <label>
+                <input type="checkbox" name="facet_cb_subject_keyword_facet" value="%E7%A4%BE%E4%BC%9A%E4%BF%9D%E9%9A%9C+--+%E6%B3%95%E4%BB%A4">
+                <div class="c_check_block"></div>
+              </label>
+            </li>
+            <li>
+              <p>精神分析</p><span>1</span>
+              <label>
+                <input type="checkbox" name="facet_cb_subject_keyword_facet" value="%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90">
+                <div class="c_check_block"></div>
+              </label>
+            </li>
+            <li>
+              <p>都市計画 -- モロッコ -- フェス</p><span>1</span>
+              <label>
+                <input type="checkbox" name="facet_cb_subject_keyword_facet" value="%E9%83%BD%E5%B8%82%E8%A8%88%E7%94%BB+--+%E3%83%A2%E3%83%AD%E3%83%83%E3%82%B3+--+%E3%83%95%E3%82%A7%E3%82%B9">
+                <div class="c_check_block"></div>
+              </label>
+            </li>
+            <li>
+              <p>都市計画 -- 歴史</p><span>1</span>
+              <label>
+                <input type="checkbox" name="facet_cb_subject_keyword_facet" value="%E9%83%BD%E5%B8%82%E8%A8%88%E7%94%BB+--+%E6%AD%B4%E5%8F%B2">
+                <div class="c_check_block"></div>
+              </label>
+            </li>
+            <li>
+              <p>金子, みすゞ</p><span>1</span>
+              <label>
+                <input type="checkbox" name="facet_cb_subject_keyword_facet" value="%E9%87%91%E5%AD%90%2C+%E3%81%BF%E3%81%99%E3%82%9E">
+                <div class="c_check_block"></div>
+              </label>
+            </li>
+      </ul>
+    </div>
+  <input name="facet_hidden_subject_keyword_facet" type="hidden" value="subject_keyword_facet" class="facet_hidden_subject_keyword_facet">
+
+  </section>
+    <a class="c_refinment_more_btn l_condition_area_resize l_facet_card facet_more_subject_keyword_facet ">もっと見る</a>
+    <a class="c_refinment_more_btn l_condition_area_resize l_facet_card facet_more_subject_keyword_facet" style="display: none;">閉じる</a>
+
+      <section class="l_facet_card " style="display:" none;="">
+  <h4>出版年<button type="button" name="button" class="l_facet_releaseAll">全解除</button></h4>
+
+  <ul>
+        <li class="c_toggle_title l_condition_area_resize closed facet_cb_year_facet2017-2021">
+          <p class="l_facet_cb_year_facet">2017-2021</p>
+          <span class="facet_cb_year_facet2017-2021">16</span>
+          <label>
+            <input class="l_parent_year_f" type="checkbox" name="facet_cb_year_facet" value="2017-2021">
+            <div class="c_check_block facet_cb_year_facet2017-2021"></div>
+          </label>
+        </li>
+        <div class="l_facet_cb_year_facet_child" style="display: none;">
+        <ul>
+            <li>
+              <p>　2021</p><span>10</span>
+              <label>
+                <input class="l_child_year_f" type="checkbox" name="facet_cb_year_facet" value="2021">
+                <div class="c_check_block"></div>
+              </label>
+            </li>
+            <li>
+              <p>　2020</p><span>5</span>
+              <label>
+                <input class="l_child_year_f" type="checkbox" name="facet_cb_year_facet" value="2020">
+                <div class="c_check_block"></div>
+              </label>
+            </li>
+            <li>
+              <p>　2018</p><span>1</span>
+              <label>
+                <input class="l_child_year_f" type="checkbox" name="facet_cb_year_facet" value="2018">
+                <div class="c_check_block"></div>
+              </label>
+            </li>
+        </ul>
+        </div>
+        <li>
+          <p>2012-2016</p>
+          <span>0</span>
+          <label>
+            <input type="checkbox" name="facet_cb_year_facet" value="2012-2016" disabled="">
+            <div class="c_check_block"></div>
+          </label>
+        </li>
+        <li class="c_toggle_title l_condition_area_resize closed facet_cb_year_facet2007-2011">
+          <p class="l_facet_cb_year_facet">2007-2011</p>
+          <span class="facet_cb_year_facet2007-2011">1</span>
+          <label>
+            <input class="l_parent_year_f" type="checkbox" name="facet_cb_year_facet" value="2007-2011">
+            <div class="c_check_block facet_cb_year_facet2007-2011"></div>
+          </label>
+        </li>
+        <div class="l_facet_cb_year_facet_child" style="display: none;">
+        <ul>
+            <li>
+              <p>　2008</p><span>1</span>
+              <label>
+                <input class="l_child_year_f" type="checkbox" name="facet_cb_year_facet" value="2008">
+                <div class="c_check_block"></div>
+              </label>
+            </li>
+        </ul>
+        </div>
+        <li class="c_toggle_title l_condition_area_resize closed facet_cb_year_facet2002-2006">
+          <p class="l_facet_cb_year_facet">2002-2006</p>
+          <span class="facet_cb_year_facet2002-2006">1</span>
+          <label>
+            <input class="l_parent_year_f" type="checkbox" name="facet_cb_year_facet" value="2002-2006">
+            <div class="c_check_block facet_cb_year_facet2002-2006"></div>
+          </label>
+        </li>
+        <div class="l_facet_cb_year_facet_child" style="display: none;">
+        <ul>
+            <li>
+              <p>　2003</p><span>1</span>
+              <label>
+                <input class="l_child_year_f" type="checkbox" name="facet_cb_year_facet" value="2003">
+                <div class="c_check_block"></div>
+              </label>
+            </li>
+        </ul>
+        </div>
+        <li>
+          <p>1997-2001</p>
+          <span>0</span>
+          <label>
+            <input type="checkbox" name="facet_cb_year_facet" value="1997-2001" disabled="">
+            <div class="c_check_block"></div>
+          </label>
+        </li>
+  </ul>
+
+      <div class="facet_moreItems_year_facet" style="display: none">
+        <ul>
+                  <li>
+                    <p>1996 以前</p>
+                    <span>3</span>
+                    <label>
+                      <input type="checkbox" name="facet_cb_year_facet" value="1000-1996">
+                      <div class="c_check_block"></div>
+                    </label>
+                  </li>
+
+        </ul>
+      </div>
+  <input name="facet_hidden_year_facet" type="hidden" value="year_facet" class="facet_hidden_year_facet">
+</section>
+
+    <a class="c_refinment_more_btn l_condition_area_resize l_facet_card facet_more_year_facet ">もっと見る</a>
+    <a class="c_refinment_more_btn l_condition_area_resize l_facet_card facet_more_year_facet" style="display: none;">閉じる</a>
+
+      <section class="l_facet_card ">
+
+  <h4>出版者<button type="button" name="button" class="l_facet_releaseAll">全解除</button></h4>
+
+  <ul>
+      <li>
+        <p>筑波大学「日本財団中央アジア・日本人材育成プロジェクト(NipCA)」</p><span>3</span>
+        <label>
+          <input type="checkbox" name="facet_cb_publisher_facet" value="%E7%AD%91%E6%B3%A2%E5%A4%A7%E5%AD%A6%E3%80%8C%E6%97%A5%E6%9C%AC%E8%B2%A1%E5%9B%A3%E4%B8%AD%E5%A4%AE%E3%82%A2%E3%82%B8%E3%82%A2%E3%83%BB%E6%97%A5%E6%9C%AC%E4%BA%BA%E6%9D%90%E8%82%B2%E6%88%90%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%28NipCA%29%E3%80%8D">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+      <li>
+        <p>パイインターナショナル</p><span>1</span>
+        <label>
+          <input type="checkbox" name="facet_cb_publisher_facet" value="%E3%83%91%E3%82%A4%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%8A%E3%82%B7%E3%83%A7%E3%83%8A%E3%83%AB">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+      <li>
+        <p>不磨書房</p><span>1</span>
+        <label>
+          <input type="checkbox" name="facet_cb_publisher_facet" value="%E4%B8%8D%E7%A3%A8%E6%9B%B8%E6%88%BF">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+      <li>
+        <p>九州大学マス・フォア・インダストリ研究所, 九州大学大学院数理学府</p><span>1</span>
+        <label>
+          <input type="checkbox" name="facet_cb_publisher_facet" value="%E4%B9%9D%E5%B7%9E%E5%A4%A7%E5%AD%A6%E3%83%9E%E3%82%B9%E3%83%BB%E3%83%95%E3%82%A9%E3%82%A2%E3%83%BB%E3%82%A4%E3%83%B3%E3%83%80%E3%82%B9%E3%83%88%E3%83%AA%E7%A0%94%E7%A9%B6%E6%89%80%2C+%E4%B9%9D%E5%B7%9E%E5%A4%A7%E5%AD%A6%E5%A4%A7%E5%AD%A6%E9%99%A2%E6%95%B0%E7%90%86%E5%AD%A6%E5%BA%9C">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+      <li>
+        <p>信山社 (発売)</p><span>1</span>
+        <label>
+          <input type="checkbox" name="facet_cb_publisher_facet" value="%E4%BF%A1%E5%B1%B1%E7%A4%BE+%28%E7%99%BA%E5%A3%B2%29">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+  </ul>
+
+    <div class="facet_moreItems_publisher_facet" style="display: none">
+      <ul>
+            <li>
+              <p>全国官報販売協同組合 (発売)</p><span>1</span>
+              <label>
+                <input type="checkbox" name="facet_cb_publisher_facet" value="%E5%85%A8%E5%9B%BD%E5%AE%98%E5%A0%B1%E8%B2%A9%E5%A3%B2%E5%8D%94%E5%90%8C%E7%B5%84%E5%90%88+%28%E7%99%BA%E5%A3%B2%29">
+                <div class="c_check_block"></div>
+              </label>
+            </li>
+            <li>
+              <p>幻冬舎メディアコンサルティング</p><span>1</span>
+              <label>
+                <input type="checkbox" name="facet_cb_publisher_facet" value="%E5%B9%BB%E5%86%AC%E8%88%8E%E3%83%A1%E3%83%87%E3%82%A3%E3%82%A2%E3%82%B3%E3%83%B3%E3%82%B5%E3%83%AB%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0">
+                <div class="c_check_block"></div>
+              </label>
+            </li>
+            <li>
+              <p>書写者不明</p><span>1</span>
+              <label>
+                <input type="checkbox" name="facet_cb_publisher_facet" value="%E6%9B%B8%E5%86%99%E8%80%85%E4%B8%8D%E6%98%8E">
+                <div class="c_check_block"></div>
+              </label>
+            </li>
+            <li>
+              <p>藤代禎輔</p><span>1</span>
+              <label>
+                <input type="checkbox" name="facet_cb_publisher_facet" value="%E8%97%A4%E4%BB%A3%E7%A6%8E%E8%BC%94">
+                <div class="c_check_block"></div>
+              </label>
+            </li>
+            <li>
+              <p>Sijthoff &amp; Noordhoff</p><span>1</span>
+              <label>
+                <input type="checkbox" name="facet_cb_publisher_facet" value="Sijthoff+%26+Noordhoff">
+                <div class="c_check_block"></div>
+              </label>
+            </li>
+      </ul>
+    </div>
+  <input name="facet_hidden_publisher_facet" type="hidden" value="publisher_facet" class="facet_hidden_publisher_facet">
+
+  </section>
+    <a class="c_refinment_more_btn l_condition_area_resize l_facet_card facet_more_publisher_facet ">もっと見る</a>
+    <a class="c_refinment_more_btn l_condition_area_resize l_facet_card facet_more_publisher_facet" style="display: none;">閉じる</a>
+
+      <section class="l_facet_card ">
+
+  <h4>言語<button type="button" name="button" class="l_facet_releaseAll">全解除</button></h4>
+
+  <ul>
+      <li>
+        <p>日本語</p><span>18</span>
+        <label>
+          <input type="checkbox" name="facet_cb_lang_facet" value="jpn">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+      <li>
+        <p>英語</p><span>4</span>
+        <label>
+          <input type="checkbox" name="facet_cb_lang_facet" value="eng">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+  </ul>
+
+  <input name="facet_hidden_lang_facet" type="hidden" value="lang_facet" class="facet_hidden_lang_facet">
+
+  </section>
+
+      <section class="l_facet_card ">
+
+  <h4>所蔵館<button type="button" name="button" class="l_facet_releaseAll">全解除</button></h4>
+
+  <ul>
+      <li>
+        <p>中央</p><span>16</span>
+        <label>
+          <input type="checkbox" name="facet_cb_branch_facet" value="1">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+      <li>
+        <p>体芸</p><span>4</span>
+        <label>
+          <input type="checkbox" name="facet_cb_branch_facet" value="2">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+      <li>
+        <p>医学</p><span>2</span>
+        <label>
+          <input type="checkbox" name="facet_cb_branch_facet" value="3">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+      <li>
+        <p>図情</p><span>1</span>
+        <label>
+          <input type="checkbox" name="facet_cb_branch_facet" value="9">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+  </ul>
+
+  <input name="facet_hidden_branch_facet" type="hidden" value="branch_facet" class="facet_hidden_branch_facet">
+
+  </section>
+
+      <section class="l_facet_card ">
+
+  <h4>所在<button type="button" name="button" class="l_facet_releaseAll">全解除</button></h4>
+
+  <ul>
+      <li>
+        <p>中央</p><span>14</span>
+        <label>
+          <input type="checkbox" name="facet_cb_loc_facet" value="100">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+      <li>
+        <p>中央本学</p><span>6</span>
+        <label>
+          <input type="checkbox" name="facet_cb_loc_facet" value="1HO">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+      <li>
+        <p>体芸</p><span>4</span>
+        <label>
+          <input type="checkbox" name="facet_cb_loc_facet" value="200">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+      <li>
+        <p>医学</p><span>2</span>
+        <label>
+          <input type="checkbox" name="facet_cb_loc_facet" value="300">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+      <li>
+        <p>図情2階閲覧室</p><span>1</span>
+        <label>
+          <input type="checkbox" name="facet_cb_loc_facet" value="904">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+  </ul>
+
+  <input name="facet_hidden_loc_facet" type="hidden" value="loc_facet" class="facet_hidden_loc_facet">
+
+  </section>
+
+      <section class="l_facet_card ">
+
+  <h4>貸出区分<button type="button" name="button" class="l_facet_releaseAll">全解除</button></h4>
+
+  <ul>
+      <li>
+        <p>一般図書</p><span>17</span>
+        <label>
+          <input type="checkbox" name="facet_cb_circ_code_facet" value="00">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+      <li>
+        <p>本学</p><span>6</span>
+        <label>
+          <input type="checkbox" name="facet_cb_circ_code_facet" value="HO">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+      <li>
+        <p>参考</p><span>2</span>
+        <label>
+          <input type="checkbox" name="facet_cb_circ_code_facet" value="RE">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+      <li>
+        <p>授業関連</p><span>1</span>
+        <label>
+          <input type="checkbox" name="facet_cb_circ_code_facet" value="CR">
+          <div class="c_check_block"></div>
+        </label>
+      </li>
+  </ul>
+
+  <input name="facet_hidden_circ_code_facet" type="hidden" value="circ_code_facet" class="facet_hidden_circ_code_facet">
+
+  </section>
+
+    <div class="c_button_area l_buttonArea" style="position: fixed; width: 226px; bottom: 30px; left: 17px;">
+      <button type="submit" name="refinementSubmit" class="c_pale_button l_pale_button" id="lid_Refinement_submit">
+        絞り込む
+      </button>
+    </div>
+    <div class="l_left_menu_end"></div>
+    <script>
+//<![CDATA[
+$(function(){
+
+  var BTN_WIDTH  = '226px';
+  var BTN_HEIGHT = $('.l_pale_button').height();
+
+  // ボタンのページ左端からの距離
+  var MGN_LEFT = 17;
+  // ボタンのページ下端からの距離
+  var MGN_BTM  = 30;
+
+  // エリアの位置情報
+  var area = updateAreaLocate();
+  // ボタン固定範囲
+  var fixed = setFixedRange(area.top, area.btm);
+  fixed_button_area();
+
+  $(window).on('scroll', function() {
+    fixed_button_area();
+  });
+
+  $(window).on('resize', function(){
+    // 固定範囲を再算出する
+    fixed = setFixedRange(area.top, area.btm);
+    $(window).trigger('scroll');
+
+    // スマホ用ファセットを表示した状態で PC 画面に切り替わった場合, ファセットを非表示にする
+    var windowWidth = window.innerWidth;
+    if (windowWidth >= LARGE_WINDOW_SIZE){
+      cansel_spRefinement();
+      spRefinement_return();
+      $('.l_sp_Facetselectors').css(DISPLAY_CLEAR);
+      $('.l_sp_Facet_area').css(DISPLAY_NONE);
+      $('#lid_sp_condition_area').css(DISPLAY_NONE);
+      select_target($('#lid_seledted_target').val());
+      var now_areaTop = $('.l_refinement_area').offset().top;
+      var now_areaBtm = $('.l_left_menu_end').offset().top - now_areaTop;
+      // スマホ用で読み込んだ時, スマホ用の位置情報になっているため更新する
+      if (area.top != now_areaTop && area.btm != now_areaBtm){
+        $('.l_condition_area_resize').trigger('click');
+      }
+    }
+  });
+
+  $(document).on('click', '.l_condition_area_resize', function(){
+    // リスト開閉後の値を取得するため, ほんの少し遅延させる
+    setTimeout(function(){
+      area = updateAreaLocate();
+      fixed = setFixedRange(area.top, area.btm);
+      $(window).trigger('scroll');
+    }, 1);
+  });
+
+  // 対象データベースを切り替える
+  $(document).on('click', '.l_select_target', function(){
+    $('.l_condition_area_resize').trigger('click');
+    if( !(area.top || area.btm || area.height) ){
+        //高さがとれなかったとき（areaがすべて0の時再計算する）
+        area = updateAreaLocate();
+        $(window).trigger('resize');
+    }
+  });
+
+
+  /*
+   * エリアの位置情報と高さを更新する
+   * @return areaTop, areaBtm, areaHeight エリアの位置情報と高さ
+   */
+  function updateAreaLocate() {
+    var areaTop = $('.l_refinement_area').offset().top;
+    var areaHeight = $('.l_left_menu_end').offset().top - areaTop;
+    var areaBtm = areaTop + areaHeight;
+    return {top: areaTop, btm: areaBtm, height: areaHeight}
+  }
+
+  /*
+   * ボタンの固定範囲を算出する
+   * @param top エリア上部の位置情報
+   * @param btm エリア下部の位置情報
+   * @return fixedTop, fixedBtm ボタンの固定範囲
+   */
+  function setFixedRange(top, btm) {
+    var fixedTop = top + BTN_HEIGHT + MGN_BTM + 10 - $(window).height() - $('.l_condition_area').height() * 1.33;
+    var fixedBtm = btm + BTN_HEIGHT + MGN_BTM * 2 - $(window).height();
+    return {top: fixedTop, btm: fixedBtm}
+  }
+
+  /*
+   * ボタンの固定範囲内外のイベント
+   */
+  function fixed_button_area() {
+
+    if ($('#lid_target_total_local').val() == '0') {
+        //検索ヒットしない時は何もしない
+        return;
+    }
+
+    if (fixed.top < $(window).scrollTop() && $(window).scrollTop() < fixed.btm) {
+      // 横スクロールした分だけ左へずらしていく
+      if ($(window).width() <= 1023){
+      var btnMgnLeft = MGN_LEFT - $(window).scrollLeft();
+      }else{
+        var btnMgnLeft = '';
+      }
+      // 固定
+      $('.l_buttonArea').css({
+        'position': 'fixed',
+        'width'   : BTN_WIDTH,
+        'bottom'  : MGN_BTM,
+        'left'    : btnMgnLeft
+      });
+    } else {
+      // 固定解除
+      $('.l_buttonArea').removeAttr('style');
+    }
+    $('.l_refinement_area').css('height', area.height + BTN_HEIGHT / 2 * 3 + MGN_BTM);
+  }
+});
+//]]>
+</script>
+</div>
+</div>
+
+  </div>
+  <div class="c_result_contents p_result_contents" id="resultContents">
+    <div class="c_result_header" id="resultHeader">
+      <div class="cardsTitle c_cards_title p_cards_title">
+        <h2>詳細検索</h2>
+        <span>全21件 1～21</span>
+          <span class="pc_only c_sort_select_title">並び順</span>
+          <div class="selectWrap">
+            <select name="lid_sort" id="lid_sort" class="l_sort c_sort_select"><option value="recommended_d">お薦め順</option>
+<option value="year_d">出版年(新しいものから)</option>
+<option value="year_a">出版年(古いものから)</option>
+<option selected="selected" value="arrival_date_d">新着日(新しいものから)</option>
+<option value="title_a">タイトル(Aから)</option>
+<option value="title_d">タイトル(Zから)</option>
+<option value="author_a">著者(Aから)</option>
+<option value="author_d">著者(Zから)</option>
+<option value="lending_count_d">貸出回数</option>
+<option value="rank_d">関連度</option></select>
+          </div>
+          <div id="lid_search_message_local_header" class="c_search_message_local_header">
+            
+          </div>
+      </div>
+      <div class="cardsSubmenu c_cards_sub_menu p_cards_sub_menu">
+        <div class="cardsSuggestion c_cards_suggestion p_cards_suggestion">
+
+
+        </div>
+        <div class="checkMenu c_cards_check_menu p_cards_check_menu">
+            <span class="checkedCount c_cards_checked_count">選択数:
+              <span id="lid_checkedCount">0</span>件</span>
+            <button type="button" name="selectAll" class="text selectAll c_all_select" id="lid_selectAll">全選択</button>
+            <button type="button" name="releaseAll" class="text releaseAll c_all_select" id="lid_releaseAll">全解除</button>
+                  <button type="button" id="lid_lump_btn_MB" class="l_lump_btn_for_activity withIcon icon-bookmark submitter disable" disabled="disabled">
+                    <span class="pc_only">一括登録</span>
+                  </button>
+        </div>
+      </div>
+
+
+    </div>
+      <div id="resultCards" class="l_resultCards col2">
+        <!-- 検索結果一覧表示エリア（繰り返し表示） -->
+          <div class="panel searchCard l_searchCard c_search_card p_search_card">
+  <div class="checkboxSquare l_checkboxSquare c_checkbox_square p_checkbox_square" onclick="l_c_click(this)"></div>
+      <input type="hidden" class="l_rchekbox" value="">
+  <input type="hidden" class="l_elementid" value="3971179">
+  <input type="hidden" class="l_material_id" value="b3971179">
+  <input type="hidden" class="l_material_isbn" value="9784910114064">
+  <input type="hidden" class="l_material_isbn_hdn" value="9784910114064">
+  <input type="hidden" class="l_material_ident" value="">
+  <input type="hidden" class="l_material_libtype" value="book">
+  <input type="hidden" class="l_material_primaryInfoId" value="">
+  <input type="hidden" class="l_material_pageRange" value="">
+  <input type="hidden" class="l_material_index" value="1">
+  <input type="hidden" class="l_material_parent_id" value="">
+  <input type="hidden" class="l_send_from_for_limedio_toc" value="crosssearch">
+  <div class="c_searchCard_topWrap">
+    <div class="l_image_area c_image_area p_image_area">
+      <a href="/opac/volume/3971179?current=1&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">
+        <img src="/opac/images/cyan/bookimage-kango.png" alt="">
+      </a>
+      <span class="tag book">図書等</span>
+    </div>
+
+    <div class="informationArea c_information_area l_informationArea">
+      <h3><a href="/opac/volume/3971179?current=1&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">4大陸・6勤務国・36カ国への国際教育支援を通して得た学び</a></h3>
+          <dl class="l_detail_info_pt">
+
+        <dd>公開講演会シリーズ「中央ユーラシアと日本の未来」 : 筑波大学「日本財団中央アジア・日本人材育成プロジェクト(NipCA)」主催</dd>
+    </dl>
+    <dl class="l_detail_info_au_book">
+
+          <dt>著者名</dt>
+          <dd><span>岡本啓史 [講演]/梶山祐治 [ほか] 編集・校正</span></dd>
+    </dl>
+    <dl class="l_detail_info_pu">
+
+          <dt>出版</dt>
+          <dd><span>筑波大学「日本財団中央アジア・日本人材育成プロジェクト(NipCA)」 2020/12</span></dd>
+    </dl>
+    <dl class="l_detail_info_sb">
+
+          <dt>ISBN</dt>
+          <dd><span>9784910114064</span></dd>
+    </dl>
+    <dl class="l_detail_info_hd">
+
+          <dt>所蔵</dt>
+          <dd><span>中央 229.6-Ko41-15 一般図書, 中央本学 229.6-Ko41-15 本学</span></dd>
+    </dl>
+    <dl class="l_detail_info_st" style="">
+
+          <dt>状況（返却予定日）</dt>
+          <dd><span>配架済</span></dd>
+    </dl>
+    <dl class="l_detail_info_oth">
+
+          <dt style="display: none">その他</dt>
+        <dd class="grayTag">
+            <span class="l_detail_othre_tcl" style="display: none">目次あり</span>
+            <span class="l_detail_othre_im" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_eb" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_ej" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_hd" style="display: none">所蔵あり</span>
+        </dd>
+    </dl>
+
+    </div>
+  </div>
+      <div class="buttonMenu c_button_menu_area p_button_menu_area l_button_menu_area">
+        
+  <div class="c_button_sub_area l_button_menu_area" style="">
+
+
+        <button class="reservation icon-book withIcon l_material_button_rb">
+          予約・取り寄せ
+        </button>
+
+
+      <input type="hidden" class="l_material_button_data_rb" value="/opac/user/reservations/new/3971179/104486997">
+  </div>
+
+  <div class="c_button_sub_area l_button_menu_area">
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_a  " style="">
+          ブックマーク追加
+        </button>
+
+        <div class="l_popup_button_mb popupButton" style="display: none;">
+          <button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post" style="">
+  とりあえず登録
+</button>
+
+<button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post_tag" style="">
+  メモなどを入力し登録
+</button>
+        </div>
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_e" style="display: none">
+  編集
+</button>
+<input type="hidden" class="l_material_button_data_mb_e_bookmark_id" value="">
+<input type="hidden" class="l_material_button_data_mb_e_bookshelves" value="">
+<input type="hidden" class="l_material_button_data_mb_e_comment" value="">
+
+      <input type="hidden" class="l_material_button_data_mb_delay">
+  </div>
+
+      </div>
+</div>
+     
+          <div class="panel searchCard l_searchCard c_search_card p_search_card">
+  <div class="checkboxSquare l_checkboxSquare c_checkbox_square p_checkbox_square" onclick="l_c_click(this)"></div>
+      <input type="hidden" class="l_rchekbox" value="">
+  <input type="hidden" class="l_elementid" value="3971190">
+  <input type="hidden" class="l_material_id" value="b3971190">
+  <input type="hidden" class="l_material_isbn" value="9028606394">
+  <input type="hidden" class="l_material_isbn_hdn" value="9028606394">
+  <input type="hidden" class="l_material_ident" value="">
+  <input type="hidden" class="l_material_libtype" value="book">
+  <input type="hidden" class="l_material_primaryInfoId" value="">
+  <input type="hidden" class="l_material_pageRange" value="">
+  <input type="hidden" class="l_material_index" value="2">
+  <input type="hidden" class="l_material_parent_id" value="">
+  <input type="hidden" class="l_send_from_for_limedio_toc" value="crosssearch">
+  <div class="c_searchCard_topWrap">
+    <div class="l_image_area c_image_area p_image_area">
+      <a href="/opac/volume/3971190?current=2&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">
+        <img src="https://books.google.com/books/content?id=Gp5170GJ4R4C&amp;printsec=frontcover&amp;img=1&amp;zoom=5&amp;edge=curl" alt="">
+      </a>
+      <span class="tag book">図書等</span>
+    </div>
+
+    <div class="informationArea c_information_area l_informationArea">
+      <h3><a href="/opac/volume/3971190?current=2&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">Africa and the international law of the sea : a study of the contribution of the African States to the Third United Nations Conference on the Law of the Sea</a></h3>
+          <dl class="l_detail_info_pt">
+
+        <dd>Sijthoff publications on ocean development</dd>
+    </dl>
+    <dl class="l_detail_info_au_book">
+
+          <dt>著者名</dt>
+          <dd><span>Nasila S. Rembe</span></dd>
+    </dl>
+    <dl class="l_detail_info_pu">
+
+          <dt>出版</dt>
+          <dd><span>Sijthoff &amp; Noordhoff 1980</span></dd>
+    </dl>
+    <dl class="l_detail_info_sb">
+
+          <dt>ISBN</dt>
+          <dd><span>9028606394</span></dd>
+    </dl>
+    <dl class="l_detail_info_hd">
+
+          <dt>所蔵</dt>
+          <dd><span>中央 329.269-R26 一般図書</span></dd>
+    </dl>
+    <dl class="l_detail_info_st" style="">
+
+          <dt>状況（返却予定日）</dt>
+          <dd><span>配架済</span></dd>
+    </dl>
+    <dl class="l_detail_info_oth">
+
+          <dt style="display: none">その他</dt>
+        <dd class="grayTag">
+            <span class="l_detail_othre_tcl" style="display: none">目次あり</span>
+            <span class="l_detail_othre_im" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_eb" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_ej" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_hd" style="display: none">所蔵あり</span>
+        </dd>
+    </dl>
+
+    </div>
+  </div>
+      <div class="buttonMenu c_button_menu_area p_button_menu_area l_button_menu_area">
+        
+  <div class="c_button_sub_area l_button_menu_area" style="">
+
+
+        <button class="reservation icon-book withIcon l_material_button_rb">
+          予約・取り寄せ
+        </button>
+
+
+      <input type="hidden" class="l_material_button_data_rb" value="/opac/user/reservations/new/3971190/104487008">
+  </div>
+
+  <div class="c_button_sub_area l_button_menu_area">
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_a  " style="">
+          ブックマーク追加
+        </button>
+
+        <div class="l_popup_button_mb popupButton" style="display: none;">
+          <button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post" style="">
+  とりあえず登録
+</button>
+
+<button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post_tag" style="">
+  メモなどを入力し登録
+</button>
+        </div>
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_e" style="display: none">
+  編集
+</button>
+<input type="hidden" class="l_material_button_data_mb_e_bookmark_id" value="">
+<input type="hidden" class="l_material_button_data_mb_e_bookshelves" value="">
+<input type="hidden" class="l_material_button_data_mb_e_comment" value="">
+
+      <input type="hidden" class="l_material_button_data_mb_delay">
+  </div>
+
+      </div>
+</div>
+     
+          <div class="panel searchCard l_searchCard c_search_card p_search_card">
+  <div class="checkboxSquare l_checkboxSquare c_checkbox_square p_checkbox_square" onclick="l_c_click(this)"></div>
+      <input type="hidden" class="l_rchekbox" value="">
+  <input type="hidden" class="l_elementid" value="3971208">
+  <input type="hidden" class="l_material_id" value="b3971208">
+  <input type="hidden" class="l_material_isbn" value="9784990593322">
+  <input type="hidden" class="l_material_isbn_hdn" value="9784990593322">
+  <input type="hidden" class="l_material_ident" value="">
+  <input type="hidden" class="l_material_libtype" value="book">
+  <input type="hidden" class="l_material_primaryInfoId" value="">
+  <input type="hidden" class="l_material_pageRange" value="">
+  <input type="hidden" class="l_material_index" value="3">
+  <input type="hidden" class="l_material_parent_id" value="">
+  <input type="hidden" class="l_send_from_for_limedio_toc" value="crosssearch">
+  <div class="c_searchCard_topWrap">
+    <div class="l_image_area c_image_area p_image_area">
+      <a href="/opac/volume/3971208?current=3&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">
+        <img src="/opac/images/cyan/bookimage-kango.png" alt="">
+      </a>
+      <span class="tag book">図書等</span>
+    </div>
+
+    <div class="informationArea c_information_area l_informationArea">
+      <h3><a href="/opac/volume/3971208?current=3&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">Empowerment based co-creative action research : towards a world of possibilities for sustainable society</a></h3>
+          <dl class="l_detail_info_au_book">
+
+          <dt>著者名</dt>
+          <dd><span>Tokie Anme, editor</span></dd>
+    </dl>
+    <dl class="l_detail_info_pu">
+
+          <dt>出版</dt>
+          <dd><span>Empowerment Research &amp; Education Forum 2021</span></dd>
+    </dl>
+    <dl class="l_detail_info_sb">
+
+          <dt>ISBN</dt>
+          <dd><span>9784990593322</span></dd>
+    </dl>
+    <dl class="l_detail_info_hd">
+
+          <dt>所蔵</dt>
+          <dd><span>医学 361.16-A49 一般図書</span></dd>
+    </dl>
+    <dl class="l_detail_info_st" style="">
+
+          <dt>状況（返却予定日）</dt>
+          <dd><span>配架済</span></dd>
+    </dl>
+    <dl class="l_detail_info_oth">
+
+          <dt style="display: none">その他</dt>
+        <dd class="grayTag">
+            <span class="l_detail_othre_tcl" style="display: none">目次あり</span>
+            <span class="l_detail_othre_im" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_eb" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_ej" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_hd" style="display: none">所蔵あり</span>
+        </dd>
+    </dl>
+
+    </div>
+  </div>
+      <div class="buttonMenu c_button_menu_area p_button_menu_area l_button_menu_area">
+        
+  <div class="c_button_sub_area l_button_menu_area" style="">
+
+
+        <button class="reservation icon-book withIcon l_material_button_rb">
+          予約・取り寄せ
+        </button>
+
+
+      <input type="hidden" class="l_material_button_data_rb" value="/opac/user/reservations/new/3971208/104487026">
+  </div>
+
+  <div class="c_button_sub_area l_button_menu_area">
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_a  " style="">
+          ブックマーク追加
+        </button>
+
+        <div class="l_popup_button_mb popupButton" style="display: none;">
+          <button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post" style="">
+  とりあえず登録
+</button>
+
+<button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post_tag" style="">
+  メモなどを入力し登録
+</button>
+        </div>
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_e" style="display: none">
+  編集
+</button>
+<input type="hidden" class="l_material_button_data_mb_e_bookmark_id" value="">
+<input type="hidden" class="l_material_button_data_mb_e_bookshelves" value="">
+<input type="hidden" class="l_material_button_data_mb_e_comment" value="">
+
+      <input type="hidden" class="l_material_button_data_mb_delay">
+  </div>
+
+      </div>
+</div>
+     
+          <div class="panel searchCard l_searchCard c_search_card p_search_card">
+  <div class="checkboxSquare l_checkboxSquare c_checkbox_square p_checkbox_square" onclick="l_c_click(this)"></div>
+      <input type="hidden" class="l_rchekbox" value="">
+  <input type="hidden" class="l_elementid" value="3971205">
+  <input type="hidden" class="l_material_id" value="b3971205">
+  <input type="hidden" class="l_material_isbn" value="9784889242577">
+  <input type="hidden" class="l_material_isbn_hdn" value="9784889242577">
+  <input type="hidden" class="l_material_ident" value="">
+  <input type="hidden" class="l_material_libtype" value="book">
+  <input type="hidden" class="l_material_primaryInfoId" value="">
+  <input type="hidden" class="l_material_pageRange" value="">
+  <input type="hidden" class="l_material_index" value="4">
+  <input type="hidden" class="l_material_parent_id" value="">
+  <input type="hidden" class="l_send_from_for_limedio_toc" value="crosssearch">
+  <div class="c_searchCard_topWrap">
+    <div class="l_image_area c_image_area p_image_area">
+      <a href="/opac/volume/3971205?current=4&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">
+        <img src="/opac/images/cyan/bookimage-kango.png" alt="">
+      </a>
+      <span class="tag book">図書等</span>
+    </div>
+
+    <div class="informationArea c_information_area l_informationArea">
+      <h3><a href="/opac/volume/3971205?current=4&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">Empowerment sciences for professionals enhance inclusion and a world of possibilities</a></h3>
+          <dl class="l_detail_info_au_book">
+
+          <dt>著者名</dt>
+          <dd><span>Tokie Anme</span></dd>
+    </dl>
+    <dl class="l_detail_info_pu">
+
+          <dt>出版</dt>
+          <dd><span>Nihon Shoni Iji Shuppansha 2018</span></dd>
+    </dl>
+    <dl class="l_detail_info_sb">
+
+          <dt>ISBN</dt>
+          <dd><span>9784889242577</span></dd>
+    </dl>
+    <dl class="l_detail_info_hd">
+
+          <dt>所蔵</dt>
+          <dd><span>医学 369.16-A49 一般図書</span></dd>
+    </dl>
+    <dl class="l_detail_info_st" style="">
+
+          <dt>状況（返却予定日）</dt>
+          <dd><span>配架済</span></dd>
+    </dl>
+    <dl class="l_detail_info_oth">
+
+          <dt style="display: none">その他</dt>
+        <dd class="grayTag">
+            <span class="l_detail_othre_tcl" style="display: none">目次あり</span>
+            <span class="l_detail_othre_im" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_eb" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_ej" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_hd" style="display: none">所蔵あり</span>
+        </dd>
+    </dl>
+
+    </div>
+  </div>
+      <div class="buttonMenu c_button_menu_area p_button_menu_area l_button_menu_area">
+        
+  <div class="c_button_sub_area l_button_menu_area" style="">
+
+
+        <button class="reservation icon-book withIcon l_material_button_rb">
+          予約・取り寄せ
+        </button>
+
+
+      <input type="hidden" class="l_material_button_data_rb" value="/opac/user/reservations/new/3971205/104487023">
+  </div>
+
+  <div class="c_button_sub_area l_button_menu_area">
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_a  " style="">
+          ブックマーク追加
+        </button>
+
+        <div class="l_popup_button_mb popupButton" style="display: none;">
+          <button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post" style="">
+  とりあえず登録
+</button>
+
+<button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post_tag" style="">
+  メモなどを入力し登録
+</button>
+        </div>
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_e" style="display: none">
+  編集
+</button>
+<input type="hidden" class="l_material_button_data_mb_e_bookmark_id" value="">
+<input type="hidden" class="l_material_button_data_mb_e_bookshelves" value="">
+<input type="hidden" class="l_material_button_data_mb_e_comment" value="">
+
+      <input type="hidden" class="l_material_button_data_mb_delay">
+  </div>
+
+      </div>
+</div>
+     
+          <div class="panel searchCard l_searchCard c_search_card p_search_card">
+  <div class="checkboxSquare l_checkboxSquare c_checkbox_square p_checkbox_square" onclick="l_c_click(this)"></div>
+      <input type="hidden" class="l_rchekbox" value="">
+  <input type="hidden" class="l_elementid" value="3971204">
+  <input type="hidden" class="l_material_id" value="b3971204">
+  <input type="hidden" class="l_material_isbn" value="9784839973476">
+  <input type="hidden" class="l_material_isbn_hdn" value="9784839973476">
+  <input type="hidden" class="l_material_ident" value="">
+  <input type="hidden" class="l_material_libtype" value="book">
+  <input type="hidden" class="l_material_primaryInfoId" value="">
+  <input type="hidden" class="l_material_pageRange" value="">
+  <input type="hidden" class="l_material_index" value="5">
+  <input type="hidden" class="l_material_parent_id" value="">
+  <input type="hidden" class="l_send_from_for_limedio_toc" value="crosssearch">
+  <div class="c_searchCard_topWrap">
+    <div class="l_image_area c_image_area p_image_area">
+      <a href="/opac/volume/3971204?current=5&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">
+        <img src="https://books.google.com/books/content?id=cLSKzQEACAAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5" alt="">
+      </a>
+      <span class="tag book">図書等</span>
+    </div>
+
+    <div class="informationArea c_information_area l_informationArea">
+      <h3><a href="/opac/volume/3971204?current=5&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">Web制作会社年鑑 : Web creative productions portfolio, 2020</a></h3>
+          <dl class="l_detail_info_pt">
+
+        <dd>Web designing books</dd>
+    </dl>
+    <dl class="l_detail_info_au_book">
+
+          <dt>著者名</dt>
+          <dd><span>Web Designing編集部編</span></dd>
+    </dl>
+    <dl class="l_detail_info_pu">
+
+          <dt>出版</dt>
+          <dd><span>毎日コミュニケーションズ 2003/12-</span></dd>
+    </dl>
+    <dl class="l_detail_info_sb">
+
+          <dt>ISBN</dt>
+          <dd><span>9784839973476</span></dd>
+    </dl>
+    <dl class="l_detail_info_hd">
+
+          <dt>所蔵</dt>
+          <dd><span>体芸 007.35-W51-2020 一般図書</span></dd>
+    </dl>
+    <dl class="l_detail_info_st" style="">
+
+          <dt>状況（返却予定日）</dt>
+          <dd><span>配架済</span></dd>
+    </dl>
+    <dl class="l_detail_info_oth">
+
+          <dt style="display: none">その他</dt>
+        <dd class="grayTag">
+            <span class="l_detail_othre_tcl" style="display: none">目次あり</span>
+            <span class="l_detail_othre_im" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_eb" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_ej" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_hd" style="display: none">所蔵あり</span>
+        </dd>
+    </dl>
+
+    </div>
+  </div>
+      <div class="buttonMenu c_button_menu_area p_button_menu_area l_button_menu_area">
+        
+  <div class="c_button_sub_area l_button_menu_area" style="">
+
+
+        <button class="reservation icon-book withIcon l_material_button_rb">
+          予約・取り寄せ
+        </button>
+
+
+      <input type="hidden" class="l_material_button_data_rb" value="/opac/user/reservations/new/3971204/104487022">
+  </div>
+
+  <div class="c_button_sub_area l_button_menu_area">
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_a  " style="">
+          ブックマーク追加
+        </button>
+
+        <div class="l_popup_button_mb popupButton" style="display: none;">
+          <button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post" style="">
+  とりあえず登録
+</button>
+
+<button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post_tag" style="">
+  メモなどを入力し登録
+</button>
+        </div>
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_e" style="display: none">
+  編集
+</button>
+<input type="hidden" class="l_material_button_data_mb_e_bookmark_id" value="">
+<input type="hidden" class="l_material_button_data_mb_e_bookshelves" value="">
+<input type="hidden" class="l_material_button_data_mb_e_comment" value="">
+
+      <input type="hidden" class="l_material_button_data_mb_delay">
+  </div>
+
+      </div>
+</div>
+     
+          <div class="panel searchCard l_searchCard c_search_card p_search_card">
+  <div class="checkboxSquare l_checkboxSquare c_checkbox_square p_checkbox_square" onclick="l_c_click(this)"></div>
+      <input type="hidden" class="l_rchekbox" value="">
+  <input type="hidden" class="l_elementid" value="3971138">
+  <input type="hidden" class="l_material_id" value="b3971138">
+  <input type="hidden" class="l_material_isbn" value="9784910114057">
+  <input type="hidden" class="l_material_isbn_hdn" value="9784910114057">
+  <input type="hidden" class="l_material_ident" value="">
+  <input type="hidden" class="l_material_libtype" value="book">
+  <input type="hidden" class="l_material_primaryInfoId" value="">
+  <input type="hidden" class="l_material_pageRange" value="">
+  <input type="hidden" class="l_material_index" value="6">
+  <input type="hidden" class="l_material_parent_id" value="">
+  <input type="hidden" class="l_send_from_for_limedio_toc" value="crosssearch">
+  <div class="c_searchCard_topWrap">
+    <div class="l_image_area c_image_area p_image_area">
+      <a href="/opac/volume/3971138?current=6&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">
+        <img src="/opac/images/cyan/bookimage-kango.png" alt="">
+      </a>
+      <span class="tag book">図書等</span>
+    </div>
+
+    <div class="informationArea c_information_area l_informationArea">
+      <h3><a href="/opac/volume/3971138?current=6&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">アジアの人材育成 : 日本の外国人介護人材受入制度について</a></h3>
+          <dl class="l_detail_info_pt">
+
+        <dd>公開講演会シリーズ「中央ユーラシアと日本の未来」 : 筑波大学「日本財団中央アジア・日本人材育成プロジェクト(NipCA)」主催</dd>
+    </dl>
+    <dl class="l_detail_info_au_book">
+
+          <dt>著者名</dt>
+          <dd><span>鹿毛理恵 [講演]/梶山祐治 [ほか] 編集・校正</span></dd>
+    </dl>
+    <dl class="l_detail_info_pu">
+
+          <dt>出版</dt>
+          <dd><span>筑波大学「日本財団中央アジア・日本人材育成プロジェクト(NipCA)」 2020/11</span></dd>
+    </dl>
+    <dl class="l_detail_info_sb">
+
+          <dt>ISBN</dt>
+          <dd><span>9784910114057</span></dd>
+    </dl>
+    <dl class="l_detail_info_hd">
+
+          <dt>所蔵</dt>
+          <dd><span>中央 229.6-Ko41-13 一般図書, 中央本学 229.6-Ko41-13 本学</span></dd>
+    </dl>
+    <dl class="l_detail_info_st" style="">
+
+          <dt>状況（返却予定日）</dt>
+          <dd><span>配架済</span></dd>
+    </dl>
+    <dl class="l_detail_info_oth">
+
+          <dt style="display: none">その他</dt>
+        <dd class="grayTag">
+            <span class="l_detail_othre_tcl" style="display: none">目次あり</span>
+            <span class="l_detail_othre_im" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_eb" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_ej" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_hd" style="display: none">所蔵あり</span>
+        </dd>
+    </dl>
+
+    </div>
+  </div>
+      <div class="buttonMenu c_button_menu_area p_button_menu_area l_button_menu_area">
+        
+  <div class="c_button_sub_area l_button_menu_area" style="">
+
+
+        <button class="reservation icon-book withIcon l_material_button_rb">
+          予約・取り寄せ
+        </button>
+
+
+      <input type="hidden" class="l_material_button_data_rb" value="/opac/user/reservations/new/3971138/104486956">
+  </div>
+
+  <div class="c_button_sub_area l_button_menu_area">
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_a  " style="">
+          ブックマーク追加
+        </button>
+
+        <div class="l_popup_button_mb popupButton" style="display: none;">
+          <button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post" style="">
+  とりあえず登録
+</button>
+
+<button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post_tag" style="">
+  メモなどを入力し登録
+</button>
+        </div>
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_e" style="display: none">
+  編集
+</button>
+<input type="hidden" class="l_material_button_data_mb_e_bookmark_id" value="">
+<input type="hidden" class="l_material_button_data_mb_e_bookshelves" value="">
+<input type="hidden" class="l_material_button_data_mb_e_comment" value="">
+
+      <input type="hidden" class="l_material_button_data_mb_delay">
+  </div>
+
+      </div>
+</div>
+     
+          <div class="panel searchCard l_searchCard c_search_card p_search_card">
+  <div class="checkboxSquare l_checkboxSquare c_checkbox_square p_checkbox_square" onclick="l_c_click(this)"></div>
+      <input type="hidden" class="l_rchekbox" value="">
+  <input type="hidden" class="l_elementid" value="3971206">
+  <input type="hidden" class="l_material_id" value="b3971206">
+  <input type="hidden" class="l_material_isbn" value="9784756253217">
+  <input type="hidden" class="l_material_isbn_hdn" value="9784756253217">
+  <input type="hidden" class="l_material_ident" value="">
+  <input type="hidden" class="l_material_libtype" value="book">
+  <input type="hidden" class="l_material_primaryInfoId" value="">
+  <input type="hidden" class="l_material_pageRange" value="">
+  <input type="hidden" class="l_material_index" value="7">
+  <input type="hidden" class="l_material_parent_id" value="">
+  <input type="hidden" class="l_send_from_for_limedio_toc" value="crosssearch">
+  <div class="c_searchCard_topWrap">
+    <div class="l_image_area c_image_area p_image_area">
+      <a href="/opac/volume/3971206?current=7&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">
+        <img src="https://books.google.com/books/content?id=-XhtzQEACAAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5" alt="">
+      </a>
+      <span class="tag book">図書等</span>
+    </div>
+
+    <div class="informationArea c_information_area l_informationArea">
+      <h3><a href="/opac/volume/3971206?current=7&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">美し、をかし、和名由来の江戸鳥図鑑</a></h3>
+          <dl class="l_detail_info_au_book">
+
+          <dt>著者名</dt>
+          <dd><span>田島一彦企画/アートディレクション</span></dd>
+    </dl>
+    <dl class="l_detail_info_pu">
+
+          <dt>出版</dt>
+          <dd><span>パイインターナショナル 2020/3</span></dd>
+    </dl>
+    <dl class="l_detail_info_sb">
+
+          <dt>ISBN</dt>
+          <dd><span>9784756253217</span></dd>
+    </dl>
+    <dl class="l_detail_info_hd">
+
+          <dt>所蔵</dt>
+          <dd><span>体芸 488.21-Ta26 参考</span></dd>
+    </dl>
+    <dl class="l_detail_info_st" style="">
+
+          <dt>状況（返却予定日）</dt>
+          <dd><span>配架済</span></dd>
+    </dl>
+    <dl class="l_detail_info_oth">
+
+          <dt style="display: none">その他</dt>
+        <dd class="grayTag">
+            <span class="l_detail_othre_tcl" style="display: none">目次あり</span>
+            <span class="l_detail_othre_im" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_eb" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_ej" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_hd" style="display: none">所蔵あり</span>
+        </dd>
+    </dl>
+
+    </div>
+  </div>
+      <div class="buttonMenu c_button_menu_area p_button_menu_area l_button_menu_area">
+        
+  <div class="c_button_sub_area l_button_menu_area" style="">
+
+
+        <button class="reservation icon-book withIcon l_material_button_rb">
+          予約・取り寄せ
+        </button>
+
+
+      <input type="hidden" class="l_material_button_data_rb" value="/opac/user/reservations/new/3971206/104487024">
+  </div>
+
+  <div class="c_button_sub_area l_button_menu_area">
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_a  " style="">
+          ブックマーク追加
+        </button>
+
+        <div class="l_popup_button_mb popupButton" style="display: none;">
+          <button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post" style="">
+  とりあえず登録
+</button>
+
+<button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post_tag" style="">
+  メモなどを入力し登録
+</button>
+        </div>
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_e" style="display: none">
+  編集
+</button>
+<input type="hidden" class="l_material_button_data_mb_e_bookmark_id" value="">
+<input type="hidden" class="l_material_button_data_mb_e_bookshelves" value="">
+<input type="hidden" class="l_material_button_data_mb_e_comment" value="">
+
+      <input type="hidden" class="l_material_button_data_mb_delay">
+  </div>
+
+      </div>
+</div>
+     
+          <div class="panel searchCard l_searchCard c_search_card p_search_card">
+  <div class="checkboxSquare l_checkboxSquare c_checkbox_square p_checkbox_square" onclick="l_c_click(this)"></div>
+      <input type="hidden" class="l_rchekbox" value="">
+  <input type="hidden" class="l_elementid" value="3971193">
+  <input type="hidden" class="l_material_id" value="b3971193">
+  <input type="hidden" class="l_material_isbn" value="9784896293814">
+  <input type="hidden" class="l_material_isbn_hdn" value="9784896293814">
+  <input type="hidden" class="l_material_ident" value="">
+  <input type="hidden" class="l_material_libtype" value="book">
+  <input type="hidden" class="l_material_primaryInfoId" value="">
+  <input type="hidden" class="l_material_pageRange" value="">
+  <input type="hidden" class="l_material_index" value="8">
+  <input type="hidden" class="l_material_parent_id" value="">
+  <input type="hidden" class="l_send_from_for_limedio_toc" value="crosssearch">
+  <div class="c_searchCard_topWrap">
+    <div class="l_image_area c_image_area p_image_area">
+      <a href="/opac/volume/3971193?current=8&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">
+        <img src="https://books.google.com/books/content?id=NLsIzgEACAAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5" alt="">
+      </a>
+      <span class="tag book">図書等</span>
+    </div>
+
+    <div class="informationArea c_information_area l_informationArea">
+      <h3><a href="/opac/volume/3971193?current=8&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">金子みすゞの童謡を読む : 西條八十と北原白秋の受容と展開</a></h3>
+          <dl class="l_detail_info_au_book">
+
+          <dt>著者名</dt>
+          <dd><span>ナーヘド・アルメリ著</span></dd>
+    </dl>
+    <dl class="l_detail_info_pu">
+
+          <dt>出版</dt>
+          <dd><span>港の人 2020/11</span></dd>
+    </dl>
+    <dl class="l_detail_info_sb">
+
+          <dt>ISBN</dt>
+          <dd><span>9784896293814</span></dd>
+    </dl>
+    <dl class="l_detail_info_hd">
+
+          <dt>所蔵</dt>
+          <dd><span>中央 909.1-Ka53 一般図書</span></dd>
+    </dl>
+    <dl class="l_detail_info_st" style="">
+
+          <dt>状況（返却予定日）</dt>
+          <dd><span>配架済</span></dd>
+    </dl>
+    <dl class="l_detail_info_oth">
+
+          <dt style="display: none">その他</dt>
+        <dd class="grayTag">
+            <span class="l_detail_othre_tcl" style="display: none">目次あり</span>
+            <span class="l_detail_othre_im" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_eb" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_ej" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_hd" style="display: none">所蔵あり</span>
+        </dd>
+    </dl>
+
+    </div>
+  </div>
+      <div class="buttonMenu c_button_menu_area p_button_menu_area l_button_menu_area">
+        
+  <div class="c_button_sub_area l_button_menu_area" style="">
+
+
+        <button class="reservation icon-book withIcon l_material_button_rb">
+          予約・取り寄せ
+        </button>
+
+
+      <input type="hidden" class="l_material_button_data_rb" value="/opac/user/reservations/new/3971193/104487011">
+  </div>
+
+  <div class="c_button_sub_area l_button_menu_area">
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_a  " style="">
+          ブックマーク追加
+        </button>
+
+        <div class="l_popup_button_mb popupButton" style="display: none;">
+          <button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post" style="">
+  とりあえず登録
+</button>
+
+<button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post_tag" style="">
+  メモなどを入力し登録
+</button>
+        </div>
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_e" style="display: none">
+  編集
+</button>
+<input type="hidden" class="l_material_button_data_mb_e_bookmark_id" value="">
+<input type="hidden" class="l_material_button_data_mb_e_bookshelves" value="">
+<input type="hidden" class="l_material_button_data_mb_e_comment" value="">
+
+      <input type="hidden" class="l_material_button_data_mb_delay">
+  </div>
+
+      </div>
+</div>
+     
+          <div class="panel searchCard l_searchCard c_search_card p_search_card">
+  <div class="checkboxSquare l_checkboxSquare c_checkbox_square p_checkbox_square" onclick="l_c_click(this)"></div>
+      <input type="hidden" class="l_rchekbox" value="">
+  <input type="hidden" class="l_elementid" value="3971194">
+  <input type="hidden" class="l_material_id" value="b3971194">
+  <input type="hidden" class="l_material_isbn" value="9784909862181">
+  <input type="hidden" class="l_material_isbn_hdn" value="9784909862181">
+  <input type="hidden" class="l_material_ident" value="">
+  <input type="hidden" class="l_material_libtype" value="book">
+  <input type="hidden" class="l_material_primaryInfoId" value="">
+  <input type="hidden" class="l_material_pageRange" value="">
+  <input type="hidden" class="l_material_index" value="9">
+  <input type="hidden" class="l_material_parent_id" value="">
+  <input type="hidden" class="l_send_from_for_limedio_toc" value="crosssearch">
+  <div class="c_searchCard_topWrap">
+    <div class="l_image_area c_image_area p_image_area">
+      <a href="/opac/volume/3971194?current=9&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">
+        <img src="https://books.google.com/books/content?id=U15ezgEACAAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5" alt="">
+      </a>
+      <span class="tag book">図書等</span>
+    </div>
+
+    <div class="informationArea c_information_area l_informationArea">
+      <h3><a href="/opac/volume/3971194?current=9&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">コロナと精神分析的臨床 : 「会うこと」の喪失と回復</a></h3>
+          <dl class="l_detail_info_au_book">
+
+          <dt>著者名</dt>
+          <dd><span>荻本快, 北山修編著</span></dd>
+    </dl>
+    <dl class="l_detail_info_pu">
+
+          <dt>出版</dt>
+          <dd><span>木立の文庫 2021/3</span></dd>
+    </dl>
+    <dl class="l_detail_info_sb">
+
+          <dt>ISBN</dt>
+          <dd><span>9784909862181</span></dd>
+    </dl>
+    <dl class="l_detail_info_hd">
+
+          <dt>所蔵</dt>
+          <dd><span>中央 146.1-O25 一般図書</span></dd>
+    </dl>
+    <dl class="l_detail_info_st" style="">
+
+          <dt>状況（返却予定日）</dt>
+          <dd><span>配架済</span></dd>
+    </dl>
+    <dl class="l_detail_info_oth">
+
+          <dt style="display: none">その他</dt>
+        <dd class="grayTag">
+            <span class="l_detail_othre_tcl" style="display: none">目次あり</span>
+            <span class="l_detail_othre_im" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_eb" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_ej" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_hd" style="display: none">所蔵あり</span>
+        </dd>
+    </dl>
+
+    </div>
+  </div>
+      <div class="buttonMenu c_button_menu_area p_button_menu_area l_button_menu_area">
+        
+  <div class="c_button_sub_area l_button_menu_area" style="">
+
+
+        <button class="reservation icon-book withIcon l_material_button_rb">
+          予約・取り寄せ
+        </button>
+
+
+      <input type="hidden" class="l_material_button_data_rb" value="/opac/user/reservations/new/3971194/104487012">
+  </div>
+
+  <div class="c_button_sub_area l_button_menu_area">
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_a  " style="">
+          ブックマーク追加
+        </button>
+
+        <div class="l_popup_button_mb popupButton" style="display: none;">
+          <button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post" style="">
+  とりあえず登録
+</button>
+
+<button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post_tag" style="">
+  メモなどを入力し登録
+</button>
+        </div>
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_e" style="display: none">
+  編集
+</button>
+<input type="hidden" class="l_material_button_data_mb_e_bookmark_id" value="">
+<input type="hidden" class="l_material_button_data_mb_e_bookshelves" value="">
+<input type="hidden" class="l_material_button_data_mb_e_comment" value="">
+
+      <input type="hidden" class="l_material_button_data_mb_delay">
+  </div>
+
+      </div>
+</div>
+     
+          <div class="panel searchCard l_searchCard c_search_card p_search_card">
+  <div class="checkboxSquare l_checkboxSquare c_checkbox_square p_checkbox_square" onclick="l_c_click(this)"></div>
+      <input type="hidden" class="l_rchekbox" value="">
+  <input type="hidden" class="l_elementid" value="3971188">
+  <input type="hidden" class="l_material_id" value="b3971188">
+  <input type="hidden" class="l_material_isbn" value="">
+  <input type="hidden" class="l_material_isbn_hdn" value="">
+  <input type="hidden" class="l_material_ident" value="">
+  <input type="hidden" class="l_material_libtype" value="book">
+  <input type="hidden" class="l_material_primaryInfoId" value="">
+  <input type="hidden" class="l_material_pageRange" value="">
+  <input type="hidden" class="l_material_index" value="10">
+  <input type="hidden" class="l_material_parent_id" value="">
+  <input type="hidden" class="l_send_from_for_limedio_toc" value="crosssearch">
+  <div class="c_searchCard_topWrap">
+    <div class="l_image_area c_image_area p_image_area">
+      <a href="/opac/volume/3971188?current=10&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">
+        <img src="/opac/images/cyan/bookimage-kango.png" alt="">
+      </a>
+      <span class="tag book">図書等</span>
+    </div>
+
+    <div class="informationArea c_information_area l_informationArea">
+      <h3><a href="/opac/volume/3971188?current=10&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">新型コロナウイルス感染症にかかわる諸問題の数理</a></h3>
+          <dl class="l_detail_info_pt">
+
+        <dd>MI lecture note series</dd>
+    </dl>
+    <dl class="l_detail_info_au_book">
+
+          <dt>著者名</dt>
+          <dd><span>池森俊文著</span></dd>
+    </dl>
+    <dl class="l_detail_info_pu">
+
+          <dt>出版</dt>
+          <dd><span>九州大学マス・フォア・インダストリ研究所, 九州大学大学院数理学府 2021/3</span></dd>
+    </dl>
+    <dl class="l_detail_info_hd">
+
+          <dt>所蔵</dt>
+          <dd><span>中央 417-I33 一般図書</span></dd>
+    </dl>
+    <dl class="l_detail_info_st" style="">
+
+          <dt>状況（返却予定日）</dt>
+          <dd><span>配架済</span></dd>
+    </dl>
+    <dl class="l_detail_info_oth">
+
+          <dt style="display: none">その他</dt>
+        <dd class="grayTag">
+            <span class="l_detail_othre_tcl" style="display: none">目次あり</span>
+            <span class="l_detail_othre_im" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_eb" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_ej" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_hd" style="display: none">所蔵あり</span>
+        </dd>
+    </dl>
+
+    </div>
+  </div>
+      <div class="buttonMenu c_button_menu_area p_button_menu_area l_button_menu_area">
+        
+  <div class="c_button_sub_area l_button_menu_area" style="">
+
+
+        <button class="reservation icon-book withIcon l_material_button_rb">
+          予約・取り寄せ
+        </button>
+
+
+      <input type="hidden" class="l_material_button_data_rb" value="/opac/user/reservations/new/3971188/104487006">
+  </div>
+
+  <div class="c_button_sub_area l_button_menu_area">
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_a  " style="">
+          ブックマーク追加
+        </button>
+
+        <div class="l_popup_button_mb popupButton" style="display: none;">
+          <button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post" style="">
+  とりあえず登録
+</button>
+
+<button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post_tag" style="">
+  メモなどを入力し登録
+</button>
+        </div>
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_e" style="display: none">
+  編集
+</button>
+<input type="hidden" class="l_material_button_data_mb_e_bookmark_id" value="">
+<input type="hidden" class="l_material_button_data_mb_e_bookshelves" value="">
+<input type="hidden" class="l_material_button_data_mb_e_comment" value="">
+
+      <input type="hidden" class="l_material_button_data_mb_delay">
+  </div>
+
+      </div>
+</div>
+     
+          <div class="panel searchCard l_searchCard c_search_card p_search_card">
+  <div class="checkboxSquare l_checkboxSquare c_checkbox_square p_checkbox_square" onclick="l_c_click(this)"></div>
+      <input type="hidden" class="l_rchekbox" value="">
+  <input type="hidden" class="l_elementid" value="3971187">
+  <input type="hidden" class="l_material_id" value="b3971187">
+  <input type="hidden" class="l_material_isbn" value="9784344933866">
+  <input type="hidden" class="l_material_isbn_hdn" value="9784344933866">
+  <input type="hidden" class="l_material_ident" value="">
+  <input type="hidden" class="l_material_libtype" value="book">
+  <input type="hidden" class="l_material_primaryInfoId" value="">
+  <input type="hidden" class="l_material_pageRange" value="">
+  <input type="hidden" class="l_material_index" value="11">
+  <input type="hidden" class="l_material_parent_id" value="">
+  <input type="hidden" class="l_send_from_for_limedio_toc" value="crosssearch">
+  <div class="c_searchCard_topWrap">
+    <div class="l_image_area c_image_area p_image_area">
+      <a href="/opac/volume/3971187?current=11&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">
+        <img src="/opac/images/cyan/bookimage-kango.png" alt="">
+      </a>
+      <span class="tag book">図書等</span>
+    </div>
+
+    <div class="informationArea c_information_area l_informationArea">
+      <h3><a href="/opac/volume/3971187?current=11&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">誰も知らない紅茶の秘密</a></h3>
+          <dl class="l_detail_info_pt">
+
+        <dd>幻冬舎ルネッサンス新書</dd>
+    </dl>
+    <dl class="l_detail_info_au_book">
+
+          <dt>著者名</dt>
+          <dd><span>沼田治著</span></dd>
+    </dl>
+    <dl class="l_detail_info_pu">
+
+          <dt>出版</dt>
+          <dd><span>幻冬舎メディアコンサルティング, 幻冬舎 (発売) 2021/4</span></dd>
+    </dl>
+    <dl class="l_detail_info_sb">
+
+          <dt>ISBN</dt>
+          <dd><span>9784344933866</span></dd>
+    </dl>
+    <dl class="l_detail_info_hd">
+
+          <dt>所蔵</dt>
+          <dd><span>中央 498.55-N99 一般図書</span></dd>
+    </dl>
+    <dl class="l_detail_info_st" style="">
+
+          <dt>状況（返却予定日）</dt>
+          <dd><span>配架済</span></dd>
+    </dl>
+    <dl class="l_detail_info_oth">
+
+          <dt style="display: none">その他</dt>
+        <dd class="grayTag">
+            <span class="l_detail_othre_tcl" style="display: none">目次あり</span>
+            <span class="l_detail_othre_im" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_eb" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_ej" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_hd" style="display: none">所蔵あり</span>
+        </dd>
+    </dl>
+
+    </div>
+  </div>
+      <div class="buttonMenu c_button_menu_area p_button_menu_area l_button_menu_area">
+        
+  <div class="c_button_sub_area l_button_menu_area" style="">
+
+
+        <button class="reservation icon-book withIcon l_material_button_rb">
+          予約・取り寄せ
+        </button>
+
+
+      <input type="hidden" class="l_material_button_data_rb" value="/opac/user/reservations/new/3971187/104487005">
+  </div>
+
+  <div class="c_button_sub_area l_button_menu_area">
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_a  " style="">
+          ブックマーク追加
+        </button>
+
+        <div class="l_popup_button_mb popupButton" style="display: none;">
+          <button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post" style="">
+  とりあえず登録
+</button>
+
+<button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post_tag" style="">
+  メモなどを入力し登録
+</button>
+        </div>
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_e" style="display: none">
+  編集
+</button>
+<input type="hidden" class="l_material_button_data_mb_e_bookmark_id" value="">
+<input type="hidden" class="l_material_button_data_mb_e_bookshelves" value="">
+<input type="hidden" class="l_material_button_data_mb_e_comment" value="">
+
+      <input type="hidden" class="l_material_button_data_mb_delay">
+  </div>
+
+      </div>
+</div>
+     
+          <div class="panel searchCard l_searchCard c_search_card p_search_card">
+  <div class="checkboxSquare l_checkboxSquare c_checkbox_square p_checkbox_square" onclick="l_c_click(this)"></div>
+      <input type="hidden" class="l_rchekbox" value="">
+  <input type="hidden" class="l_elementid" value="3971195">
+  <input type="hidden" class="l_material_id" value="b3971195">
+  <input type="hidden" class="l_material_isbn" value="9784817847171">
+  <input type="hidden" class="l_material_isbn_hdn" value="9784817847171">
+  <input type="hidden" class="l_material_ident" value="">
+  <input type="hidden" class="l_material_libtype" value="book">
+  <input type="hidden" class="l_material_primaryInfoId" value="">
+  <input type="hidden" class="l_material_pageRange" value="">
+  <input type="hidden" class="l_material_index" value="12">
+  <input type="hidden" class="l_material_parent_id" value="">
+  <input type="hidden" class="l_send_from_for_limedio_toc" value="crosssearch">
+  <div class="c_searchCard_topWrap">
+    <div class="l_image_area c_image_area p_image_area">
+      <a href="/opac/volume/3971195?current=12&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">
+        <img src="https://books.google.com/books/content?id=EqhmzgEACAAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5" alt="">
+      </a>
+      <span class="tag book">図書等</span>
+    </div>
+
+    <div class="informationArea c_information_area l_informationArea">
+      <h3><a href="/opac/volume/3971195?current=12&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">逐条国籍法 : 課題の解明と条文の解説</a></h3>
+          <dl class="l_detail_info_au_book">
+
+          <dt>著者名</dt>
+          <dd><span>木棚照一著</span></dd>
+    </dl>
+    <dl class="l_detail_info_pu">
+
+          <dt>出版</dt>
+          <dd><span>日本加除出版 2021/4</span></dd>
+    </dl>
+    <dl class="l_detail_info_sb">
+
+          <dt>ISBN</dt>
+          <dd><span>9784817847171</span></dd>
+    </dl>
+    <dl class="l_detail_info_hd">
+
+          <dt>所蔵</dt>
+          <dd><span>中央 329.91-Ki12 一般図書</span></dd>
+    </dl>
+    <dl class="l_detail_info_st" style="">
+
+          <dt>状況（返却予定日）</dt>
+          <dd><span>配架済</span></dd>
+    </dl>
+    <dl class="l_detail_info_oth">
+
+          <dt style="display: none">その他</dt>
+        <dd class="grayTag">
+            <span class="l_detail_othre_tcl" style="display: none">目次あり</span>
+            <span class="l_detail_othre_im" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_eb" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_ej" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_hd" style="display: none">所蔵あり</span>
+        </dd>
+    </dl>
+
+    </div>
+  </div>
+      <div class="buttonMenu c_button_menu_area p_button_menu_area l_button_menu_area">
+        
+  <div class="c_button_sub_area l_button_menu_area" style="">
+
+
+        <button class="reservation icon-book withIcon l_material_button_rb">
+          予約・取り寄せ
+        </button>
+
+
+      <input type="hidden" class="l_material_button_data_rb" value="/opac/user/reservations/new/3971195/104487013">
+  </div>
+
+  <div class="c_button_sub_area l_button_menu_area">
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_a  " style="">
+          ブックマーク追加
+        </button>
+
+        <div class="l_popup_button_mb popupButton" style="display: none;">
+          <button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post" style="">
+  とりあえず登録
+</button>
+
+<button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post_tag" style="">
+  メモなどを入力し登録
+</button>
+        </div>
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_e" style="display: none">
+  編集
+</button>
+<input type="hidden" class="l_material_button_data_mb_e_bookmark_id" value="">
+<input type="hidden" class="l_material_button_data_mb_e_bookshelves" value="">
+<input type="hidden" class="l_material_button_data_mb_e_comment" value="">
+
+      <input type="hidden" class="l_material_button_data_mb_delay">
+  </div>
+
+      </div>
+</div>
+     
+          <div class="panel searchCard l_searchCard c_search_card p_search_card">
+  <div class="checkboxSquare l_checkboxSquare c_checkbox_square p_checkbox_square" onclick="l_c_click(this)"></div>
+      <input type="hidden" class="l_rchekbox" value="">
+  <input type="hidden" class="l_elementid" value="3971185">
+  <input type="hidden" class="l_material_id" value="b3971185">
+  <input type="hidden" class="l_material_isbn" value="9784910114101">
+  <input type="hidden" class="l_material_isbn_hdn" value="9784910114101">
+  <input type="hidden" class="l_material_ident" value="">
+  <input type="hidden" class="l_material_libtype" value="book">
+  <input type="hidden" class="l_material_primaryInfoId" value="">
+  <input type="hidden" class="l_material_pageRange" value="">
+  <input type="hidden" class="l_material_index" value="13">
+  <input type="hidden" class="l_material_parent_id" value="">
+  <input type="hidden" class="l_send_from_for_limedio_toc" value="crosssearch">
+  <div class="c_searchCard_topWrap">
+    <div class="l_image_area c_image_area p_image_area">
+      <a href="/opac/volume/3971185?current=13&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">
+        <img src="/opac/images/cyan/bookimage-kango.png" alt="">
+      </a>
+      <span class="tag book">図書等</span>
+    </div>
+
+    <div class="informationArea c_information_area l_informationArea">
+      <h3><a href="/opac/volume/3971185?current=13&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">筑波大学秋季留学フェア「Imagine the future 留学!」2019年度派遣学生による留学報告会(ロシア・NIS諸国)報告書</a></h3>
+          <dl class="l_detail_info_au_book">
+
+          <dt>著者名</dt>
+          <dd><span>梶山祐治, 山本祐規子, 谷越祥子編集・校正</span></dd>
+    </dl>
+    <dl class="l_detail_info_pu">
+
+          <dt>出版</dt>
+          <dd><span>筑波大学グローバル・コモンズ機構 2021/3</span></dd>
+    </dl>
+    <dl class="l_detail_info_sb">
+
+          <dt>ISBN</dt>
+          <dd><span>9784910114101</span></dd>
+    </dl>
+    <dl class="l_detail_info_hd">
+
+          <dt>所蔵</dt>
+          <dd><span>中央本学 377.6-Ka23 本学, 中央 377.6-Ka23 一般図書</span></dd>
+    </dl>
+    <dl class="l_detail_info_st" style="">
+
+          <dt>状況（返却予定日）</dt>
+          <dd><span>配架済</span></dd>
+    </dl>
+    <dl class="l_detail_info_oth">
+
+          <dt style="display: none">その他</dt>
+        <dd class="grayTag">
+            <span class="l_detail_othre_tcl" style="display: none">目次あり</span>
+            <span class="l_detail_othre_im" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_eb" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_ej" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_hd" style="display: none">所蔵あり</span>
+        </dd>
+    </dl>
+
+    </div>
+  </div>
+      <div class="buttonMenu c_button_menu_area p_button_menu_area l_button_menu_area">
+        
+  <div class="c_button_sub_area l_button_menu_area" style="">
+
+
+        <button class="reservation icon-book withIcon l_material_button_rb">
+          予約・取り寄せ
+        </button>
+
+
+      <input type="hidden" class="l_material_button_data_rb" value="/opac/user/reservations/new/3971185/104487003">
+  </div>
+
+  <div class="c_button_sub_area l_button_menu_area">
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_a  " style="">
+          ブックマーク追加
+        </button>
+
+        <div class="l_popup_button_mb popupButton" style="display: none;">
+          <button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post" style="">
+  とりあえず登録
+</button>
+
+<button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post_tag" style="">
+  メモなどを入力し登録
+</button>
+        </div>
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_e" style="display: none">
+  編集
+</button>
+<input type="hidden" class="l_material_button_data_mb_e_bookmark_id" value="">
+<input type="hidden" class="l_material_button_data_mb_e_bookshelves" value="">
+<input type="hidden" class="l_material_button_data_mb_e_comment" value="">
+
+      <input type="hidden" class="l_material_button_data_mb_delay">
+  </div>
+
+      </div>
+</div>
+     
+          <div class="panel searchCard l_searchCard c_search_card p_search_card">
+  <div class="checkboxSquare l_checkboxSquare c_checkbox_square p_checkbox_square" onclick="l_c_click(this)"></div>
+      <input type="hidden" class="l_rchekbox" value="">
+  <input type="hidden" class="l_elementid" value="3971136">
+  <input type="hidden" class="l_material_id" value="b3971136">
+  <input type="hidden" class="l_material_isbn" value="9784797287165">
+  <input type="hidden" class="l_material_isbn_hdn" value="9784797287165">
+  <input type="hidden" class="l_material_ident" value="">
+  <input type="hidden" class="l_material_libtype" value="book">
+  <input type="hidden" class="l_material_primaryInfoId" value="">
+  <input type="hidden" class="l_material_pageRange" value="">
+  <input type="hidden" class="l_material_index" value="14">
+  <input type="hidden" class="l_material_parent_id" value="">
+  <input type="hidden" class="l_send_from_for_limedio_toc" value="crosssearch">
+  <div class="c_searchCard_topWrap">
+    <div class="l_image_area c_image_area p_image_area">
+      <a href="/opac/volume/3971136?current=14&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">
+        <img src="https://books.google.com/books/content?id=_nJezgEACAAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5" alt="">
+      </a>
+      <span class="tag book">図書等</span>
+    </div>
+
+    <div class="informationArea c_information_area l_informationArea">
+      <h3><a href="/opac/volume/3971136?current=14&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">トピック社会保障法, 2021 第15版</a></h3>
+          <dl class="l_detail_info_au_book">
+
+          <dt>著者名</dt>
+          <dd><span>本沢巳代子, 新田秀樹編著</span></dd>
+    </dl>
+    <dl class="l_detail_info_pu">
+
+          <dt>出版</dt>
+          <dd><span>不磨書房, 信山社 (発売) 2021/4</span></dd>
+    </dl>
+    <dl class="l_detail_info_sb">
+
+          <dt>ISBN</dt>
+          <dd><span>9784797287165</span></dd>
+    </dl>
+    <dl class="l_detail_info_hd">
+
+          <dt>所蔵</dt>
+          <dd><span>中央 364-Mo93 一般図書</span></dd>
+    </dl>
+    <dl class="l_detail_info_st" style="">
+
+          <dt>状況（返却予定日）</dt>
+          <dd><span>配架済</span></dd>
+    </dl>
+    <dl class="l_detail_info_oth">
+
+          <dt style="display: none">その他</dt>
+        <dd class="grayTag">
+            <span class="l_detail_othre_tcl" style="display: none">目次あり</span>
+            <span class="l_detail_othre_im" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_eb" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_ej" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_hd" style="display: none">所蔵あり</span>
+        </dd>
+    </dl>
+
+    </div>
+  </div>
+      <div class="buttonMenu c_button_menu_area p_button_menu_area l_button_menu_area">
+        
+  <div class="c_button_sub_area l_button_menu_area" style="">
+
+
+        <button class="reservation icon-book withIcon l_material_button_rb">
+          予約・取り寄せ
+        </button>
+
+
+      <input type="hidden" class="l_material_button_data_rb" value="/opac/user/reservations/new/3971136/104486954">
+  </div>
+
+  <div class="c_button_sub_area l_button_menu_area">
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_a  " style="">
+          ブックマーク追加
+        </button>
+
+        <div class="l_popup_button_mb popupButton" style="display: none;">
+          <button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post" style="">
+  とりあえず登録
+</button>
+
+<button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post_tag" style="">
+  メモなどを入力し登録
+</button>
+        </div>
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_e" style="display: none">
+  編集
+</button>
+<input type="hidden" class="l_material_button_data_mb_e_bookmark_id" value="">
+<input type="hidden" class="l_material_button_data_mb_e_bookshelves" value="">
+<input type="hidden" class="l_material_button_data_mb_e_comment" value="">
+
+      <input type="hidden" class="l_material_button_data_mb_delay">
+  </div>
+
+      </div>
+</div>
+     
+          <div class="panel searchCard l_searchCard c_search_card p_search_card">
+  <div class="checkboxSquare l_checkboxSquare c_checkbox_square p_checkbox_square" onclick="l_c_click(this)"></div>
+      <input type="hidden" class="l_rchekbox" value="">
+  <input type="hidden" class="l_elementid" value="3971196">
+  <input type="hidden" class="l_material_id" value="b3971196">
+  <input type="hidden" class="l_material_isbn" value="">
+  <input type="hidden" class="l_material_isbn_hdn" value="">
+  <input type="hidden" class="l_material_ident" value="">
+  <input type="hidden" class="l_material_libtype" value="book">
+  <input type="hidden" class="l_material_primaryInfoId" value="">
+  <input type="hidden" class="l_material_pageRange" value="">
+  <input type="hidden" class="l_material_index" value="15">
+  <input type="hidden" class="l_material_parent_id" value="">
+  <input type="hidden" class="l_send_from_for_limedio_toc" value="crosssearch">
+  <div class="c_searchCard_topWrap">
+    <div class="l_image_area c_image_area p_image_area">
+      <a href="/opac/volume/3971196?current=15&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">
+        <img src="/opac/images/cyan/bookimage-kango.png" alt="">
+      </a>
+      <span class="tag book">図書等</span>
+    </div>
+
+    <div class="informationArea c_information_area l_informationArea">
+      <h3><a href="/opac/volume/3971196?current=15&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">日高文庫設立顛末</a></h3>
+          <dl class="l_detail_info_pu">
+
+          <dt>出版</dt>
+          <dd><span>書写者不明 1894</span></dd>
+    </dl>
+    <dl class="l_detail_info_hd">
+
+          <dt>所蔵</dt>
+          <dd><span>中央本学 029.9-H54 本学</span></dd>
+    </dl>
+    <dl class="l_detail_info_st" style="">
+
+          <dt>状況（返却予定日）</dt>
+          <dd><span>配架済</span></dd>
+    </dl>
+    <dl class="l_detail_info_oth">
+
+          <dt style="display: none">その他</dt>
+        <dd class="grayTag">
+            <span class="l_detail_othre_tcl" style="display: none">目次あり</span>
+            <span class="l_detail_othre_im" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_eb" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_ej" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_hd" style="display: none">所蔵あり</span>
+        </dd>
+    </dl>
+
+    </div>
+  </div>
+      <div class="buttonMenu c_button_menu_area p_button_menu_area l_button_menu_area">
+        
+  <div class="c_button_sub_area l_button_menu_area" style="">
+
+
+        <button class="reservation icon-book withIcon l_material_button_rb">
+          予約・取り寄せ
+        </button>
+
+
+      <input type="hidden" class="l_material_button_data_rb" value="/opac/user/reservations/new/3971196/104487014">
+  </div>
+
+  <div class="c_button_sub_area l_button_menu_area">
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_a  " style="">
+          ブックマーク追加
+        </button>
+
+        <div class="l_popup_button_mb popupButton" style="display: none;">
+          <button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post" style="">
+  とりあえず登録
+</button>
+
+<button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post_tag" style="">
+  メモなどを入力し登録
+</button>
+        </div>
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_e" style="display: none">
+  編集
+</button>
+<input type="hidden" class="l_material_button_data_mb_e_bookmark_id" value="">
+<input type="hidden" class="l_material_button_data_mb_e_bookshelves" value="">
+<input type="hidden" class="l_material_button_data_mb_e_comment" value="">
+
+      <input type="hidden" class="l_material_button_data_mb_delay">
+  </div>
+
+      </div>
+</div>
+     
+          <div class="panel searchCard l_searchCard c_search_card p_search_card">
+  <div class="checkboxSquare l_checkboxSquare c_checkbox_square p_checkbox_square" onclick="l_c_click(this)"></div>
+      <input type="hidden" class="l_rchekbox" value="">
+  <input type="hidden" class="l_elementid" value="1749707">
+  <input type="hidden" class="l_material_id" value="b1749707">
+  <input type="hidden" class="l_material_isbn" value="9784761524241">
+  <input type="hidden" class="l_material_isbn_hdn" value="9784761524241">
+  <input type="hidden" class="l_material_ident" value="">
+  <input type="hidden" class="l_material_libtype" value="book">
+  <input type="hidden" class="l_material_primaryInfoId" value="">
+  <input type="hidden" class="l_material_pageRange" value="">
+  <input type="hidden" class="l_material_index" value="16">
+  <input type="hidden" class="l_material_parent_id" value="">
+  <input type="hidden" class="l_send_from_for_limedio_toc" value="crosssearch">
+  <div class="c_searchCard_topWrap">
+    <div class="l_image_area c_image_area p_image_area">
+      <a href="/opac/volume/1749707?current=16&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">
+        <img src="https://books.google.com/books/content?id=2rSyPgAACAAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5" alt="">
+      </a>
+      <span class="tag book">図書等</span>
+    </div>
+
+    <div class="informationArea c_information_area l_informationArea">
+      <h3><a href="/opac/volume/1749707?current=16&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">フェスの保全と近代化 : モロッコの歴史都市</a></h3>
+          <dl class="l_detail_info_au_book">
+
+          <dt>著者名</dt>
+          <dd><span>松原康介著</span></dd>
+    </dl>
+    <dl class="l_detail_info_pu">
+
+          <dt>出版</dt>
+          <dd><span>学芸出版社 2008/2</span></dd>
+    </dl>
+    <dl class="l_detail_info_sb">
+
+          <dt>ISBN</dt>
+          <dd><span>9784761524241</span></dd>
+    </dl>
+    <dl class="l_detail_info_hd">
+
+          <dt>所蔵</dt>
+          <dd><span>中央 518.8-Ma73 授業関連, 体芸 518.8-Ma73 一般図書, 図情2階閲覧室 518.8-Ma73 一般図書</span></dd>
+    </dl>
+    <dl class="l_detail_info_st" style="">
+
+          <dt>状況（返却予定日）</dt>
+          <dd><span>配架済</span></dd>
+    </dl>
+    <dl class="l_detail_info_oth">
+
+          <dt style="display: none">その他</dt>
+        <dd class="grayTag">
+            <span class="l_detail_othre_tcl" style="display: none">目次あり</span>
+            <span class="l_detail_othre_im" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_eb" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_ej" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_hd" style="display: none">所蔵あり</span>
+        </dd>
+    </dl>
+
+    </div>
+  </div>
+      <div class="buttonMenu c_button_menu_area p_button_menu_area l_button_menu_area">
+        
+  <div class="c_button_sub_area l_button_menu_area" style="">
+
+
+        <button class="reservation icon-book withIcon l_material_button_rb">
+          予約・取り寄せ
+        </button>
+
+
+      <input type="hidden" class="l_material_button_data_rb" value="/opac/user/reservations/new/1749707/101749707">
+  </div>
+
+  <div class="c_button_sub_area l_button_menu_area">
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_a  " style="">
+          ブックマーク追加
+        </button>
+
+        <div class="l_popup_button_mb popupButton" style="display: none;">
+          <button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post" style="">
+  とりあえず登録
+</button>
+
+<button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post_tag" style="">
+  メモなどを入力し登録
+</button>
+        </div>
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_e" style="display: none">
+  編集
+</button>
+<input type="hidden" class="l_material_button_data_mb_e_bookmark_id" value="">
+<input type="hidden" class="l_material_button_data_mb_e_bookshelves" value="">
+<input type="hidden" class="l_material_button_data_mb_e_comment" value="">
+
+      <input type="hidden" class="l_material_button_data_mb_delay">
+  </div>
+
+      </div>
+</div>
+     
+          <div class="panel searchCard l_searchCard c_search_card p_search_card">
+  <div class="checkboxSquare l_checkboxSquare c_checkbox_square p_checkbox_square" onclick="l_c_click(this)"></div>
+      <input type="hidden" class="l_rchekbox" value="">
+  <input type="hidden" class="l_elementid" value="3971184">
+  <input type="hidden" class="l_material_id" value="b3971184">
+  <input type="hidden" class="l_material_isbn" value="9784910114125">
+  <input type="hidden" class="l_material_isbn_hdn" value="9784910114125">
+  <input type="hidden" class="l_material_ident" value="">
+  <input type="hidden" class="l_material_libtype" value="book">
+  <input type="hidden" class="l_material_primaryInfoId" value="">
+  <input type="hidden" class="l_material_pageRange" value="">
+  <input type="hidden" class="l_material_index" value="17">
+  <input type="hidden" class="l_material_parent_id" value="">
+  <input type="hidden" class="l_send_from_for_limedio_toc" value="crosssearch">
+  <div class="c_searchCard_topWrap">
+    <div class="l_image_area c_image_area p_image_area">
+      <a href="/opac/volume/3971184?current=17&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">
+        <img src="/opac/images/cyan/bookimage-kango.png" alt="">
+      </a>
+      <span class="tag book">図書等</span>
+    </div>
+
+    <div class="informationArea c_information_area l_informationArea">
+      <h3><a href="/opac/volume/3971184?current=17&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">水と環境問題 : パキスタンを例に</a></h3>
+          <dl class="l_detail_info_pt">
+
+        <dd>公開講演会シリーズ「中央ユーラシアと日本の未来」 : 筑波大学「日本財団中央アジア・日本人材育成プロジェクト(NipCA)」主催</dd>
+    </dl>
+    <dl class="l_detail_info_au_book">
+
+          <dt>著者名</dt>
+          <dd><span>近藤高史 [講演]/梶山祐治 [ほか] 編集・校正</span></dd>
+    </dl>
+    <dl class="l_detail_info_pu">
+
+          <dt>出版</dt>
+          <dd><span>筑波大学「日本財団中央アジア・日本人材育成プロジェクト(NipCA)」 2021/2</span></dd>
+    </dl>
+    <dl class="l_detail_info_sb">
+
+          <dt>ISBN</dt>
+          <dd><span>9784910114125</span></dd>
+    </dl>
+    <dl class="l_detail_info_hd">
+
+          <dt>所蔵</dt>
+          <dd><span>中央 229.6-Ko41-18 一般図書, 中央本学 229.6-Ko41-18 本学</span></dd>
+    </dl>
+    <dl class="l_detail_info_st" style="">
+
+          <dt>状況（返却予定日）</dt>
+          <dd><span>配架済</span></dd>
+    </dl>
+    <dl class="l_detail_info_oth">
+
+          <dt style="display: none">その他</dt>
+        <dd class="grayTag">
+            <span class="l_detail_othre_tcl" style="display: none">目次あり</span>
+            <span class="l_detail_othre_im" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_eb" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_ej" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_hd" style="display: none">所蔵あり</span>
+        </dd>
+    </dl>
+
+    </div>
+  </div>
+      <div class="buttonMenu c_button_menu_area p_button_menu_area l_button_menu_area">
+        
+  <div class="c_button_sub_area l_button_menu_area" style="">
+
+
+        <button class="reservation icon-book withIcon l_material_button_rb">
+          予約・取り寄せ
+        </button>
+
+
+      <input type="hidden" class="l_material_button_data_rb" value="/opac/user/reservations/new/3971184/104487002">
+  </div>
+
+  <div class="c_button_sub_area l_button_menu_area">
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_a  " style="">
+          ブックマーク追加
+        </button>
+
+        <div class="l_popup_button_mb popupButton" style="display: none;">
+          <button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post" style="">
+  とりあえず登録
+</button>
+
+<button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post_tag" style="">
+  メモなどを入力し登録
+</button>
+        </div>
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_e" style="display: none">
+  編集
+</button>
+<input type="hidden" class="l_material_button_data_mb_e_bookmark_id" value="">
+<input type="hidden" class="l_material_button_data_mb_e_bookshelves" value="">
+<input type="hidden" class="l_material_button_data_mb_e_comment" value="">
+
+      <input type="hidden" class="l_material_button_data_mb_delay">
+  </div>
+
+      </div>
+</div>
+     
+          <div class="panel searchCard l_searchCard c_search_card p_search_card">
+  <div class="checkboxSquare l_checkboxSquare c_checkbox_square p_checkbox_square" onclick="l_c_click(this)"></div>
+      <input type="hidden" class="l_rchekbox" value="">
+  <input type="hidden" class="l_elementid" value="3971135">
+  <input type="hidden" class="l_material_id" value="b3971135">
+  <input type="hidden" class="l_material_isbn" value="9784797286847">
+  <input type="hidden" class="l_material_isbn_hdn" value="9784797286847">
+  <input type="hidden" class="l_material_ident" value="">
+  <input type="hidden" class="l_material_libtype" value="book">
+  <input type="hidden" class="l_material_primaryInfoId" value="">
+  <input type="hidden" class="l_material_pageRange" value="">
+  <input type="hidden" class="l_material_index" value="18">
+  <input type="hidden" class="l_material_parent_id" value="">
+  <input type="hidden" class="l_send_from_for_limedio_toc" value="crosssearch">
+  <div class="c_searchCard_topWrap">
+    <div class="l_image_area c_image_area p_image_area">
+      <a href="/opac/volume/3971135?current=18&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">
+        <img src="/opac/images/cyan/bookimage-kango.png" alt="">
+      </a>
+      <span class="tag book">図書等</span>
+    </div>
+
+    <div class="informationArea c_information_area l_informationArea">
+      <h3><a href="/opac/volume/3971135?current=18&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">みんなの家族法入門</a></h3>
+          <dl class="l_detail_info_au_book">
+
+          <dt>著者名</dt>
+          <dd><span>本澤巳代子, 大杉麻美編/石嶋舞 [ほか執筆]</span></dd>
+    </dl>
+    <dl class="l_detail_info_pu">
+
+          <dt>出版</dt>
+          <dd><span>信山社 2021/3</span></dd>
+    </dl>
+    <dl class="l_detail_info_sb">
+
+          <dt>ISBN</dt>
+          <dd><span>9784797286847</span></dd>
+    </dl>
+    <dl class="l_detail_info_hd">
+
+          <dt>所蔵</dt>
+          <dd><span>中央 324.6-Mo93 一般図書</span></dd>
+    </dl>
+    <dl class="l_detail_info_st" style="">
+
+          <dt>状況（返却予定日）</dt>
+          <dd><span>配架済</span></dd>
+    </dl>
+    <dl class="l_detail_info_oth">
+
+          <dt style="display: none">その他</dt>
+        <dd class="grayTag">
+            <span class="l_detail_othre_tcl" style="display: none">目次あり</span>
+            <span class="l_detail_othre_im" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_eb" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_ej" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_hd" style="display: none">所蔵あり</span>
+        </dd>
+    </dl>
+
+    </div>
+  </div>
+      <div class="buttonMenu c_button_menu_area p_button_menu_area l_button_menu_area">
+        
+  <div class="c_button_sub_area l_button_menu_area" style="">
+
+
+        <button class="reservation icon-book withIcon l_material_button_rb">
+          予約・取り寄せ
+        </button>
+
+
+      <input type="hidden" class="l_material_button_data_rb" value="/opac/user/reservations/new/3971135/104486953">
+  </div>
+
+  <div class="c_button_sub_area l_button_menu_area">
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_a  " style="">
+          ブックマーク追加
+        </button>
+
+        <div class="l_popup_button_mb popupButton" style="display: none;">
+          <button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post" style="">
+  とりあえず登録
+</button>
+
+<button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post_tag" style="">
+  メモなどを入力し登録
+</button>
+        </div>
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_e" style="display: none">
+  編集
+</button>
+<input type="hidden" class="l_material_button_data_mb_e_bookmark_id" value="">
+<input type="hidden" class="l_material_button_data_mb_e_bookshelves" value="">
+<input type="hidden" class="l_material_button_data_mb_e_comment" value="">
+
+      <input type="hidden" class="l_material_button_data_mb_delay">
+  </div>
+
+      </div>
+</div>
+     
+          <div class="panel searchCard l_searchCard c_search_card p_search_card">
+  <div class="checkboxSquare l_checkboxSquare c_checkbox_square p_checkbox_square" onclick="l_c_click(this)"></div>
+      <input type="hidden" class="l_rchekbox" value="">
+  <input type="hidden" class="l_elementid" value="3971207">
+  <input type="hidden" class="l_material_id" value="b3971207">
+  <input type="hidden" class="l_material_isbn" value="9784865792416">
+  <input type="hidden" class="l_material_isbn_hdn" value="9784865792416">
+  <input type="hidden" class="l_material_ident" value="">
+  <input type="hidden" class="l_material_libtype" value="book">
+  <input type="hidden" class="l_material_primaryInfoId" value="">
+  <input type="hidden" class="l_material_pageRange" value="">
+  <input type="hidden" class="l_material_index" value="19">
+  <input type="hidden" class="l_material_parent_id" value="">
+  <input type="hidden" class="l_send_from_for_limedio_toc" value="crosssearch">
+  <div class="c_searchCard_topWrap">
+    <div class="l_image_area c_image_area p_image_area">
+      <a href="/opac/volume/3971207?current=19&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">
+        <img src="https://books.google.com/books/content?id=QnYIzgEACAAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5" alt="">
+      </a>
+      <span class="tag book">図書等</span>
+    </div>
+
+    <div class="informationArea c_information_area l_informationArea">
+      <h3><a href="/opac/volume/3971207?current=19&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">令和時代の社会保障と働き方を考える</a></h3>
+          <dl class="l_detail_info_pt">
+
+        <dd>厚生労働白書</dd>
+    </dl>
+    <dl class="l_detail_info_au_book">
+
+          <dt>著者名</dt>
+          <dd><span>厚生労働省編</span></dd>
+    </dl>
+    <dl class="l_detail_info_pu">
+
+          <dt>出版</dt>
+          <dd><span>日経印刷, 全国官報販売協同組合 (発売) 2020/10</span></dd>
+    </dl>
+    <dl class="l_detail_info_sb">
+
+          <dt>ISBN</dt>
+          <dd><span>9784865792416</span></dd>
+    </dl>
+    <dl class="l_detail_info_hd">
+
+          <dt>所蔵</dt>
+          <dd><span>体芸 498.1-Ko83-2020 参考</span></dd>
+    </dl>
+    <dl class="l_detail_info_st" style="">
+
+          <dt>状況（返却予定日）</dt>
+          <dd><span>配架済</span></dd>
+    </dl>
+    <dl class="l_detail_info_oth">
+
+          <dt style="display: none">その他</dt>
+        <dd class="grayTag">
+            <span class="l_detail_othre_tcl" style="display: none">目次あり</span>
+            <span class="l_detail_othre_im" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_eb" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_ej" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_hd" style="display: none">所蔵あり</span>
+        </dd>
+    </dl>
+
+    </div>
+  </div>
+      <div class="buttonMenu c_button_menu_area p_button_menu_area l_button_menu_area">
+        
+  <div class="c_button_sub_area l_button_menu_area" style="">
+
+
+        <button class="reservation icon-book withIcon l_material_button_rb">
+          予約・取り寄せ
+        </button>
+
+
+      <input type="hidden" class="l_material_button_data_rb" value="/opac/user/reservations/new/3971207/104487025">
+  </div>
+
+  <div class="c_button_sub_area l_button_menu_area">
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_a  " style="">
+          ブックマーク追加
+        </button>
+
+        <div class="l_popup_button_mb popupButton" style="display: none;">
+          <button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post" style="">
+  とりあえず登録
+</button>
+
+<button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post_tag" style="">
+  メモなどを入力し登録
+</button>
+        </div>
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_e" style="display: none">
+  編集
+</button>
+<input type="hidden" class="l_material_button_data_mb_e_bookmark_id" value="">
+<input type="hidden" class="l_material_button_data_mb_e_bookshelves" value="">
+<input type="hidden" class="l_material_button_data_mb_e_comment" value="">
+
+      <input type="hidden" class="l_material_button_data_mb_delay">
+  </div>
+
+      </div>
+</div>
+     
+          <div class="panel searchCard l_searchCard c_search_card p_search_card">
+  <div class="checkboxSquare l_checkboxSquare c_checkbox_square p_checkbox_square" onclick="l_c_click(this)"></div>
+      <input type="hidden" class="l_rchekbox" value="">
+  <input type="hidden" class="l_elementid" value="3971197">
+  <input type="hidden" class="l_material_id" value="b3971197">
+  <input type="hidden" class="l_material_isbn" value="9784757609945">
+  <input type="hidden" class="l_material_isbn_hdn" value="9784757609945">
+  <input type="hidden" class="l_material_ident" value="">
+  <input type="hidden" class="l_material_libtype" value="book">
+  <input type="hidden" class="l_material_primaryInfoId" value="">
+  <input type="hidden" class="l_material_pageRange" value="">
+  <input type="hidden" class="l_material_index" value="20">
+  <input type="hidden" class="l_material_parent_id" value="">
+  <input type="hidden" class="l_send_from_for_limedio_toc" value="crosssearch">
+  <div class="c_searchCard_topWrap">
+    <div class="l_image_area c_image_area p_image_area">
+      <a href="/opac/volume/3971197?current=20&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">
+        <img src="/opac/images/cyan/bookimage-kango.png" alt="">
+      </a>
+      <span class="tag book">図書等</span>
+    </div>
+
+    <div class="informationArea c_information_area l_informationArea">
+      <h3><a href="/opac/volume/3971197?current=20&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">『倫敦塔』論集 : 漱石のみた風景</a></h3>
+          <dl class="l_detail_info_pt">
+
+        <dd>近代文学研究叢刊</dd>
+    </dl>
+    <dl class="l_detail_info_au_book">
+
+          <dt>著者名</dt>
+          <dd><span>鳥井正晴, 宮薗美佳, 古浦修子編</span></dd>
+    </dl>
+    <dl class="l_detail_info_pu">
+
+          <dt>出版</dt>
+          <dd><span>和泉書院 2021/3</span></dd>
+    </dl>
+    <dl class="l_detail_info_sb">
+
+          <dt>ISBN</dt>
+          <dd><span>9784757609945</span></dd>
+    </dl>
+    <dl class="l_detail_info_hd">
+
+          <dt>所蔵</dt>
+          <dd><span>中央 910.268-N58 一般図書</span></dd>
+    </dl>
+    <dl class="l_detail_info_st" style="">
+
+          <dt>状況（返却予定日）</dt>
+          <dd><span>配架済</span></dd>
+    </dl>
+    <dl class="l_detail_info_oth">
+
+          <dt style="display: none">その他</dt>
+        <dd class="grayTag">
+            <span class="l_detail_othre_tcl" style="display: none">目次あり</span>
+            <span class="l_detail_othre_im" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_eb" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_ej" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_hd" style="display: none">所蔵あり</span>
+        </dd>
+    </dl>
+
+    </div>
+  </div>
+      <div class="buttonMenu c_button_menu_area p_button_menu_area l_button_menu_area">
+        
+  <div class="c_button_sub_area l_button_menu_area" style="">
+
+
+        <button class="reservation icon-book withIcon l_material_button_rb">
+          予約・取り寄せ
+        </button>
+
+
+      <input type="hidden" class="l_material_button_data_rb" value="/opac/user/reservations/new/3971197/104487015">
+  </div>
+
+  <div class="c_button_sub_area l_button_menu_area">
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_a  " style="">
+          ブックマーク追加
+        </button>
+
+        <div class="l_popup_button_mb popupButton" style="display: none;">
+          <button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post" style="">
+  とりあえず登録
+</button>
+
+<button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post_tag" style="">
+  メモなどを入力し登録
+</button>
+        </div>
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_e" style="display: none">
+  編集
+</button>
+<input type="hidden" class="l_material_button_data_mb_e_bookmark_id" value="">
+<input type="hidden" class="l_material_button_data_mb_e_bookshelves" value="">
+<input type="hidden" class="l_material_button_data_mb_e_comment" value="">
+
+      <input type="hidden" class="l_material_button_data_mb_delay">
+  </div>
+
+      </div>
+</div>
+     
+          <div class="panel searchCard l_searchCard c_search_card p_search_card">
+  <div class="checkboxSquare l_checkboxSquare c_checkbox_square p_checkbox_square" onclick="l_c_click(this)"></div>
+      <input type="hidden" class="l_rchekbox" value="">
+  <input type="hidden" class="l_elementid" value="3971186">
+  <input type="hidden" class="l_material_id" value="b3971186">
+  <input type="hidden" class="l_material_isbn" value="">
+  <input type="hidden" class="l_material_isbn_hdn" value="">
+  <input type="hidden" class="l_material_ident" value="">
+  <input type="hidden" class="l_material_libtype" value="book">
+  <input type="hidden" class="l_material_primaryInfoId" value="">
+  <input type="hidden" class="l_material_pageRange" value="">
+  <input type="hidden" class="l_material_index" value="21">
+  <input type="hidden" class="l_material_parent_id" value="">
+  <input type="hidden" class="l_send_from_for_limedio_toc" value="crosssearch">
+  <div class="c_searchCard_topWrap">
+    <div class="l_image_area c_image_area p_image_area">
+      <a href="/opac/volume/3971186?current=21&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">
+        <img src="/opac/images/cyan/bookimage-kango.png" alt="">
+      </a>
+      <span class="tag book">図書等</span>
+    </div>
+
+    <div class="informationArea c_information_area l_informationArea">
+      <h3><a href="/opac/volume/3971186?current=21&amp;total=21&amp;trans_url=%2Fopac%2Fsearch%3Farrivedwithin%3D1%26count%3D100%26defaultpage%3D1%26defaulttarget%3Dlocal%26order%3Darrival_date_d%26searchmode%3Dcomplex%26type%255B%255D%3Dbook">日高文庫書籍目録</a></h3>
+          <dl class="l_detail_info_au_book">
+
+          <dt>著者名</dt>
+          <dd><span>藤代禎輔編</span></dd>
+    </dl>
+    <dl class="l_detail_info_pu">
+
+          <dt>出版</dt>
+          <dd><span>藤代禎輔 1895/8</span></dd>
+    </dl>
+    <dl class="l_detail_info_hd">
+
+          <dt>所蔵</dt>
+          <dd><span>中央本学 029.9-H54 本学</span></dd>
+    </dl>
+    <dl class="l_detail_info_st" style="">
+
+          <dt>状況（返却予定日）</dt>
+          <dd><span>配架済</span></dd>
+    </dl>
+    <dl class="l_detail_info_oth">
+
+          <dt style="display: none">その他</dt>
+        <dd class="grayTag">
+            <span class="l_detail_othre_tcl" style="display: none">目次あり</span>
+            <span class="l_detail_othre_im" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_eb" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_ej" style="display: none">電子資料あり</span>
+            <span class="l_detail_othre_hd" style="display: none">所蔵あり</span>
+        </dd>
+    </dl>
+
+    </div>
+  </div>
+      <div class="buttonMenu c_button_menu_area p_button_menu_area l_button_menu_area">
+        
+  <div class="c_button_sub_area l_button_menu_area" style="">
+
+
+        <button class="reservation icon-book withIcon l_material_button_rb">
+          予約・取り寄せ
+        </button>
+
+
+      <input type="hidden" class="l_material_button_data_rb" value="/opac/user/reservations/new/3971186/104487004">
+  </div>
+
+  <div class="c_button_sub_area l_button_menu_area">
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_a  " style="">
+          ブックマーク追加
+        </button>
+
+        <div class="l_popup_button_mb popupButton" style="display: none;">
+          <button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post" style="">
+  とりあえず登録
+</button>
+
+<button type="button" class="bookmark icon-bookmark withIcon l_material_button_mb_post_tag" style="">
+  メモなどを入力し登録
+</button>
+        </div>
+
+        <button class="bookmark icon-bookmark withIcon l_material_button_mb_e" style="display: none">
+  編集
+</button>
+<input type="hidden" class="l_material_button_data_mb_e_bookmark_id" value="">
+<input type="hidden" class="l_material_button_data_mb_e_bookshelves" value="">
+<input type="hidden" class="l_material_button_data_mb_e_comment" value="">
+
+      <input type="hidden" class="l_material_button_data_mb_delay">
+  </div>
+
+      </div>
+</div>
+     
+      </div>
+      <div class="paginationCards c_pagination_cards p_pagination_cards">
+  <table border="0" id="info_div_f" style="width: 100%;">
+    <tbody>
+    <tr>
+      <td style="width:100%; text-align:right;">
+        <table id="prevnext_f">
+          <tbody>
+          <tr>
+            <td id="prevnext0_f" class="prevnext l_searchlist_prevnext ">
+              <input type="hidden" class="l_volume_page_first" value="">
+            </td>
+            <td id="prevnext1_f" class="prevnext l_searchlist_prevnext ">
+              <input type="hidden" class="l_volume_page_prev" value="">
+            </td>
+            <td class="prevnext c_prevnext_input" style="padding:0 10px 0 10px" nowrap="">
+                <input type="text" value="1" class="l_page_input_f" id="page_input_f">
+                <span class="c_paging_text"> / </span>
+                <span id="info_page_range_f" class="c_paging_text">1</span>
+                <input type="hidden" class="l_page_current_hidden" value="1">
+                <input type="hidden" class="l_page_total_hidden" value="1">
+                <input type="hidden" class="l_self_url_for_paging" value="https://www.tulips.tsukuba.ac.jp/opac/crosssearch?arrivedwithin=1&amp;count=100&amp;displaylang=ja&amp;highlight=n&amp;order=arrival_date_d&amp;searchmode=complex&amp;target=local&amp;type=book">
+            </td>
+            <td id="prevnext2_f" class="prevnext l_searchlist_prevnext ">
+              <input type="hidden" class="l_volume_page_next" value="">
+            </td>
+              <td id="prevnext3_f" class="prevnext l_searchlist_prevnext ">
+                <input type="hidden" class="l_volume_page_prev" value="">
+              </td>
+              <input type="hidden" id="lid_self_url" value="https://www.tulips.tsukuba.ac.jp/opac/crosssearch?arrivedwithin=1&amp;count=100&amp;displaylang=ja&amp;highlight=n&amp;order=arrival_date_d&amp;searchmode=complex&amp;target=local&amp;type=book">
+          </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+  </div>
+    <input type="hidden" value="1" class="l_self_query_local arrivedwithin">
+    <input type="hidden" value="100" class="l_self_query_local count">
+    <input type="hidden" value="complex" class="l_self_query_local searchmode">
+    <input type="hidden" value="local" class="l_self_query_local target">
+    <input type="hidden" value="[&quot;book&quot;]" class="l_self_query_local type">
+    <input type="hidden" value="n" class="l_self_query_local highlight">
+    <input type="hidden" value="arrival_date_d" class="l_self_query_local order">
+    <input type="hidden" value="ja" class="l_self_query_local displaylang">
+
+</div>
+
+  <div class="c_popup l_popup_dialog l_mailModal">
+  <div class="popupWindow popupMail panel round">
+    <button type="button" class="popupClose l_mail_dialog_close" name="popupClose"></button>
+    <h3>メールで送信</h3>
+    <h4>宛先</h4>
+    <input type="text" class="mail_address l_mail_address" name="address" value="">
+    <h4>件名</h4>
+    <input type="text" class="mail_subject l_mail_subject" name="title" value="図書館 `本学所蔵'から選んだ資料の情報">
+    <div class="buttonArea">
+      <button class="white mailCancel l_mail_cancel" type="button" name="button">キャンセル</button>
+      <button class="paleButton l_paleButton l_mail_send" type="button" name="button">送信</button>
+    </div>
+
+    <input type="hidden" id="lid_mail_book_id">
+  </div>
+</div>
+  <div class="c_popup l_popup_dialog l_add_bookmark_dialog">
+  <div class="popupWindow popupBookmark panel round">
+    <button type="button" class="popupClose l_add_bookmark_dialog_close" name="popupClose"></button>
+    <h3>ブックマークに登録</h3>
+    <h4>リストを選択</h4>
+        <div class="selectWrap l_bookmark_list_select_wrap_disabled c_bookmark_select_wrap">
+          <input type="hidden" class="l_bookmark_list_caller" value="BOOKMARK_AD">
+          <div class="selected l_selected c_bookmark_selected">
+            <span class="l_selected_bookmark_list">指定なし</span>
+          </div>
+        </div>
+    <h4>メモ</h4>
+    <textarea class="l_bookmark_memo l_add_bookmark_memo"></textarea>
+    <div class="buttonArea">
+      <button id="lid_add_bookmark_dialog_btn" class="paleButton l_bookmark_dialog_btn" type="button" name="button">
+        ブックマークに登録
+      </button>
+    </div>
+  </div>
+  <input type="hidden" class="l_bookmark_list_space l_add_bookmark_list_space" value="">
+</div>
+
+<div class="c_popup l_popup_dialog l_edit_bookmark_dialog">
+  <div class="popupWindow popupBookmark panel round">
+    <button type="button" class="popupClose l_edit_bookmark_dialog_close" name="popupClose"></button>
+    <h3>ブックマークを編集</h3>
+    <h4>リストを選択</h4>
+        <div class="selectWrap l_bookmark_list_select_wrap_disabled c_bookmark_select_wrap">
+          <input type="hidden" class="l_bookmark_list_caller" value="BOOKMARK_EDIT">
+          <div class="selected l_selected c_selected c_bookmark_selected">
+            <span class="l_selected_bookmark_list l_edit_selected_bookmark_list"></span>
+          </div>
+        </div>
+    <h4>メモ</h4>
+    <textarea class="l_bookmark_memo l_edit_bookmark_memo"></textarea>
+    <div class="buttonArea">
+      <button id="lid_edit_bookmark_dialog_btn" class="paleButton l_bookmark_dialog_btn" type="button" name="button">
+        編集内容を保存
+      </button>
+    </div>
+  </div>
+  <input type="hidden" class="l_bookmark_list_space l_edit_bookmark_list_space" value="">
+</div>
+
+<div class="c_popup l_popup_dialog l_choice_bookmark_list_dialog">
+  <div class="popupWindow popupBookmark panel round">
+    <button type="button" class="popupClose l_choice_bookmark_list_dialog_close" name="popupClose"></button>
+    <h3>リストを選択</h3>
+    <div class="checkArea l_bookmark_list_check_area c_check_area">
+    </div>
+    <div class="addList">
+      <input type="text" class="l_input_book_mark_list_name" value="" placeholder="新しいリストの作成">
+      <button id="lid_make_choice_bookmark_list" type="button" class="white">
+        <span>＋</span>作成
+      </button>
+    </div>
+    <div class="buttonArea">
+      <button id="lid_choice_bookmark_list_cancel" class="white l_choice_bookmark_list_cancel" type="button">キャンセル</button>
+      <button id="lid_choice_bookmark_list_decide" class="paleButton c_choice_bookmark_list_decide" type="button">決定</button>
+    </div>
+  </div>
+  <input type="hidden" id="lid_choice_bookmark_list_call_from" value="">
+</div>
+
+<div class="c_popup l_message_dialog c_confirmation_message_dialog">
+  <div class="popupWindow popupDefault panel round">
+    <button type="button" class="popupClose l_message_dialog_close" name="popupClose"></button>
+    <p class="l_message_text c_popup_message_text"></p>
+    <div class="buttonArea">
+      <button class="l_message_btn_cancel" type="button" name="button">キャンセル</button>
+      <button class="paleButton l_message_btn_ok" type="button" name="button">OK</button>
+    </div>
+  </div>
+</div>
+<input type="hidden" id="lid_bookmark_id_for_dialog" value="">
+<input type="hidden" id="lid_bookmark_book_id_for_dialog" value="">
+
+
+
+
+</div>
+<input type="hidden" id="lid_listCount" value="100">
+<input type="hidden" id="lid_useThumbnail" value="google">
+<input type="hidden" id="lid_useLimedioThumbnail" value="">
+<input type="hidden" id="lid_hasGbButton" value="false">
+<input type="hidden" id="lid_isLocalSearch" value="true">
+
+
+  
+
+
+    <div class="c_footer p_footer l_sp_menue_hidden" id="footer">
+    <div class="wrap">
+      <a class="pageTop" href="#">ページトップ</a>
+      <div class="c_footer_link">
+      </div>
+    </div>
+    <div class="c_footer_message_area">
+      <script src="/opac/assets/jquery.js"></script><script> if($('.c_a_search_right').eq(2).attr('href').indexOf('/opac/en/other')===0 && $('.c_a_search_right').eq(1).attr('href').indexOf('/opac/system/hop_login')===0){$('<p><h3><font color=#DF1818>複写・借用依頼をするには先にログインしてください</font></h3></p>').insertBefore('.c_detail_head');}</script>
+    </div>
+  </div>
+
+  <script src="/opac/assets/application-f4c8de28f0b40347e7705cdb152abe94540e2c03bd7c2dccb5adb753736dc936.js"></script>
+  <script src="/opac/assets/common/common-0ce61bc6306d5d48180ffb4daccb763feca34089d75dc82e1284bd2488fef126.js"></script>
+  
+  
+  <script src="/opac/ja/system/resource_js.js"></script>
+
+  <script src="/opac/assets/common/print-132cd4bf6244bf028d2bed0f9e0b9dc1485dcb98b78677497e0de0ed2e121c47.js"></script>
+  <script src="/opac/assets/common/list-80e3964277d92e0d6f7e1b5c4bed9eea84c68345ea019c19e25220d9ce9daa81.js"></script>
+  <script src="/opac/assets/common/book_status-fadce12aed669eef2a00608a492f0f636d5ef8a8f5ccb0fadd4cd690db993351.js"></script>
+  <script src="/opac/assets/common/bookmark-4a6e3da05e5ae78c617d2cc46cc61a55f1bb5aad29c835cfa06c34d0a98004ea.js"></script>
+  <script src="/opac/assets/searchlist/condition_area-a7c404842b3085e5036ed62e81053ddd9a29766109a4accf557c5f3dcfaedba5.js"></script>
+  <script src="/opac/assets/searchlist/button-0e9b700ed6678a64e90153ac4ff069c7723df343380fe7597388c2e33078d961.js"></script>
+  <script src="/opac/assets/searchlist/searchlist-83ad1bc8a5ee012f861e2c244104fb3165d81306f4d4a94f2120fc8398c39002.js"></script>
+  <script src="/opac/assets/facet/facet-24e81d189acf2674cd833b72f98ef9372862b0760d284f7ab23bb857278b1652.js"></script>
+  <script>
+
+      /** 横断検索種類の配列 */
+      var CROSS_SEARCH_TARGET_LIST = ["local"];
+      /** 横断検索URLの配列 */
+      var CROSS_SEARCH_URL_LIST = [];
+      CROSS_SEARCH_URL_LIST.push('/opac/crosssearch?arrivedwithin=1&count=100&searchmode=complex&target=local&type%5B%5D=book');
+
+      $(function () {
+
+          // 横断検索が１件以上設定されている場合に横断検索を実施する
+          if (CROSS_SEARCH_TARGET_LIST && (0 < CROSS_SEARCH_TARGET_LIST.length)) {
+              var lastIndex = CROSS_SEARCH_TARGET_LIST.length -1;
+              crossSearchCallbackChain(0, lastIndex);
+          }
+
+          /**
+           * 横断検索呼び出しコールバックチェーンを再帰的に作成実行する
+           *
+           * ===================================================
+           * 例）以下のようなコールバックチェーンが作成される
+           *
+           * getCrossSerchAjax(0)
+           *      .always(function () {
+           *          getCrossSerchAjax(1)
+           *             .always(function () {
+           *                 getCrossSerchAjax(2)
+           *                    .always(function () {
+           *                        getCrossSerchAjax(3)
+           *                     }
+           *                     );
+           *             }
+           *             );
+           *      }
+           *      );
+           * ====================================================
+           *
+           * @param now int 今の再帰位置
+           * @param last int 最終的な再帰深さ
+           * @returns object 横断検索呼び出しコールバックチェーン
+           */
+          function crossSearchCallbackChain(now, last) {
+              if (now !== last) {
+                  // 最後以外は再帰呼出し
+                  var next = now + 1;
+                  return getCrossSerchAjax(now).always(
+                      function () {
+                          crossSearchCallbackChain(next, last)
+                      }
+                  )
+              } else {
+                  // 最後はチェーンさせずに終わる(再帰は全て戻る)
+                  return getCrossSerchAjax(now)
+              }
+          }
+
+          /**
+           * 横断検索呼び出し
+           *
+           * @param targetIndex int search_crossSearchTargetに設定された横断検索（ただし,limedio は localと変換されている）
+           * @return object 横断検索のajaxオブジェクト
+           */
+          function getCrossSerchAjax(targetIndex) {
+              // 横断検索種類
+              var target = CROSS_SEARCH_TARGET_LIST[targetIndex];
+              // 横断検索URL
+              var targetUrl = CROSS_SEARCH_URL_LIST[targetIndex];
+              if (target === 'local') {
+                  // ローカル検索
+                  return localSearchAjax(target, targetUrl);
+              } else {
+                  // ローカル検索以外の横断検索
+                  return mainCrossSearchAjax(target, targetUrl);
+              }
+          }
+
+          /**
+           * 横断検索主要（共通）Ajaxオブジェクト取得
+           * ※ローカル検索以外の横断検索は本メソッドのみで完結する
+           *
+           * @target 横断検索種類
+           * @targetUrl 横断検索URL
+           * @return object 横断検索主要（共通）Ajaxオブジェクト
+           */
+          function mainCrossSearchAjax(target, targetUrl) {
+              return $.ajax({
+                  url: targetUrl,
+              success: function (data) {
+                      return data;
+              },
+              error: function (e) {
+                      $("#lid_SearchResultList_" + target).html("読み込みに失敗しました。")
+              }
+              })
+          }
+
+          /**
+           * ローカル検索Ajaxオブジェクト取得
+           * @target 横断検索種類
+           * @targetUrl 横断検索URL
+           * @return object ローカル検索Ajaxオブジェクト
+           */
+          function localSearchAjax(target, targetUrl) {
+              return mainCrossSearchAjax(target, targetUrl)
+                  .done(function () {
+              // サムネイル取得 -------------------------------------------
+              var thumbnail_url = get_thumbnail_url();
+
+              if (thumbnail_url != false) {
+                  $.ajax({
+                      url: thumbnail_url,
+                      success: function (data) {
+                          render_thumbnail(data);
+                      }
+                  });
+              }
+
+              // 状況表示呼び出し -------------------------------------------
+              get_book_status("l");
+
+              // Google Booksプレビュー情報取得(ボタン並び順パラメタにGBがある場合) -------------------------------------------
+
+              //その他情報 -------------------------------------------
+              detail_other_info_display();
+
+              // ファセットの取得 -------------------------------------------
+                      var facetParams = getLocalSearchFacetParams();
+              $.ajax({
+
+                  url: '/opac' + LANG_PATH + '/search/facet',
+                          data: facetParams,
+                  dataType: 'script'
+              }).done(function () {
+                  //facet制御
+                  facet_go();
+              });
+
+              // ブックマークlink取得&レンダリング -------------------------------------------
+              render_bookmark_button();
+
+                  })
+          }
+
+          /**
+           * ファセットのクエリパラメタ取得
+           * @returns object ファセットのクエリパラメタ
+           */
+          function getLocalSearchFacetParams() {
+              var parameters = {};
+              parameters['arrivedwithin'] = '1';
+              parameters['type'] = 'book';
+              parameters['target'] = 'local';
+              parameters['searchmode'] = 'complex';
+              parameters['count'] = '100';
+              return parameters;
+          }
+
+      });
+  </script>
+    <script src="/opac/assets/common/shared-3e9405e6b607b9863b6e6054c92ec4528009f13c12f1077f46730c2aacb08d22.js"></script>
+    <script>
+
+    </script>
+
+
+
+
+</body></html>
