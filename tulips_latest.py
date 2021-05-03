@@ -47,7 +47,20 @@ QUERY = {
 
 DRYRUN = False
 
+
 class BookData(TypedDict):
+    """Doctionary contains data of one book.
+
+    Attributes:
+        link (str): A link of a detail page of book.
+        title (str): Title of book.
+        author (str): Author of book.
+        publisher (str): Publisher of book.
+        isbn (str): ISBN code of book.
+        holding (str): Holding location of book.
+        status (str): Status of arranging a book.
+        imagesrc (str): URL of book image.
+    """
     link: str
     title: str
     author: str
@@ -59,11 +72,26 @@ class BookData(TypedDict):
 
 
 class BookInfo(TypedDict):
+    """Doctionary contains data of book.
+
+    Attributes:
+        index (int): Index of data of books.
+        data (BookData): Data of book.
+    """
     index: int
     data: BookData
 
 
 def connect(host: str = 'http://google.com') -> bool:
+    """Check connectivity.
+
+    Args:
+        host (str, optional): URL of a site for checking to connect.
+        default 'http://google.com'.
+
+    Returns:
+        bool: Is it connectable?
+    """
     try:
         urllib.request.urlopen(host)
         return True
@@ -72,6 +100,11 @@ def connect(host: str = 'http://google.com') -> bool:
 
 
 async def getpage() -> str:
+    """Get a source code string from tulips's opac page.
+
+    Returns:
+        str: Source code of opac page
+    """
     browser = await pyppeteer.launch(
         # headless=False
     )
@@ -86,7 +119,24 @@ async def getpage() -> str:
 
 
 def scrape(source: str) -> List[BookInfo]:
+    """Scrape the opac source code and make list of BookInfo.
+
+    Args:
+        source (str): Source code of opac page
+
+    Returns:
+        List[BookInfo]: List of scraped data of books from opac
+    """
     def get_book_info_text(book: bs4.element.Tag, class_: str) -> str:
+        """[summary]
+
+        Args:
+            book (bs4.element.Tag): An element contains a book info
+            class_ (str): Class name of the information to be extracted
+
+        Returns:
+            str: Extracted info
+        """
         try:
             return book.find('dl', class_=class_).dd.span.text
         except (AttributeError, TypeError):
@@ -98,7 +148,8 @@ def scrape(source: str) -> List[BookInfo]:
     res = []
     default_img = '/bookimage-kango.png'
     for idx, book_d in enumerate(books):
-        book = book_d.select_one('div.informationArea.c_information_area.l_informationArea')
+        book = book_d.select_one(
+            'div.informationArea.c_information_area.l_informationArea')
         res_i: BookInfo = {'index': idx, 'data': {
             'link': '',
             'title': '',
@@ -121,26 +172,58 @@ def scrape(source: str) -> List[BookInfo]:
         res_i['data']['status'] = get_book_info_text(
             book, 'l_detail_info_st')
         imgsrc = book_d.select_one('img')['src']
-        res_i['data']['imagesrc'] = ('' if imgsrc[-20:] == default_img else imgsrc)
+        res_i['data']['imagesrc'] = (
+            '' if imgsrc[-20:] == default_img else imgsrc)
         res.append(res_i)
 
     return res
 
 
 def get_tweeted_list() -> List[str]:
+    """Get links of tweeted books from tweet log file.
+
+    Returns:
+        List[str]: URL lists of links of tweeted books
+    """
     return open(TWEET_LOG_PATH, 'r').read().rstrip().split("\n")
 
 
 def make_content(data: BookData) -> str:
+    """Make a content text of tweet.
+
+    Args:
+        data (BookData): data of a book
+
+    Returns:
+        str: tweet content
+    """
     def shorten(text: str, byte_len: int = 40, encoding: str = 'utf-8') -> str:
+        """Shorten a text if a length of a text is longer than given limit.
+
+        Args:
+            text (str): text
+            byte_len (int, optional): limit of text length. Defaults to 40.
+            encoding (str, optional): encoding. Defaults to 'utf-8'.
+
+        Returns:
+            str: shortened text
+        """
         if len(text.encode(encoding)) <= byte_len:
-            return text
+            return replace_nd(text)
         while len(text.encode(encoding)) > byte_len:
             text = text[:-1]
         else:
             return text + '…'
 
     def replace_nd(text: str) -> str:
+        """Replace blank str to '<no data>'
+
+        Args:
+            text (str): text
+
+        Returns:
+            str: text or '<no data>' if text is blank
+        """
         return ('<no data>' if text == '' else text)
 
     content = "\n".join([
@@ -156,17 +239,36 @@ def make_content(data: BookData) -> str:
         author=shorten(data['author'], 40),
         publisher=shorten(data['publisher'], 40),
         holding=shorten(data['holding'], 50),
-        link=data['link'])
+        link=replace_nd(data['link']))
 
 
 def make_tweepy_oauth(
         ck: str, cs: str, at: str, as_: str) -> tweepy.API:
+    """Make an 0Authed api object from tokens. 
+
+    Args:
+        ck (str): twitter customer token
+        cs (str): twitter customer secret token
+        at (str): twitter access token
+        as_ (str): twitter access secret token
+
+    Returns:
+        tweepy.API: 0Authed api object
+    """
     oauth = tweepy.OAuthHandler(ck, cs)
     oauth.set_access_token(at, as_)
     return tweepy.API(oauth)
 
 
 def get_imagesrc_to_image(src: str) -> bytes:
+    """
+
+    Args:
+        src (str): URL of book image
+
+    Returns:
+        bytes: image data
+    """
     if src == '':
         return b''
     else:
@@ -174,6 +276,11 @@ def get_imagesrc_to_image(src: str) -> bytes:
 
 
 def tweet(res: List[BookInfo]) -> None:
+    """Post a tweet.
+
+    Args:
+        res (List[BookInfo]): data of books
+    """
     tweeted_list = get_tweeted_list()
     f = open(TWEET_LOG_PATH, 'a')
     api = make_tweepy_oauth(*KEYS)
@@ -196,21 +303,54 @@ def tweet(res: List[BookInfo]) -> None:
 
         time.sleep(40)
 
-# Union[tweepy.Status, tweepy.TweepError]
 
+def _tweet(content: str, api: tweepy.API, img_data: bytes = b'') \
+        -> Tuple[bool, Any]:
+    """Post a tweet. (helper function for tweet)
 
-def _tweet(content: str, api: tweepy.API, img_data: bytes = b'') -> Tuple[bool, Any]:
+    Returns:
+        Tuple[bool, Any]: (if tweet is successful) and (tweetobj|errobj)
+    """
     try:
         if img_data == b'':
             status = api.update_status(content)
         else:
-            result_img = api.media_upload(filename='img.png', file=BytesIO(img_data))
-            status = api.update_status(content, media_ids=[result_img.media_id])
+            result_img = api.media_upload(
+                filename='img.png', file=BytesIO(img_data))
+            status = api.update_status(
+                content, media_ids=[result_img.media_id])
 
         return (True, status)
     except tweepy.TweepError as e:
         print(content, file=sys.stderr)
         return (False, e)
+
+
+def get_source(args: List[str]) -> str:
+    """Get latest opac source code.
+
+    Read latest cache file if already exist.
+
+    Args:
+        args (List[str]): Given args from command line
+
+    Raises:
+        FileNotFoundError: If cache file does not exist
+
+    Returns:
+        str: source code
+    """
+    if os.path.exists(SOURCE_NAME):
+        fname = (args[0] if len(args) == 1 else SOURCE_NAME)
+        if not os.path.exists(fname):
+            raise FileNotFoundError("{}: Not found".format(fname))
+        else:
+            source = open(fname, 'r').read()
+    else:
+        source = asyncio.get_event_loop().run_until_complete(getpage())
+        print(source, file=open(SOURCE_NAME, 'w'))
+
+    return source
 
 
 if __name__ == '__main__':
@@ -223,16 +363,7 @@ if __name__ == '__main__':
         print('Internet currently not available', file=sys.stderr)
         exit(1)
 
-    if os.path.exists(SOURCE_NAME):
-        fname = (args[0] if len(args) == 1 else SOURCE_NAME)
-        if not os.path.exists(fname):
-            raise FileNotFoundError("{}: Not found".format(fname))
-        else:
-            source = open(fname, 'r').read()
-    else:
-        source = asyncio.get_event_loop().run_until_complete(getpage())
-        print(source, file=open(SOURCE_NAME, 'w'))
-
+    source = get_source(args)
     res = scrape(source)
     print(json.dumps(res, indent=True),
           file=open(SOURCE_NAME[:-4]+'json', 'w'))
