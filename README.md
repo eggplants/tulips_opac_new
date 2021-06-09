@@ -1,5 +1,6 @@
 # tulips_opac_new
 
+[![Run Bot](https://github.com/eggplants/tulips_opac_new/actions/workflows/run.yml/badge.svg)](https://github.com/eggplants/tulips_opac_new/actions/workflows/run.yml)
 
 
 - University of Tsukuba Library / New Arrival Twitter Bot
