@@ -1,0 +1,560 @@
+<!DOCTYPE html><html lang="ja"><head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=no">
+<link rel="stylesheet" media="all" href="/opac/assets/application-4b751dbd031a2c2a80acb949086a00f0b47dba2a43f90ffac46ace767e743a48.css">
+<link rel="stylesheet" media="screen" href="/opac/assets/cyan-e6936e34dcfdc7935351c4645b949ef410e7e048607ff6a4cf02d385ba22004f.css">
+
+
+<link rel="stylesheet" media="all" href="/opac/css/application_custom.css">
+<link rel="stylesheet" media="screen" href="/opac/css/cyan_custom.css">
+<link rel="stylesheet" media="print" href="/opac/assets/application_print-ed1d3092e85aae33bf3149767a01c3314f0a22ae7ad37a99f1a0545808066ec4.css">
+<link rel="stylesheet" media="print" href="/opac/css/application_print_custom.css">
+<link rel="shortcut icon" type="image/x-icon" href="/opac/images/cyan/favicon.ico">
+<script>
+//<![CDATA[
+window.gon={};gon.timeout=10800000;gon.signedIn=false;gon.urlToRedirect="/opac/system/timeout";gon.pageRangeError="指定されたページは範囲外です。";gon.invalidInputError="入力値に誤りがあります。";gon.illegalCondition="検索条件を入力してください。";gon.helpPage="/help/doku.php?id=ja:help:service";gon.spinnerImage="/opac/images/gif-load.gif";gon.popCloseFallbackPath="/opac/";gon.backtrackAnchor="/opac/search?arrivedwithin=1\u0026type%5B%5D=book\u0026target=local\u0026searchmode=complex\u0026count=100";
+//]]>
+</script>
+
+<title>図書館</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="format-detection" content="telephone=no">
+
+<meta name="twitter:card" content="">
+<meta name="twitter:site" content="">
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="">
+
+<meta property="og:title" content="">
+<meta property="og:type" content="website">
+<meta property="og:url" content="">
+<meta property="og:image" content="">
+<meta property="og:description" content="">
+
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="MYbQpCdeAl169im/1XhaqMlwUAKcv7mcLK3okokp/YgtiMpb/s7tEXj5wDIr1GaNipbGazW2v6TmXrUqc3xQGQ==">
+</head>
+<body>
+    <div class="c_header" id="header">
+  <div class="wrap">
+    <div class="c_logo_area">
+      <div class="c_logo">
+        <div class="c_logo_left">
+          <a href="/opac/"><img alt="Home" title="Home" class="c_logo_img" src="/opac/images/cyan/logo.png"></a>
+          <a href="/opac/"><img alt="Home" title="Home" class="c_logo_img_mobi p_logo_img_sp" src="/opac/images/cyan/logo_mobi.png"></a>
+        </div>
+      </div>
+      <div class="c_exit_session p_exit_session">
+        <a class="c_logout_buttons pc_only" data-remote="true" rel="nofollow" data-method="post" href="/opac/user/session/exit">履歴を消去して終了</a>
+      </div>
+    </div>
+    <div class="c_header_message_area">
+      
+    </div>
+  </div>
+  <div class="c_header_btn_area p_header_btn_area">
+    <a href="/opac/user/top">
+            <span class="icon-user"></span>
+</a>    <a href="javascript:iconmenue_open()">
+        <span class="icon-menu"></span>
+</a>  </div>
+  <!-- ハンバーガーメニュー -->
+  <ul class="menuList l_sp_menuList" style="display: none;">
+    <li class="separateLine"></li>
+    <li class="separateLine"></li>
+    <li><a href="/opac/complexsearch">詳細検索</a></li>
+    <li><a href="/opac/bookmarklist">ブックマーク</a></li>
+    <li>
+        <a href="/opac/system/hop_login">ログイン</a>
+    </li>
+    <li>
+      <a href="/opac/en/search?arrivedwithin=1&amp;count=100&amp;searchmode=complex&amp;target=local&amp;type%5B%5D=book">English</a>
+    </li>
+    <li>
+      <a target="limedio_help" href="/help/doku.php?id=ja:help:service">ヘルプ</a>
+    </li>
+    <li>
+      <a data-remote="true" rel="nofollow" data-method="post" href="/opac/user/session/exit">履歴を消去して終了</a>
+    </li>
+  </ul>
+</div>
+
+
+
+
+  <div id="header_menu" class="p_header_menu c_opac_menu">
+  <ul class="header_menu_list wrap">
+  </ul>
+</div>
+      <div id="lid_search_select" class="c_search_select p_search_select">
+      <a class="c_active" href="javascript:void(0)">通常検索</a>
+      <div class="c_line"></div>
+      <a class="" href="/opac/complexsearch">詳細検索</a>
+    </div>
+<div id="lid_search" class="c_search p_search">
+  <div class="wrap">
+    <form class="c_search_left" id="lid_normal_search_form" action="/opac/search" accept-charset="UTF-8" method="get">
+
+        <input type="hidden" name="autoDetail" id="lid_autoDetail_normal_search" value="true">
+
+        <div class="c_normal_search">
+          <input type="text" name="q" id="q" value="" placeholder="通常検索" class="c_search_menu_qq">
+          <div class="c_search_btn_wrap" id="lid_searchBtn">
+            <span class="icon-search"></span>
+            <input type="button" name="commit" value="" class="c_search_btn" data-disable-with="">
+          </div>
+        </div>
+        <a class="c_a_search_left" href="/opac/complexsearch">詳細検索</a>
+</form>
+    <div class="c_search_right">
+      <a class="c_a_search_right" href="/opac/bookmarklist">ブックマーク</a>
+          <a class="c_a_search_right" href="/opac/system/hop_login">ログイン</a>
+      <a class="c_a_search_right" href="/opac/en/search?arrivedwithin=1&amp;count=100&amp;searchmode=complex&amp;target=local&amp;type%5B%5D=book">English</a>
+      <a class="c_a_search_right" target="limedio_help" href="/help/doku.php?id=ja:help:service">ヘルプ</a>
+      <a class="c_a_mylibrary" href="/opac/user/top">
+              <span class="icon-user"></span>
+              <span>ゲストさん</span><br>マイライブラリ
+</a>    </div>
+  </div>
+</div>
+
+
+  <div id="lid_searchDetailSub" class="c_search_detail_sub" style="display: none;"><div id="lid_spFacetTop">
+  <div class="l_sp_input_window c_sp_input_window" id="lid_spRefinement">
+    <h2 class="c_h2_big">絞り込み</h2>
+    <div class="c_button_area l_sp_button_area c_facet_cancel_button_area">
+      <button type="button" name="back" class="white full" id="lid_cansel_spRefinement">キャンセル</button>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<input type="hidden" class="l_locale" value="ja">
+<input type="hidden" class="l_signed_in" value="false">
+<div id="libraryStock" class="c_library_stock">
+  <div class="wrap">
+    <ul class="libraryStockList c_library_stock_list">
+          <li class="l_select_target current" id="lid_select_target_local">
+            <a href="#" onclick="select_target('local');return false;">本学所蔵<span>(0)</span></a>
+            <input type="hidden" id="lid_target_total_local" value="0">
+          </li>
+    </ul>
+    <div class="btnMore disable"></div>
+  </div>
+</div>
+
+<div id="lid_libraryStockSp" class="l_spRefineNone l_sp_Facetselectors c_library_stock_sp p_library_stock_sp">
+  <div class="wrap">
+    <div class="selectWrap">
+      <select class="libraryStockSelect" id="lid_library_stock_select" name="libraryStock" onchange="select_target_sp();return false;">
+            <option value="local" selected="">本学所蔵(0)</option>
+
+      </select>
+    </div>
+    <button name="reservation" id="lid_spRefinement_condition_btn" style="display: block;">詳細検索条件</button>
+    <button name="reservation" id="lid_spRefinement_btn" style="display: none;">絞り込む</button>
+  </div>
+</div>
+<input type="hidden" id="lid_seledted_target" value="local">
+
+<div id="lid_sp_condition_area" class="c_search_detail_sub" style="display: none;"><div class="panel c_condition_area" id="lid_sp_condition_area">
+  <h3>
+    詳細検索条件
+        <a href="#" id="lid_change_search_condition">
+          条件再設定
+        </a>
+  </h3>
+    <section>
+          <h4>資料種別</h4>
+          <p>図書等</p>
+    </section>
+    <section>
+          <h4>新着</h4>
+          <p>1日以内</p>
+    </section>
+  <input type="hidden" name="arrivedwithin" id="arrivedwithin" value="1" class="l_comp_search_query_conditions_sp"><input type="hidden" name="count" id="count" value="100" class="l_comp_search_query_conditions_sp"><input type="hidden" name="searchmode" id="searchmode" value="complex" class="l_comp_search_query_conditions_sp"><input type="hidden" name="target" id="target" value="local" class="l_comp_search_query_conditions_sp"><input type="hidden" name="type" id="type" value="book" class="l_comp_search_query_conditions_sp"><input type="hidden" name="highlight" id="highlight" value="n" class="l_comp_search_query_conditions_sp"><input type="hidden" name="order" id="order" value="arrival_date_d" class="l_comp_search_query_conditions_sp"><input type="hidden" name="displaylang" id="displaylang" value="ja" class="l_comp_search_query_conditions_sp">
+</div></div>
+
+
+<div id="i_breadcrumbs" class="c_breadcrumbs p_breadcrumbs c_white_back">
+  <div class="wrap">
+    <ul class="c_breadcrumbs_list">
+        <li>
+            <a href="/opac/">トップ画面</a>
+        </li>
+        <li>
+            <p>一覧画面</p>
+        </li>
+    </ul>
+  </div>
+</div>
+
+
+
+    <div class="wrap l_SearchResultList l_sp_menue_hidden c_search_result_list" id="lid_SearchResultList_local" style="display:''"><div class="wrap">
+
+  <div class="c_left_menu p_left_menu l_left_menu">
+      <div class="panel c_condition_area l_condition_area">
+  <h3>
+    詳細検索条件
+        <a href="#" id="lid_change_search_condition">
+          条件再設定
+        </a>
+  </h3>
+      <section>
+            <h4>資料種別</h4>
+            <p>図書等</p>
+      </section>
+      <section>
+            <h4>新着</h4>
+            <p>1日以内</p>
+      </section>
+  <input type="hidden" name="arrivedwithin" id="arrivedwithin" value="1" class="l_comp_search_query_conditions_pc"><input type="hidden" name="count" id="count" value="100" class="l_comp_search_query_conditions_pc"><input type="hidden" name="searchmode" id="searchmode" value="complex" class="l_comp_search_query_conditions_pc"><input type="hidden" name="target" id="target" value="local" class="l_comp_search_query_conditions_pc"><input type="hidden" name="type" id="type" value="book" class="l_comp_search_query_conditions_pc"><input type="hidden" name="highlight" id="highlight" value="n" class="l_comp_search_query_conditions_pc"><input type="hidden" name="order" id="order" value="arrival_date_d" class="l_comp_search_query_conditions_pc"><input type="hidden" name="displaylang" id="displaylang" value="ja" class="l_comp_search_query_conditions_pc">
+</div>
+
+      <div class="panel c_refinement_area l_refinement_area" style=""><h3>絞り込み</h3>
+<div class="c_refinement">
+    絞り込みはできません。
+</div>
+</div>
+
+  </div>
+  <div class="c_result_contents p_result_contents" id="resultContents">
+    <div class="c_result_header" id="resultHeader">
+      <div class="cardsTitle c_cards_title p_cards_title">
+        <h2>詳細検索</h2>
+        <span></span>
+          <div id="lid_search_message_local_header" class="c_search_message_local_header">
+            
+          </div>
+      </div>
+      <div class="cardsSubmenu c_cards_sub_menu p_cards_sub_menu">
+        <div class="cardsSuggestion c_cards_suggestion p_cards_suggestion">
+            <p>一致する資料はありません。</p>
+
+
+
+
+        </div>
+        <div class="checkMenu c_cards_check_menu p_cards_check_menu">
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+    <input type="hidden" value="1" class="l_self_query_local arrivedwithin">
+    <input type="hidden" value="100" class="l_self_query_local count">
+    <input type="hidden" value="complex" class="l_self_query_local searchmode">
+    <input type="hidden" value="local" class="l_self_query_local target">
+    <input type="hidden" value="[&quot;book&quot;]" class="l_self_query_local type">
+    <input type="hidden" value="n" class="l_self_query_local highlight">
+    <input type="hidden" value="arrival_date_d" class="l_self_query_local order">
+    <input type="hidden" value="ja" class="l_self_query_local displaylang">
+
+</div>
+
+  <div class="c_popup l_popup_dialog l_mailModal">
+  <div class="popupWindow popupMail panel round">
+    <button type="button" class="popupClose l_mail_dialog_close" name="popupClose"></button>
+    <h3>メールで送信</h3>
+    <h4>宛先</h4>
+    <input type="text" class="mail_address l_mail_address" name="address" value="">
+    <h4>件名</h4>
+    <input type="text" class="mail_subject l_mail_subject" name="title" value="図書館 `本学所蔵'から選んだ資料の情報">
+    <div class="buttonArea">
+      <button class="white mailCancel l_mail_cancel" type="button" name="button">キャンセル</button>
+      <button class="paleButton l_paleButton l_mail_send" type="button" name="button">送信</button>
+    </div>
+
+    <input type="hidden" id="lid_mail_book_id">
+  </div>
+</div>
+  <div class="c_popup l_popup_dialog l_add_bookmark_dialog">
+  <div class="popupWindow popupBookmark panel round">
+    <button type="button" class="popupClose l_add_bookmark_dialog_close" name="popupClose"></button>
+    <h3>ブックマークに登録</h3>
+    <h4>リストを選択</h4>
+        <div class="selectWrap l_bookmark_list_select_wrap_disabled c_bookmark_select_wrap">
+          <input type="hidden" class="l_bookmark_list_caller" value="BOOKMARK_AD">
+          <div class="selected l_selected c_bookmark_selected">
+            <span class="l_selected_bookmark_list">指定なし</span>
+          </div>
+        </div>
+    <h4>メモ</h4>
+    <textarea class="l_bookmark_memo l_add_bookmark_memo"></textarea>
+    <div class="buttonArea">
+      <button id="lid_add_bookmark_dialog_btn" class="paleButton l_bookmark_dialog_btn" type="button" name="button">
+        ブックマークに登録
+      </button>
+    </div>
+  </div>
+  <input type="hidden" class="l_bookmark_list_space l_add_bookmark_list_space" value="">
+</div>
+
+<div class="c_popup l_popup_dialog l_edit_bookmark_dialog">
+  <div class="popupWindow popupBookmark panel round">
+    <button type="button" class="popupClose l_edit_bookmark_dialog_close" name="popupClose"></button>
+    <h3>ブックマークを編集</h3>
+    <h4>リストを選択</h4>
+        <div class="selectWrap l_bookmark_list_select_wrap_disabled c_bookmark_select_wrap">
+          <input type="hidden" class="l_bookmark_list_caller" value="BOOKMARK_EDIT">
+          <div class="selected l_selected c_selected c_bookmark_selected">
+            <span class="l_selected_bookmark_list l_edit_selected_bookmark_list"></span>
+          </div>
+        </div>
+    <h4>メモ</h4>
+    <textarea class="l_bookmark_memo l_edit_bookmark_memo"></textarea>
+    <div class="buttonArea">
+      <button id="lid_edit_bookmark_dialog_btn" class="paleButton l_bookmark_dialog_btn" type="button" name="button">
+        編集内容を保存
+      </button>
+    </div>
+  </div>
+  <input type="hidden" class="l_bookmark_list_space l_edit_bookmark_list_space" value="">
+</div>
+
+<div class="c_popup l_popup_dialog l_choice_bookmark_list_dialog">
+  <div class="popupWindow popupBookmark panel round">
+    <button type="button" class="popupClose l_choice_bookmark_list_dialog_close" name="popupClose"></button>
+    <h3>リストを選択</h3>
+    <div class="checkArea l_bookmark_list_check_area c_check_area">
+    </div>
+    <div class="addList">
+      <input type="text" class="l_input_book_mark_list_name" value="" placeholder="新しいリストの作成">
+      <button id="lid_make_choice_bookmark_list" type="button" class="white">
+        <span>＋</span>作成
+      </button>
+    </div>
+    <div class="buttonArea">
+      <button id="lid_choice_bookmark_list_cancel" class="white l_choice_bookmark_list_cancel" type="button">キャンセル</button>
+      <button id="lid_choice_bookmark_list_decide" class="paleButton c_choice_bookmark_list_decide" type="button">決定</button>
+    </div>
+  </div>
+  <input type="hidden" id="lid_choice_bookmark_list_call_from" value="">
+</div>
+
+<div class="c_popup l_message_dialog c_confirmation_message_dialog">
+  <div class="popupWindow popupDefault panel round">
+    <button type="button" class="popupClose l_message_dialog_close" name="popupClose"></button>
+    <p class="l_message_text c_popup_message_text"></p>
+    <div class="buttonArea">
+      <button class="l_message_btn_cancel" type="button" name="button">キャンセル</button>
+      <button class="paleButton l_message_btn_ok" type="button" name="button">OK</button>
+    </div>
+  </div>
+</div>
+<input type="hidden" id="lid_bookmark_id_for_dialog" value="">
+<input type="hidden" id="lid_bookmark_book_id_for_dialog" value="">
+
+
+
+
+</div>
+<input type="hidden" id="lid_listCount" value="100">
+<input type="hidden" id="lid_useThumbnail" value="google">
+<input type="hidden" id="lid_useLimedioThumbnail" value="">
+<input type="hidden" id="lid_hasGbButton" value="false">
+<input type="hidden" id="lid_isLocalSearch" value="true">
+
+
+  
+
+
+    <div class="c_footer p_footer l_sp_menue_hidden" id="footer">
+    <div class="wrap">
+      <a class="pageTop" href="#">ページトップ</a>
+      <div class="c_footer_link">
+      </div>
+    </div>
+    <div class="c_footer_message_area">
+      <script src="/opac/assets/jquery.js"></script><script> if($('.c_a_search_right').eq(2).attr('href').indexOf('/opac/en/other')===0 && $('.c_a_search_right').eq(1).attr('href').indexOf('/opac/system/hop_login')===0){$('<p><h3><font color=#DF1818>複写・借用依頼をするには先にログインしてください</font></h3></p>').insertBefore('.c_detail_head');} document.onclick = function(e){ if ( e.target.getAttribute('name')=='loan' && ! check_button_effective(e.target.getAttribute('form')) ){ alert('直前に同じ資料の延長をしています。同じ日に延長をしても返却予定日は延びません。');(e.preventDefault) ? (e.preventDefault()):(e.returnValue=false);(e.stopPropagation) ? (e.stopPropagation()):(e.cancelBubble=true);e.target.setAttribute('form',null); return false; } return true; }; function check_button_effective( buttonValue) { if (buttonValue.indexOf('update-')==0 && navigator.cookieEnabled) { var cookieName = 'zxz'+buttonValue; if (document.cookie.indexOf(cookieName+'=31275') == -1) { document.cookie = cookieName+'=31275'+ ';max-age=300'; return true; } else return false; } else return true; }</script>
+    </div>
+  </div>
+
+  <script src="/opac/assets/application-f4c8de28f0b40347e7705cdb152abe94540e2c03bd7c2dccb5adb753736dc936.js"></script>
+  <script src="/opac/assets/common/common-0ce61bc6306d5d48180ffb4daccb763feca34089d75dc82e1284bd2488fef126.js"></script>
+  
+  
+  <script src="/opac/ja/system/resource_js.js"></script>
+
+  <script src="/opac/assets/common/print-132cd4bf6244bf028d2bed0f9e0b9dc1485dcb98b78677497e0de0ed2e121c47.js"></script>
+  <script src="/opac/assets/common/list-80e3964277d92e0d6f7e1b5c4bed9eea84c68345ea019c19e25220d9ce9daa81.js"></script>
+  <script src="/opac/assets/common/book_status-fadce12aed669eef2a00608a492f0f636d5ef8a8f5ccb0fadd4cd690db993351.js"></script>
+  <script src="/opac/assets/common/bookmark-4a6e3da05e5ae78c617d2cc46cc61a55f1bb5aad29c835cfa06c34d0a98004ea.js"></script>
+  <script src="/opac/assets/searchlist/condition_area-a7c404842b3085e5036ed62e81053ddd9a29766109a4accf557c5f3dcfaedba5.js"></script>
+  <script src="/opac/assets/searchlist/button-0e9b700ed6678a64e90153ac4ff069c7723df343380fe7597388c2e33078d961.js"></script>
+  <script src="/opac/assets/searchlist/searchlist-83ad1bc8a5ee012f861e2c244104fb3165d81306f4d4a94f2120fc8398c39002.js"></script>
+  <script src="/opac/assets/facet/facet-24e81d189acf2674cd833b72f98ef9372862b0760d284f7ab23bb857278b1652.js"></script>
+  <script>
+
+      /** 横断検索種類の配列 */
+      var CROSS_SEARCH_TARGET_LIST = ["local"];
+      /** 横断検索URLの配列 */
+      var CROSS_SEARCH_URL_LIST = [];
+      CROSS_SEARCH_URL_LIST.push('/opac/crosssearch?arrivedwithin=1&count=100&searchmode=complex&target=local&type%5B%5D=book');
+
+      $(function () {
+
+          // 横断検索が１件以上設定されている場合に横断検索を実施する
+          if (CROSS_SEARCH_TARGET_LIST && (0 < CROSS_SEARCH_TARGET_LIST.length)) {
+              var lastIndex = CROSS_SEARCH_TARGET_LIST.length -1;
+              crossSearchCallbackChain(0, lastIndex);
+          }
+
+          /**
+           * 横断検索呼び出しコールバックチェーンを再帰的に作成実行する
+           *
+           * ===================================================
+           * 例）以下のようなコールバックチェーンが作成される
+           *
+           * getCrossSerchAjax(0)
+           *      .always(function () {
+           *          getCrossSerchAjax(1)
+           *             .always(function () {
+           *                 getCrossSerchAjax(2)
+           *                    .always(function () {
+           *                        getCrossSerchAjax(3)
+           *                     }
+           *                     );
+           *             }
+           *             );
+           *      }
+           *      );
+           * ====================================================
+           *
+           * @param now int 今の再帰位置
+           * @param last int 最終的な再帰深さ
+           * @returns object 横断検索呼び出しコールバックチェーン
+           */
+          function crossSearchCallbackChain(now, last) {
+              if (now !== last) {
+                  // 最後以外は再帰呼出し
+                  var next = now + 1;
+                  return getCrossSerchAjax(now).always(
+                      function () {
+                          crossSearchCallbackChain(next, last)
+                      }
+                  )
+              } else {
+                  // 最後はチェーンさせずに終わる(再帰は全て戻る)
+                  return getCrossSerchAjax(now)
+              }
+          }
+
+          /**
+           * 横断検索呼び出し
+           *
+           * @param targetIndex int search_crossSearchTargetに設定された横断検索（ただし,limedio は localと変換されている）
+           * @return object 横断検索のajaxオブジェクト
+           */
+          function getCrossSerchAjax(targetIndex) {
+              // 横断検索種類
+              var target = CROSS_SEARCH_TARGET_LIST[targetIndex];
+              // 横断検索URL
+              var targetUrl = CROSS_SEARCH_URL_LIST[targetIndex];
+              if (target === 'local') {
+                  // ローカル検索
+                  return localSearchAjax(target, targetUrl);
+              } else {
+                  // ローカル検索以外の横断検索
+                  return mainCrossSearchAjax(target, targetUrl);
+              }
+          }
+
+          /**
+           * 横断検索主要（共通）Ajaxオブジェクト取得
+           * ※ローカル検索以外の横断検索は本メソッドのみで完結する
+           *
+           * @target 横断検索種類
+           * @targetUrl 横断検索URL
+           * @return object 横断検索主要（共通）Ajaxオブジェクト
+           */
+          function mainCrossSearchAjax(target, targetUrl) {
+              return $.ajax({
+                  url: targetUrl,
+              success: function (data) {
+                      return data;
+              },
+              error: function (e) {
+                      $("#lid_SearchResultList_" + target).html("読み込みに失敗しました。")
+              }
+              })
+          }
+
+          /**
+           * ローカル検索Ajaxオブジェクト取得
+           * @target 横断検索種類
+           * @targetUrl 横断検索URL
+           * @return object ローカル検索Ajaxオブジェクト
+           */
+          function localSearchAjax(target, targetUrl) {
+              return mainCrossSearchAjax(target, targetUrl)
+                  .done(function () {
+              // サムネイル取得 -------------------------------------------
+              var thumbnail_url = get_thumbnail_url();
+
+              if (thumbnail_url != false) {
+                  $.ajax({
+                      url: thumbnail_url,
+                      success: function (data) {
+                          render_thumbnail(data);
+                      }
+                  });
+              }
+
+              // 状況表示呼び出し -------------------------------------------
+              get_book_status("l");
+
+              // Google Booksプレビュー情報取得(ボタン並び順パラメタにGBがある場合) -------------------------------------------
+
+              //その他情報 -------------------------------------------
+              detail_other_info_display();
+
+              // ファセットの取得 -------------------------------------------
+                      var facetParams = getLocalSearchFacetParams();
+              $.ajax({
+
+                  url: '/opac' + LANG_PATH + '/search/facet',
+                          data: facetParams,
+                  dataType: 'script'
+              }).done(function () {
+                  //facet制御
+                  facet_go();
+              });
+
+              // ブックマークlink取得&レンダリング -------------------------------------------
+              render_bookmark_button();
+
+                  })
+          }
+
+          /**
+           * ファセットのクエリパラメタ取得
+           * @returns object ファセットのクエリパラメタ
+           */
+          function getLocalSearchFacetParams() {
+              var parameters = {};
+              parameters['arrivedwithin'] = '1';
+              parameters['type'] = 'book';
+              parameters['target'] = 'local';
+              parameters['searchmode'] = 'complex';
+              parameters['count'] = '100';
+              return parameters;
+          }
+
+      });
+  </script>
+    <script src="/opac/assets/common/shared-3e9405e6b607b9863b6e6054c92ec4528009f13c12f1077f46730c2aacb08d22.js"></script>
+    <script>
+
+    </script>
+
+
+
+
+</body></html>
