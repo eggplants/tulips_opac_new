@@ -1,4 +1,4 @@
-New Project: https://github.com/eggplants/nowlibcraw
+**New Project: <https://github.com/eggplants/nowlibcraw>**
 
 ---
 
